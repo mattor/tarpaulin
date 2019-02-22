@@ -6,7 +6,7 @@ module.exports = {
     entry: {
         app: [
             "@babel/polyfill",
-            path.resolve(__dirname, "src/demo/sigmoid.js"),
+            path.resolve(__dirname, "src/demo/euler-spiral.js"),
         ],
     },
     devtool: "cheap-source-map",
