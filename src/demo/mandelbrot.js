@@ -1,4 +1,4 @@
-import * as Tarpaulin from "../"
+import Tarpaulin from "../"
 
 // Set appearance
 const size = 1200
@@ -32,7 +32,7 @@ const { pixelWidth, pixelHeight } = Tarpaulin.create({ size, xMin, xMax, yMin, y
 // Start drawing
 for (let x = 0; x < pixelWidth; x++) {
     for (let y = 0; y < pixelHeight; y++) {
-        const belongsToSet = checkIfBelongsToMandelbrotSet(Tarpaulin.getCoords([x, y]))
+        const belongsToSet = checkIfBelongsToMandelbrotSet(Tarpaulin.getXYCoords([x, y]))
         if (belongsToSet === 0) {
             Tarpaulin.drawPixel([x, y], { fillStyle: "#000" })
         } else {

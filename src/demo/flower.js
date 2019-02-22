@@ -1,4 +1,4 @@
-import * as Tarpaulin from "../"
+import Tarpaulin from "../"
 
 const xMin = -1
 const xMax = 1
