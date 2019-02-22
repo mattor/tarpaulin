@@ -2,6 +2,15 @@ import { glob } from "../utils"
 import { drawLine } from "./"
 
 export default props => {
-    drawLine([glob.xMin, 0], [glob.xMax, 0], props)
-    drawLine([0, glob.yMin], [0, glob.yMax], props)
+    let x = Math.floor(glob.xMin)
+    let y = Math.floor(glob.yMin)
+
+    while (x <= glob.xMax) {
+        drawLine([x, glob.yMin], [x, glob.yMax], props)
+        x++
+    }
+    while (y <= glob.xMax) {
+        drawLine([glob.xMin, y], [glob.xMax, y], props)
+        y++
+    }
 }

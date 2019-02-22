@@ -1,6 +1,7 @@
 export {
     drawAxes,
     drawCircle,
+    drawGrid,
     drawLine,
     drawPath,
     drawPixel,
