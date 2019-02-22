@@ -14,21 +14,22 @@ Tarpaulin.create({ size, xMin, xMax, yMin, yMax })
 
 //Tarpaulin.drawAxes({ strokeStyle: "#ccc" })
 
-Tarpaulin.drawCircle([0, 0], 1, { fillStyle: "#eee", strokeStyle: "#000" })
+Tarpaulin.drawCircle([0, 0], 1, { fillStyle: "#000", strokeStyle: "#DDD" })
 
 const drawLeafs = sections => {
-    const step = 2 * Math.PI / sections
+    const angleStep = 2 * Math.PI / sections
+    const colorStep = 255 / sections * 2
 
-    const start = 15 * step
-    const end = 21 * step
+    const start = 16 * angleStep
+    const end = 20 * angleStep
 
     for (let i = 0; i < sections; i++) {
         const points = [
             [Math.cos(start), Math.sin(start)],
-            [Math.cos(i * step), Math.sin(i * step)],
+            [Math.cos(i * angleStep), Math.sin(i * angleStep)],
             [Math.cos(end), Math.sin(end)],
         ]
-        Tarpaulin.drawPath(points, { fillStyle: "rgba(0, 0, 255, 0.1)" })
+        Tarpaulin.drawPath(points, { fillStyle: `hsla(${i * colorStep}, 100%, 50%, 0.1)` })
     }
 }
 
