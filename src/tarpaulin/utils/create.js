@@ -27,8 +27,8 @@ export default ({
     global.xFactor = global.xDiff / global.width
     global.yFactor = global.yDiff / global.height
     global.scale = getCanvasScale()
-    global.xShift = global.width / 2
-    global.yShift = global.height / 2
+    global.xShift = -xMin * global.width / global.xDiff
+    global.yShift = yMax * global.height / global.yDiff
 
     global.canvas = document.createElement("canvas")
     global.canvas.width = global.width
