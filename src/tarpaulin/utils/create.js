@@ -41,6 +41,8 @@ export default ({
     // Clear canvas
     drawRect([0, 0], global.canvas.width, global.canvas.height, { fillStyle: "#FFF" })
 
+    global.context.lineWidth = 2
+
     // Return generated
     return {
         context: global.context,

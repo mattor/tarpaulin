@@ -1,23 +1,15 @@
-const length = 400
-const width = 400
+import Tarpaulin from "../"
+
+// Set appearance
+const size = 1200
+const xMin = -2
+const xMax = 2
+const yMin = -1.25
+const yMax = 1.25
+
 const c = [-1, 1 / 4]  // all complex number are in the form of [x, y] which means x + i*y
-//const c = [0, 1]  // all complex number are in the form of [x, y] which means x + i*y
 const maxIterate = 50
 const R = (1 + Math.sqrt(1 + 4 * abs(c))) / 2
-
-const myCanvas = document.createElement("canvas")
-myCanvas.width = width
-myCanvas.height = length
-document.body.appendChild(myCanvas)
-const ctx = myCanvas.getContext("2d")
-
-// Start drawing
-function conversion(x, y, width, R) {   // transformation from canvas coordinates to XY plane
-    const m = R / width
-    const x1 = m * (2 * x - width)
-    const y2 = m * (width - 2 * y)
-    return [x1, y2]
-}
 
 function f(z, c) {  // calculate the value of the function with complex arguments.
     return [z[0] * z[0] - z[1] * z[1] + c[0], 2 * z[0] * z[1] + c[1]]
@@ -27,8 +19,8 @@ function abs(z) {  // absolute value of a complex number
     return Math.sqrt(z[0] * z[0] + z[1] * z[1])
 }
 
-function checkIfBelongsToJuliaSet(x, y) {
-    let z = conversion(x, y, width, R)  // convert it to XY plane
+function checkIfBelongsToJuliaSet([x, y]) {
+    let z = [x, y]
     for (let i = 0; i < maxIterate; i++) {
         z = f(z, c)
         if (abs(z) > R) {
@@ -40,17 +32,19 @@ function checkIfBelongsToJuliaSet(x, y) {
     return 0
 }
 
-for (let x = 0; x < width; x++) {
-    for (let y = 0; y < length; y++) {
-        const belongsToSet = checkIfBelongsToJuliaSet(x, y)
+// Create Canvas
+
+const { pixelWidth, pixelHeight } = Tarpaulin.create({ size, xMin, xMax, yMin, yMax })
+
+// Start drawing
+
+for (let x = 0; x < pixelWidth; x++) {
+    for (let y = 0; y < pixelHeight; y++) {
+        const belongsToSet = checkIfBelongsToJuliaSet(Tarpaulin.getXYCoords([x, y]))
         if (belongsToSet === 0) {
-            ctx.fillStyle = "#000"
-            // Draw a black pixel
-            ctx.fillRect(x, y, 1, 1)
+            Tarpaulin.drawPixel([x, y], { fillStyle: "#000" })
         } else {
-            ctx.fillStyle = `hsl(0, 100%, ${belongsToSet}%)`
-            // Draw a colorful pixel
-            ctx.fillRect(x, y, 1, 1)
+            Tarpaulin.drawPixel([x, y], { fillStyle: `hsl(0, 100%, ${belongsToSet}%)` })
         }
     }
 }

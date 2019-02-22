@@ -1,18 +1,35 @@
 import Tarpaulin from "../"
 
-const xMin = -1
-const xMax = 1
-const yMin = -1
-const yMax = 1
+// Set appearance
+const size = 1200
+const xMin = -1.01
+const xMax = 1.01
+const yMin = -1.01
+const yMax = 1.01
 
-Tarpaulin.create({
-    size: 800,
-    xMin,
-    xMax,
-    yMin,
-    yMax,
-})
+// Create Canvas
+Tarpaulin.create({ size, xMin, xMax, yMin, yMax })
 
-Tarpaulin.drawAxes({ strokeStyle: "#ccc" })
+// Start drawing
 
-Tarpaulin.drawCircle([0, 0], 1)
+//Tarpaulin.drawAxes({ strokeStyle: "#ccc" })
+
+Tarpaulin.drawCircle([0, 0], 1, { fillStyle: "#eee", strokeStyle: "#000" })
+
+const drawLeafs = sections => {
+    const step = 2 * Math.PI / sections
+
+    const start = 15 * step
+    const end = 21 * step
+
+    for (let i = 0; i < sections; i++) {
+        const points = [
+            [Math.cos(start), Math.sin(start)],
+            [Math.cos(i * step), Math.sin(i * step)],
+            [Math.cos(end), Math.sin(end)],
+        ]
+        Tarpaulin.drawPath(points, { fillStyle: "rgba(0, 0, 255, 0.1)" })
+    }
+}
+
+drawLeafs(24)

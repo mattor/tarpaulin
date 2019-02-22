@@ -1,5 +1,7 @@
 import Tarpaulin from "../"
 
+// Set appearance
+const size = 1200
 const xMin = -3
 const xMax = 3
 const yMin = -1.5
@@ -21,13 +23,11 @@ function drawGraph(fn, color) {
     Tarpaulin.drawPath(points, { strokeStyle: color })
 }
 
-Tarpaulin.create({
-    size: 1200,
-    xMin,
-    xMax,
-    yMin,
-    yMax,
-})
+// Create Canvas
+
+Tarpaulin.create({ size, xMin, xMax, yMin, yMax })
+
+// Start drawing
 
 Tarpaulin.drawAxes({ strokeStyle: "#ccc" })
 

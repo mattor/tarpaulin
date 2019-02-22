@@ -1,18 +1,18 @@
 import Tarpaulin from "../"
 
+// Set appearance
+const size = 1200
 const xMin = 0
-const xMax = 500
+const xMax = 100
 const yMin = 0
-const yMax = 500
+const yMax = 100
+
 const scale = 100
 
-Tarpaulin.create({
-    size: 1200,
-    xMin,
-    xMax,
-    yMin,
-    yMax,
-})
+// Create Canvas
+Tarpaulin.create({ size, xMin, xMax, yMin, yMax })
+
+// Start drawing
 
 function drawEulerSpiral(T, N) {
     let dx, dy, t = 0, prev = { x: 0, y: 0 }, current
@@ -34,10 +34,7 @@ function drawEulerSpiral(T, N) {
         prev = current
     }
 
-    console.log(points)
-
     Tarpaulin.drawPath(points)
 }
 
-Tarpaulin.drawAxes()
 drawEulerSpiral(10, 10000)
