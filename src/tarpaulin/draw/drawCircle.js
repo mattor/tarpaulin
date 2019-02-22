@@ -2,7 +2,7 @@ import global from "../global"
 import { initContext } from "../utils"
 import { getCanvasX, getCanvasY, getCanvasScale } from "../helpers"
 
-export default ([x, y], radius, props) => {
+export default ([x, y], radius, props = {}) => {
     initContext(props)
 
     global.context.beginPath()
@@ -13,5 +13,12 @@ export default ([x, y], radius, props) => {
         0,
         Math.PI * 2,
     )
-    global.context.stroke()
+
+    if (props.fillStyle) {
+        global.context.fill()
+    }
+
+    if (!props.fillStyle || props.strokeStyle) {
+        global.context.stroke()
+    }
 }
