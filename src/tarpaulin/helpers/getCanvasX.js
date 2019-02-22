@@ -1,3 +1,3 @@
-import global from "../global"
+import { glob } from "../utils"
 
-export default x => (x * global.scale) + global.xShift
+export default x => (x * glob.canvasScale) + glob.canvasShiftX

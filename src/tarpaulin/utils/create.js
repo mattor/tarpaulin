@@ -1,52 +1,36 @@
-import global from "../global"
-import { drawRect } from "../draw"
-import { getCanvasScale } from "../helpers"
+import { glob, initGlob, createAndAddCanvas, clearCanvas, resetDrawingStyle } from "./"
 
 export default ({
-    size = 1200,
+    size = 600,
     xMin = -1,
     xMax = 1,
     yMin = -1,
     yMax = 1,
+    pixelRatio = null,
 } = {}) => {
-    if (global.context) {
+    if (glob.context) {
         throw new Error("Only one canvas per page")
     }
 
-    global.xDiff = xMax - xMin
-    global.yDiff = yMax - yMin
-    let width = size, height = size
-    if (global.xDiff > global.yDiff) {
-        height = Math.floor(global.yDiff / global.xDiff * size)
-    } else {
-        width = Math.floor(global.xDiff / global.yDiff * size)
-    }
+    glob.size = size
+    glob.xMin = xMin
+    glob.xMax = xMax
+    glob.yMin = yMin
+    glob.yMax = yMax
+    glob.pixelRatio = pixelRatio
 
-    [global.width, global.height, global.xMin, global.xMax, global.yMin, global.yMax] = [width, height, xMin, xMax, yMin, yMax]
+    initGlob()
 
-    global.xFactor = global.xDiff / global.width
-    global.yFactor = global.yDiff / global.height
-    global.scale = getCanvasScale()
-    global.xShift = -xMin * global.width / global.xDiff
-    global.yShift = yMax * global.height / global.yDiff
+    createAndAddCanvas()
 
-    global.canvas = document.createElement("canvas")
-    global.canvas.width = global.width
-    global.canvas.height = global.height
-    global.canvas.style = `width: ${global.width / 2}px; height: ${global.height / 2}px;`
-    document.body.appendChild(global.canvas)
+    clearCanvas()
 
-    global.context = global.canvas.getContext("2d")
-
-    // Clear canvas
-    drawRect([0, 0], global.canvas.width, global.canvas.height, { fillStyle: "#FFF" })
-
-    global.context.lineWidth = 2
+    resetDrawingStyle()
 
     // Return generated
     return {
-        context: global.context,
-        pixelWidth: global.width,
-        pixelHeight: global.height,
+        context: glob.context,
+        canvasWidth: glob.canvasWidth,
+        canvasHeight: glob.canvasHeight,
     }
 }

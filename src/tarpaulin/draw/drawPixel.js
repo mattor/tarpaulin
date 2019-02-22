@@ -1,8 +1,7 @@
-import global from "../global"
-import { initContext } from "../utils"
+import { glob, initContext } from "../utils"
 
 export default ([x, y], props = {}) => {
     initContext(props)
 
-    global.context.fillRect(x, y, 1, 1)
+    glob.context.fillRect(x, y, 1, 1)
 }

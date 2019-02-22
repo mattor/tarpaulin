@@ -1,7 +1,7 @@
-import global from "../global"
+import { glob } from "../utils"
 import { drawLine } from "./"
 
 export default props => {
-    drawLine([global.xMin, 0], [global.xMax, 0], props)
-    drawLine([0, global.yMin], [0, global.yMax], props)
+    drawLine([glob.xMin, 0], [glob.xMax, 0], props)
+    drawLine([0, glob.yMin], [0, glob.yMax], props)
 }

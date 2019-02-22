@@ -1,7 +1,7 @@
 import Tarpaulin from "../"
 
 // Set appearance
-const size = 1200
+const size = 600
 const xMin = -1.01
 const xMax = 1.01
 const yMin = -1.01

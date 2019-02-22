@@ -1,3 +1,3 @@
-import global from "../global"
+import { glob } from "../utils"
 
-export default (l = 1) => l * global.width / global.xDiff
+export default (l = 1) => l * glob.canvasWidth / glob.xDiff

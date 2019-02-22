@@ -1,2 +1,7 @@
+export { default as clearCanvas } from "./clearCanvas"
 export { default as create } from "./create"
+export { default as createAndAddCanvas } from "./createAndAddCanvas"
+export { default as glob } from "./glob"
 export { default as initContext } from "./initContext"
+export { init as initGlob } from "./glob"
+export { default as resetDrawingStyle } from "./resetDrawingStyle"
