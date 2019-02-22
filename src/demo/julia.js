@@ -4,8 +4,9 @@ import Tarpaulin from "../"
 const size = 600
 const xMin = -2
 const xMax = 2
-const yMin = -1.25
-const yMax = 1.25
+const yMin = -4 / 3
+const yMax = 4 / 3
+const pixelRatio = 2
 
 const c = [-1, 1 / 4]  // all complex number are in the form of [x, y] which means x + i*y
 const maxIterate = 50
@@ -34,7 +35,7 @@ function checkIfBelongsToJuliaSet([x, y]) {
 
 // Create Canvas
 
-const { canvasWidth, canvasHeight } = Tarpaulin.create({ size, xMin, xMax, yMin, yMax })
+const { canvasWidth, canvasHeight } = Tarpaulin.create({ size, xMin, xMax, yMin, yMax, pixelRatio })
 
 // Start drawing
 

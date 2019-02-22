@@ -6,6 +6,7 @@ const xMin = -2
 const xMax = 1
 const yMin = -1.25
 const yMax = 1.25
+const pixelRatio = 2
 
 function checkIfBelongsToMandelbrotSet([x, y]) {
     let realComponentOfResult = x
@@ -28,7 +29,7 @@ function checkIfBelongsToMandelbrotSet([x, y]) {
 
 // Create Canvas
 
-const { canvasWidth, canvasHeight } = Tarpaulin.create({ size, xMin, xMax, yMin, yMax, pixelRatio: 2 })
+const { canvasWidth, canvasHeight } = Tarpaulin.create({ size, xMin, xMax, yMin, yMax, pixelRatio })
 
 // Start drawing
 
