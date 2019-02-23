@@ -30,9 +30,8 @@ Tarpaulin.create({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
 
-Tarpaulin.drawGrid({ strokeStyle: "#EEE" })
-
-Tarpaulin.drawAxes({ strokeStyle: "#AAA" })
+Tarpaulin.drawGrid()
+Tarpaulin.drawAxes()
 
 drawGraph(Math.log, "#F00")
 drawGraph(Math.atan, "#0F0")

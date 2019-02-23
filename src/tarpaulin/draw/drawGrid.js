@@ -1,7 +1,7 @@
 import { glob } from "../utils"
 import { drawLine } from "./"
 
-export default props => {
+export default (props = { strokeStyle: "#EEE" }) => {
     let x = Math.floor(glob.xMin)
     let y = Math.floor(glob.yMin)
 
