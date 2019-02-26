@@ -11,9 +11,9 @@ export const init = () => {
     glob.canvasWidth = glob.pixelRatio * glob.size
     glob.canvasHeight = glob.pixelRatio * glob.size
     if (glob.xDiff > glob.yDiff) {
-        glob.canvasHeight = glob.pixelRatio * Math.floor(glob.yDiff / glob.xDiff * glob.size)
+        glob.canvasHeight = glob.pixelRatio * glob.yDiff / glob.xDiff * glob.size
     } else {
-        glob.canvasWidth = glob.pixelRatio * Math.floor(glob.xDiff / glob.yDiff * glob.size)
+        glob.canvasWidth = glob.pixelRatio * glob.xDiff / glob.yDiff * glob.size
     }
 
     glob.canvasFactorX = glob.xDiff / glob.canvasWidth
