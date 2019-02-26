@@ -1,7 +1,7 @@
 import { glob, initContext } from "../utils"
 import { getCanvasX, getCanvasY } from "../helpers"
 
-export default (points, props = {}) => {
+export default (points, props = { strokeStyle: "#000" }) => {
     initContext(props)
 
     glob.context.beginPath()
