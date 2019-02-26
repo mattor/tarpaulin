@@ -8,6 +8,7 @@ export {
     drawRect,
 } from "./draw"
 export {
+    getMinMax,
     getXYCoords,
 } from "./helpers"
 export {
