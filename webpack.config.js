@@ -9,11 +9,13 @@ module.exports = (env, argv) => {
         entry: {
             app: [
                 "@babel/polyfill",
-                path.resolve(__dirname, "src/demo/mandelbrot.js"),
+                path.resolve(__dirname, "src/demo/hexaflake.js"),
             ],
+            /*
             tarpaulin: [
                 path.resolve(__dirname, "src/index.js"),
             ],
+            */
         },
         devtool: "cheap-source-map",
         output: {
