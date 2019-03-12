@@ -1,7 +1,8 @@
+import { Color } from "../const"
 import { glob, initContext } from "../utils"
 import { getCanvasX, getCanvasY } from "../helpers"
 
-export default (points, props = { strokeStyle: "#000" }) => {
+export default (points, props = { strokeStyle: Color.BlueGreyDarken4 }) => {
     initContext(props)
 
     glob.context.beginPath()

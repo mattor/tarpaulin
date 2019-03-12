@@ -43,7 +43,7 @@ for (let x = 0; x < canvasWidth; x++) {
     for (let y = 0; y < canvasHeight; y++) {
         const belongsToSet = checkIfBelongsToJuliaSet(Tarpaulin.getXYCoords([x, y]))
         if (belongsToSet === 0) {
-            Tarpaulin.drawPixel([x, y], { fillStyle: "#000" })
+            Tarpaulin.drawPixel([x, y], { fillStyle: Tarpaulin.Color.Black })
         } else {
             Tarpaulin.drawPixel([x, y], { fillStyle: `hsl(0, 100%, ${belongsToSet}%)` })
         }

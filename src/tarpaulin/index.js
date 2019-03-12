@@ -14,3 +14,6 @@ export {
 export {
     create,
 } from "./utils"
+export {
+    Color,
+} from "./const"

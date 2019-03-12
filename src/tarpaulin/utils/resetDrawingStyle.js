@@ -1,7 +1,8 @@
+import { Color } from "../const"
 import { glob } from "../utils"
 
 export default () => {
     glob.context.lineWidth = glob.pixelRatio
-    glob.context.strokeStyle = "#000"
-    glob.context.fillStyle = "#aaa"
+    glob.context.strokeStyle = Color.BlueGreyDarken4
+    glob.context.fillStyle = Color.BlueGreyLighten3
 }

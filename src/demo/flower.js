@@ -12,9 +12,7 @@ Tarpaulin.create({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
 
-//Tarpaulin.drawAxes({ strokeStyle: "#ccc" })
-
-Tarpaulin.drawCircle([0, 0], 1, { fillStyle: "#000", strokeStyle: "#DDD" })
+Tarpaulin.drawCircle([0, 0], 1, { fillStyle: Tarpaulin.Color.Black, strokeStyle: Tarpaulin.Color.GreyLighten2 })
 
 const drawLeafs = sections => {
     const angleStep = 2 * Math.PI / sections

@@ -20,7 +20,7 @@ const drawFlake = ([x, y], r) => {
             const angle = Math.PI / 6 + Math.PI * i / 3
             points.push([x + Math.cos(angle) * r, y + Math.sin(angle) * r])
         }
-        Tarpaulin.drawPath(points, { fillStyle: "#8bbbce" })
+        Tarpaulin.drawPath(points, { fillStyle: Tarpaulin.Color.Cyan })
     } else {
         // Recurse
         drawFlake([x, y], r / 3)
