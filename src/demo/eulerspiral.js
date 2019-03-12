@@ -2,9 +2,9 @@ import Tarpaulin from "../"
 
 // Set appearance
 const size = 600
-const xMin = 0
+const xMin = -2
 const xMax = 100
-const yMin = 0
+const yMin = -2
 const yMax = 100
 
 const scale = 100
@@ -36,5 +36,8 @@ function drawEulerSpiral(T, N) {
 
     Tarpaulin.drawPath(points)
 }
+
+Tarpaulin.drawGrid()
+Tarpaulin.drawAxes()
 
 drawEulerSpiral(10, 10000)

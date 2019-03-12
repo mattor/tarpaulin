@@ -1,11 +1,10 @@
 import Tarpaulin from "../"
-import routePoints from "./route-66.json"
+import routePoints from "./data/route-66.json"
 
 const points = []
 
 routePoints.forEach(p => {
-    const [x, y] = [p.lon, p.lat]
-    points.push([x, y])
+    points.push([p.lon, p.lat])
 })
 
 // Set appearance
