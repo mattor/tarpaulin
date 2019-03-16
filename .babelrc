@@ -1,15 +1,15 @@
 {
-    "presets": [
-        [
-            "@babel/preset-env",
-            {
-                "targets": {
-                    "browsers": [
-                        "last 2 versions"
-                    ]
-                },
-                "modules": false
-            }
-        ]
-    ]
+    "env": {
+        "development": {
+            "presets": [
+                "@babel/preset-env",
+            ]
+        },
+        "production": {
+            "presets": [
+                "@babel/preset-env",
+                "minify"
+            ]
+        }
+    }
 }

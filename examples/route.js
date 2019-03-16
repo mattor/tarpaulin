@@ -1,4 +1,4 @@
-import Tarpaulin from "../"
+import Tarpaulin from "../src"
 import routePoints from "./data/route-66.json"
 
 const points = []

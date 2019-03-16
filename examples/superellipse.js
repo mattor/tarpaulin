@@ -1,4 +1,4 @@
-import Tarpaulin from "../"
+import Tarpaulin from "../src"
 
 const n = 5, a = 60, b = 60
 

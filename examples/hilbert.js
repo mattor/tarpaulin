@@ -1,4 +1,4 @@
-import Tarpaulin from "../"
+import Tarpaulin from "../src"
 
 const hilbert = (width, spacing, points = []) => (x, y, lg, i1, i2, f) => {
     if (lg === 1) {
