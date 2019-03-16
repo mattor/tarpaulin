@@ -1,6 +1,6 @@
 {
     "name": "tarpaulin",
-    "version": "0.9.1",
+    "version": "0.9.2",
     "description": "A mathematical canvas helper",
     "main": "./lib/index.js",
     "scripts": {
