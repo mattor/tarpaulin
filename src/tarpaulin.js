@@ -19,3 +19,6 @@ export {
 export {
     Color,
 } from "./const"
+export {
+    Point3D,
+} from "./entities"
