@@ -12,6 +12,7 @@ export {
     getXYCoords,
 } from "./helpers"
 export {
+    animate,
     create,
 } from "./utils"
 export {

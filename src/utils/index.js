@@ -1,3 +1,4 @@
+export { default as animate } from "./animate"
 export { default as clearCanvas } from "./clearCanvas"
 export { default as create } from "./create"
 export { default as createAndAddCanvas } from "./createAndAddCanvas"

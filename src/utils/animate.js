@@ -1,4 +1,4 @@
-export default (drawFn, fps = 30) => {
+export default (drawFn, fps = 60) => {
     let last = Date.now()
     let rafid = false
     const interval = 1000 / fps
