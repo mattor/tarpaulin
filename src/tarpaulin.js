@@ -13,6 +13,7 @@ export {
 } from "./helpers"
 export {
     animate,
+    clearCanvas,
     create,
 } from "./utils"
 export {
