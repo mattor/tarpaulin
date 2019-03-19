@@ -8,7 +8,12 @@
         "production": {
             "presets": [
                 "@babel/preset-env",
-                "minify"
+                [
+                    "minify",
+                    {
+                        "builtIns": false
+                    }
+                ]
             ]
         }
     }
