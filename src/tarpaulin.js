@@ -13,8 +13,9 @@ import {
 } from "./helpers"
 import {
     animate,
-    clearCanvas,
+    clear,
     createCanvas,
+    createSvg,
 } from "./utils"
 import {
     Color,
@@ -34,8 +35,9 @@ const Tarpaulin = {
     getMinMax,
     getXYCoords,
     animate,
-    clearCanvas,
+    clear,
     createCanvas,
+    createSvg,
     Color,
     Point3D,
 }

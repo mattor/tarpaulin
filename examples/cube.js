@@ -64,7 +64,7 @@ Tarpaulin.animate(() => {
 
     // Draw
 
-    Tarpaulin.clearCanvas({ fillStyle: Color.Black })
+    Tarpaulin.clear({ fillStyle: Color.Black })
 
     sortedFaces.forEach(sortedFace => {
         const face = faces[sortedFace.index]

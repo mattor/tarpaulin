@@ -1,11 +1,11 @@
-import { glob, resetDrawingStyle } from "../utils"
+import { glob, resetCanvasStyle } from "../utils"
 
 export default props => {
     if (!glob.context) {
         throw new Error("You have to createCanvas() first")
     }
 
-    resetDrawingStyle()
+    resetCanvasStyle()
 
     for (const prop in props) {
         glob.context[prop] = props[prop]

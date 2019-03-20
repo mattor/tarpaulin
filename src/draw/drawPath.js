@@ -1,9 +1,18 @@
 import { Color } from "../const"
-import { glob, initContext } from "../utils"
+import { glob, initCanvasContext, addSvgElement } from "../utils"
 import { getCanvasX, getCanvasY } from "../helpers"
 
 export default (points, props = { strokeStyle: Color.BlueGreyDarken4 }) => {
-    initContext(props)
+    if (glob.canvas.tagName === "svg") {
+        addSvgElement("path", {
+            fill: props.fillStyle,
+            stroke: props.strokeStyle,
+            d: `M${points.map(([x, y]) => `${getCanvasX(x)} ${getCanvasY(y)}`).join(" L")} Z`,
+        })
+        return
+    }
+
+    initCanvasContext(props)
 
     glob.context.beginPath()
     points.forEach(([x, y]) => {

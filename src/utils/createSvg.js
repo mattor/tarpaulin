@@ -1,4 +1,4 @@
-import { glob, initGlob, createAndAddCanvas, clear, resetCanvasStyle } from "./"
+import { glob, initGlob, createAndAddSvg, clear, resetCanvasStyle } from "./"
 
 export default ({
     size = 600,
@@ -6,7 +6,7 @@ export default ({
     xMax = 1,
     yMin = -1,
     yMax = 1,
-    pixelRatio = null,
+    pixelRatio = 1,
 } = {}) => {
     if (glob.context) {
         throw new Error("Only one canvas allowed per page")
@@ -14,7 +14,7 @@ export default ({
 
     initGlob({ size, xMin, xMax, yMin, yMax, pixelRatio })
 
-    createAndAddCanvas()
+    createAndAddSvg()
 
     clear()
 
