@@ -1,2 +1,3 @@
-import * as Tarpaulin from "./tarpaulin"
-export default Tarpaulin
+const Tarpaulin = require("./Tarpaulin")
+
+module.exports = Tarpaulin.default || Tarpaulin

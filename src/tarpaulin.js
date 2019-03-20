@@ -1,4 +1,4 @@
-export {
+import {
     drawAxes,
     drawCircle,
     drawGrid,
@@ -7,18 +7,37 @@ export {
     drawPixel,
     drawRect,
 } from "./draw"
-export {
+import {
     getMinMax,
     getXYCoords,
 } from "./helpers"
-export {
+import {
     animate,
     clearCanvas,
-    create,
+    createCanvas,
 } from "./utils"
-export {
+import {
     Color,
 } from "./const"
-export {
+import {
     Point3D,
 } from "./entities"
+
+const Tarpaulin = {
+    drawAxes,
+    drawCircle,
+    drawGrid,
+    drawLine,
+    drawPath,
+    drawPixel,
+    drawRect,
+    getMinMax,
+    getXYCoords,
+    animate,
+    clearCanvas,
+    createCanvas,
+    Color,
+    Point3D,
+}
+
+export default Tarpaulin

@@ -14,7 +14,7 @@ const { xMin, xMax, yMin, yMax } = Tarpaulin.getMinMax(points)
 
 // Create Canvas
 
-Tarpaulin.create({ size, xMin, xMax, yMin, yMax })
+Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
 

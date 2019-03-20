@@ -32,7 +32,7 @@ const drawHilbert = order => {
     const yMax = width * space + space
 
     // Create Canvas
-    Tarpaulin.create({ size, xMin, xMax, yMin, yMax })
+    Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
 
     // Draw
     Tarpaulin.drawPath(points)

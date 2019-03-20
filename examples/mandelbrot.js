@@ -29,7 +29,7 @@ function checkIfBelongsToMandelbrotSet([x, y]) {
 
 // Create Canvas
 
-const { canvasWidth, canvasHeight } = Tarpaulin.create({ size, xMin, xMax, yMin, yMax, pixelRatio })
+const { canvasWidth, canvasHeight } = Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax, pixelRatio })
 
 // Start drawing
 

@@ -1,5 +1,4 @@
-import Tarpaulin from "../src"
-const { Point3D, Color } = Tarpaulin
+import Tarpaulin, { Point3D, Color } from "../src"
 
 // Set appearance
 const size = 300
@@ -9,7 +8,7 @@ const yMin = -1
 const yMax = 1
 
 // Create Canvas
-Tarpaulin.create({ size, xMin, xMax, yMin, yMax })
+Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 const vertices = [
     new Point3D(-1, 1, -1),

@@ -1,6 +1,6 @@
 export { default as animate } from "./animate"
 export { default as clearCanvas } from "./clearCanvas"
-export { default as create } from "./create"
+export { default as createCanvas } from "./createCanvas"
 export { default as createAndAddCanvas } from "./createAndAddCanvas"
 export { default as glob } from "./glob"
 export { default as initContext } from "./initContext"

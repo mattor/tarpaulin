@@ -10,7 +10,7 @@ const yMax = 100
 const scale = 100
 
 // Create Canvas
-Tarpaulin.create({ size, xMin, xMax, yMin, yMax })
+Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
 

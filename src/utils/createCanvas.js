@@ -9,7 +9,7 @@ export default ({
     pixelRatio = null,
 } = {}) => {
     if (glob.context) {
-        throw new Error("Only one canvas per page")
+        throw new Error("Only one canvas allowed per page")
     }
 
     glob.size = size
