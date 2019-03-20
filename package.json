@@ -5,7 +5,7 @@
     "main": "./lib/index.js",
     "scripts": {
         "build": "cross-env BABEL_ENV=production babel src --out-dir lib",
-        "clean": "rimraf lib",
+        "clean": "rimraf lib; rimraf dist",
         "lint": "eslint ./src --fix",
         "prepare": "yarn clean && yarn lint && yarn test && yarn build",
         "start": "webpack-dev-server --mode development --watch --open",
