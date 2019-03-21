@@ -17,7 +17,6 @@ import {
 import {
     getMinMax,
     getNextPoint,
-    getTriangleHeight,
     getXYCoords,
 } from "./helpers"
 import {
@@ -44,7 +43,6 @@ const Tarpaulin = {
     // helpers
     getMinMax,
     getNextPoint,
-    getTriangleHeight,
     getXYCoords,
     // utils
     animate,

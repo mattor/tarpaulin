@@ -1,6 +1,6 @@
-import Tarpaulin, { Const, getTriangleHeight, getNextPoint } from "../src"
+import Tarpaulin, { Const, getNextPoint } from "../src"
 
-function arrowheadCurve(level, pathList, fromPoint, sideLength, angle, angleChange, orientation) {
+function arrowheadCurve(level, pathList, fromPoint, sideLength, angle, angleDelta, orientation) {
     let currentVector
 
     // Level 0 - bottom of recursion: Draw next part of path
@@ -11,21 +11,21 @@ function arrowheadCurve(level, pathList, fromPoint, sideLength, angle, angleChan
         return currentVector
     }
 
-    currentVector = arrowheadCurve(level - 1, pathList, fromPoint, sideLength / 2, angle, -angleChange, orientation)
+    currentVector = arrowheadCurve(level - 1, pathList, fromPoint, sideLength / 2, angle, -angleDelta, orientation)
 
     fromPoint = currentVector.point
     angle = currentVector.angle
 
     // turn
-    angle += (angleChange * Const.RADIANS_60_DEGREES)
-    currentVector = arrowheadCurve(level - 1, pathList, fromPoint, sideLength / 2, angle, angleChange, orientation)
+    angle += angleDelta * Const.RADIANS_60_DEGREES
+    currentVector = arrowheadCurve(level - 1, pathList, fromPoint, sideLength / 2, angle, angleDelta, orientation)
 
     fromPoint = currentVector.point
     angle = currentVector.angle
 
     // turn
-    angle += (angleChange * Const.RADIANS_60_DEGREES)
-    currentVector = arrowheadCurve(level - 1, pathList, fromPoint, sideLength / 2, angle, -angleChange, orientation)
+    angle += angleDelta * Const.RADIANS_60_DEGREES
+    currentVector = arrowheadCurve(level - 1, pathList, fromPoint, sideLength / 2, angle, -angleDelta, orientation)
 
     return currentVector
 }
@@ -36,7 +36,7 @@ function drawSierpinskiArrowheadCurve([x, y], sideLength, { level = 3, orientati
     }
 
     // Set starting point
-    const height = getTriangleHeight(Const.RADIANS_360_DEGREES / 6, sideLength)
+    const height = sideLength * Math.sin(Const.RADIANS_60_DEGREES)
     const startPoint = [
         x - 1 / 2 * sideLength,
         y + orientation * 1 / 2 * height,

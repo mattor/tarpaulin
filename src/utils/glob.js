@@ -27,10 +27,6 @@ export const init = ({ size, xMin, xMax, yMin, yMax, pixelRatio }) => {
     glob.paperScale = getPaperScale()
     glob.paperShiftX = -glob.xMin * glob.paperWidth / glob.xDiff
     glob.paperShiftY = glob.yMax * glob.paperHeight / glob.yDiff
-
-    // SVG Specific
-
-    glob.xmlns = "http://www.w3.org/2000/svg"
 }
 
 export default glob

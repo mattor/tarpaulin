@@ -27,7 +27,6 @@ const drawLeafs = sections => {
             getNextPoint([0, 0], i * angleStep),
             getNextPoint([0, 0], end),
         ]
-        //console.log(pathList)
         Tarpaulin.drawPath(pathList, { fillStyle: `hsla(${i * colorStep}, 100%, 50%, 0.1)` })
     }
 }
