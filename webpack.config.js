@@ -5,15 +5,11 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = (env, argv) => {
     const isProd = argv.mode === "production"
+    const example = argv.example || "hilbert"
+    const examplePath = `examples/${example}.js`
 
-    let examplePath = "examples/hilbert.js"
-    if (argv.example) {
-        const argvExample = `examples/${argv.example}.js`
-        if (fs.existsSync(argvExample)) {
-            examplePath = argvExample
-        } else {
-            throw new Error(`No example called "${argv.example}"`)
-        }
+    if (!fs.existsSync(examplePath)) {
+        throw new Error(`No example called "${argv.example}"`)
     }
 
     return {
@@ -30,7 +26,9 @@ module.exports = (env, argv) => {
         },
         plugins: [
             isProd ? null : new webpack.HotModuleReplacementPlugin(),
-            isProd ? null : new HtmlWebpackPlugin(),
+            isProd ? null : new HtmlWebpackPlugin({
+                title: `${example} - Tarpaulin`,
+            }),
         ].filter(Boolean),
         module: {
             rules: [
