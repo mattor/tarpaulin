@@ -1,13 +1,13 @@
 import { Const } from "../const"
 import { glob, initCanvasContext, addSvgElement } from "../utils"
-import { getCanvasX, getCanvasY, getCanvasScale } from "../helpers"
+import { getPaperX, getPaperY, getPaperScale } from "../helpers"
 
 export default ([x, y], radius, props = {}) => {
-    if (glob.canvas.tagName === "svg") {
+    if (glob.tarp.tagName === "svg") {
         addSvgElement("circle", {
-            cx: getCanvasX(x),
-            cy: getCanvasY(y),
-            r: getCanvasScale(radius),
+            cx: getPaperX(x),
+            cy: getPaperY(y),
+            r: getPaperScale(radius),
             fill: props.fillStyle,
             stroke: props.strokeStyle,
         })
@@ -16,20 +16,20 @@ export default ([x, y], radius, props = {}) => {
 
     initCanvasContext(props)
 
-    glob.context.beginPath()
-    glob.context.arc(
-        getCanvasX(x),
-        getCanvasY(y),
-        getCanvasScale(radius),
+    glob.paper.beginPath()
+    glob.paper.arc(
+        getPaperX(x),
+        getPaperY(y),
+        getPaperScale(radius),
         0,
         Const.RADIANS_360_DEGREES,
     )
 
     if (props.fillStyle) {
-        glob.context.fill()
+        glob.paper.fill()
     }
 
     if (!props.fillStyle || props.strokeStyle) {
-        glob.context.stroke()
+        glob.paper.stroke()
     }
 }

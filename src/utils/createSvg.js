@@ -1,4 +1,4 @@
-import { glob, initGlob, createAndAddSvg, clear, resetCanvasStyle } from "./"
+import { glob, initGlob, createAndAddSvg, clear } from "./"
 
 export default ({
     size = 600,
@@ -8,8 +8,8 @@ export default ({
     yMax = 1,
     pixelRatio = 1,
 } = {}) => {
-    if (glob.context) {
-        throw new Error("Only one canvas allowed per page")
+    if (glob.paper) {
+        throw new Error("Only one tarp allowed per page")
     }
 
     initGlob({ size, xMin, xMax, yMin, yMax, pixelRatio })
@@ -18,12 +18,10 @@ export default ({
 
     clear()
 
-    resetCanvasStyle()
-
     // Return generated
     return {
-        context: glob.context,
-        canvasWidth: glob.canvasWidth,
-        canvasHeight: glob.canvasHeight,
+        paper: glob.paper,
+        paperWidth: glob.paperWidth,
+        paperHeight: glob.paperHeight,
     }
 }

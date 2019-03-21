@@ -1,13 +1,13 @@
 import { glob } from "./"
 
 export default () => {
-    glob.canvas = document.createElementNS(glob.xmlns, "svg")
-    glob.canvas.setAttributeNS(null, "viewBox", "0 0 " + glob.canvasWidth + " " + glob.canvasHeight)
-    glob.canvas.setAttributeNS(null, "width", glob.canvasWidth)
-    glob.canvas.setAttributeNS(null, "height", glob.canvasHeight)
+    glob.tarp = document.createElementNS(glob.xmlns, "svg")
+    glob.tarp.setAttributeNS(null, "viewBox", "0 0 " + glob.paperWidth + " " + glob.paperHeight)
+    glob.tarp.setAttributeNS(null, "width", glob.paperWidth)
+    glob.tarp.setAttributeNS(null, "height", glob.paperHeight)
 
-    glob.context = document.createElementNS(glob.xmlns, "g")
-    glob.canvas.appendChild(glob.context)
+    glob.paper = document.createElementNS(glob.xmlns, "g")
+    glob.tarp.appendChild(glob.paper)
 
-    document.body.appendChild(glob.canvas)
+    document.body.appendChild(glob.tarp)
 }

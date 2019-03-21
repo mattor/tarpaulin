@@ -1,13 +1,13 @@
 import { glob, resetCanvasStyle } from "../utils"
 
 export default props => {
-    if (!glob.context) {
+    if (!glob.paper) {
         throw new Error("You have to createCanvas() first")
     }
 
     resetCanvasStyle()
 
     for (const prop in props) {
-        glob.context[prop] = props[prop]
+        glob.paper[prop] = props[prop]
     }
 }

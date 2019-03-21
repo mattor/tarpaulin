@@ -1,4 +1,4 @@
-import { getCanvasScale } from "../helpers"
+import { getPaperScale } from "../helpers"
 
 const glob = {}
 
@@ -14,19 +14,19 @@ export const init = ({ size, xMin, xMax, yMin, yMax, pixelRatio }) => {
     glob.xDiff = glob.xMax - glob.xMin
     glob.yDiff = glob.yMax - glob.yMin
 
-    glob.canvasWidth = glob.pixelRatio * glob.size
-    glob.canvasHeight = glob.pixelRatio * glob.size
+    glob.paperWidth = glob.pixelRatio * glob.size
+    glob.paperHeight = glob.pixelRatio * glob.size
     if (glob.xDiff > glob.yDiff) {
-        glob.canvasHeight = glob.pixelRatio * glob.yDiff / glob.xDiff * glob.size
+        glob.paperHeight = glob.pixelRatio * glob.yDiff / glob.xDiff * glob.size
     } else {
-        glob.canvasWidth = glob.pixelRatio * glob.xDiff / glob.yDiff * glob.size
+        glob.paperWidth = glob.pixelRatio * glob.xDiff / glob.yDiff * glob.size
     }
 
-    glob.canvasFactorX = glob.xDiff / glob.canvasWidth
-    glob.canvasFactorY = glob.yDiff / glob.canvasHeight
-    glob.canvasScale = getCanvasScale()
-    glob.canvasShiftX = -glob.xMin * glob.canvasWidth / glob.xDiff
-    glob.canvasShiftY = glob.yMax * glob.canvasHeight / glob.yDiff
+    glob.tarpFactorX = glob.xDiff / glob.paperWidth
+    glob.tarpFactorY = glob.yDiff / glob.paperHeight
+    glob.paperScale = getPaperScale()
+    glob.paperShiftX = -glob.xMin * glob.paperWidth / glob.xDiff
+    glob.paperShiftY = glob.yMax * glob.paperHeight / glob.yDiff
 
     // SVG Specific
 

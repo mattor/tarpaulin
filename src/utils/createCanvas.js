@@ -8,8 +8,8 @@ export default ({
     yMax = 1,
     pixelRatio = null,
 } = {}) => {
-    if (glob.context) {
-        throw new Error("Only one canvas allowed per page")
+    if (glob.paper) {
+        throw new Error("Only one tarp allowed per page")
     }
 
     initGlob({ size, xMin, xMax, yMin, yMax, pixelRatio })
@@ -22,8 +22,8 @@ export default ({
 
     // Return generated
     return {
-        context: glob.context,
-        canvasWidth: glob.canvasWidth,
-        canvasHeight: glob.canvasHeight,
+        paper: glob.paper,
+        paperWidth: glob.paperWidth,
+        paperHeight: glob.paperHeight,
     }
 }

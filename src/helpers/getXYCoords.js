@@ -1,3 +1,3 @@
 import { glob } from "../utils"
 
-export default ([x, y]) => [x * glob.canvasFactorX + glob.xMin, -(y * glob.canvasFactorY) - glob.yMin]
+export default ([x, y]) => [x * glob.tarpFactorX + glob.xMin, -(y * glob.tarpFactorY) - glob.yMin]
