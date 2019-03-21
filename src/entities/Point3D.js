@@ -1,3 +1,5 @@
+import { convertDegToRad } from "../helpers"
+
 export class Point3D {
     constructor(x, y, z) {
         this.x = x
@@ -5,8 +7,8 @@ export class Point3D {
         this.z = z
     }
 
-    rotateX(angle) {
-        const rad = angle * Math.PI / 180
+    rotateX(angleDeg) {
+        const rad = convertDegToRad(angleDeg)
         const cosa = Math.cos(rad)
         const sina = Math.sin(rad)
         const y = this.y * cosa - this.z * sina
@@ -14,8 +16,8 @@ export class Point3D {
         return new Point3D(this.x, y, z)
     }
 
-    rotateY(angle) {
-        const rad = angle * Math.PI / 180
+    rotateY(angleDeg) {
+        const rad = convertDegToRad(angleDeg)
         const cosa = Math.cos(rad)
         const sina = Math.sin(rad)
         const z = this.z * cosa - this.x * sina
@@ -23,8 +25,8 @@ export class Point3D {
         return new Point3D(x, this.y, z)
     }
 
-    rotateZ(angle) {
-        const rad = angle * Math.PI / 180
+    rotateZ(angleDeg) {
+        const rad = convertDegToRad(angleDeg)
         const cosa = Math.cos(rad)
         const sina = Math.sin(rad)
         const x = this.x * cosa - this.y * sina

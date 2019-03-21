@@ -1,3 +1,4 @@
+import { Const } from "../const"
 import { glob, initCanvasContext, addSvgElement } from "../utils"
 import { getCanvasX, getCanvasY, getCanvasScale } from "../helpers"
 
@@ -21,7 +22,7 @@ export default ([x, y], radius, props = {}) => {
         getCanvasY(y),
         getCanvasScale(radius),
         0,
-        Math.PI * 2,
+        Const.RADIANS_360_DEGREES,
     )
 
     if (props.fillStyle) {
