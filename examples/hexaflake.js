@@ -1,4 +1,4 @@
-import Tarpaulin from "../src"
+import Tarpaulin, { Const, Color } from "../src"
 
 // Set appearance
 const size = 600
@@ -7,7 +7,7 @@ const xMax = 300
 const yMin = -300
 const yMax = 300
 
-// Create Canvas
+// Create tarp
 Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
@@ -15,17 +15,17 @@ Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
 const drawFlake = ([x, y], r) => {
     if (r < 5) {
         // Draw
-        const points = []
+        const pathList = []
         for (let i = 0; i < 6; i++) {
-            const angle = Math.PI / 6 + Math.PI * i / 3
-            points.push([x + Math.cos(angle) * r, y + Math.sin(angle) * r])
+            const angle = Const.RADIANS_30_DEGREES + Const.RADIANS_60_DEGREES * i
+            pathList.push([x + Math.cos(angle) * r, y + Math.sin(angle) * r])
         }
-        Tarpaulin.drawPath(points, { fillStyle: Tarpaulin.Color.Cyan })
+        Tarpaulin.drawPath(pathList, { fillStyle: Color.Cyan })
     } else {
         // Recurse
         drawFlake([x, y], r / 3)
         for (let i = 0; i < 6; i++) {
-            const angle = Math.PI / 6 + Math.PI * i / 3
+            const angle = Const.RADIANS_30_DEGREES + Const.RADIANS_60_DEGREES * i
             drawFlake([x + Math.cos(angle) * r * 2 / 3, y + Math.sin(angle) * r * 2 / 3], r / 3)
         }
     }

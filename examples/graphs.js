@@ -11,20 +11,20 @@ const logFn = x => 1 / (1 + Math.pow(Math.E, -x))
 const expFn = x => Math.pow(2, x)
 
 function drawGraph(fn, color) {
-    const points = []
+    const pathList = []
     const step = 0.01
     let x = xMin
 
     while (x <= xMax) {
         const y = fn(x)
-        points.push([x, y])
+        pathList.push([x, y])
         x += step
     }
 
-    Tarpaulin.drawPath(points, { strokeStyle: color })
+    Tarpaulin.drawPath(pathList, { strokeStyle: color })
 }
 
-// Create Canvas
+// Create tarp
 
 Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
 

@@ -9,7 +9,7 @@ const yMax = 100
 
 const scale = 100
 
-// Create Canvas
+// Create tarp
 Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
@@ -17,7 +17,7 @@ Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
 function drawEulerSpiral(T, N) {
     let dx, dy, t = 0, prev = { x: 0, y: 0 }, current
     const dt = T / N
-    const points = []
+    const pathList = []
 
     while (N--) {
         dx = Math.cos(t * t) * dt
@@ -29,12 +29,12 @@ function drawEulerSpiral(T, N) {
             y: prev.y + dy,
         }
 
-        points.push([current.x * scale, current.y * scale])
+        pathList.push([current.x * scale, current.y * scale])
 
         prev = current
     }
 
-    Tarpaulin.drawPath(points)
+    Tarpaulin.drawPath(pathList)
 }
 
 Tarpaulin.drawGrid()

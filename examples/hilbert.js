@@ -1,10 +1,10 @@
 import Tarpaulin from "../src"
 
-const hilbert = (width, spacing, points = []) => (x, y, lg, i1, i2, f) => {
+const hilbert = (width, spacing, pathList = []) => (x, y, lg, i1, i2, f) => {
     if (lg === 1) {
         const px = (width - x) * spacing
         const py = (width - y) * spacing
-        points.push([px, py])
+        pathList.push([px, py])
         return
     }
     lg >>= 1
@@ -12,7 +12,7 @@ const hilbert = (width, spacing, points = []) => (x, y, lg, i1, i2, f) => {
     f(x + i2 * lg, y + (1 - i2) * lg, lg, i1, i2, f)
     f(x + (1 - i1) * lg, y + (1 - i1) * lg, lg, i1, i2, f)
     f(x + (1 - i2) * lg, y + i2 * lg, lg, 1 - i1, i2, f)
-    return points
+    return pathList
 }
 
 const drawHilbert = order => {
@@ -22,7 +22,7 @@ const drawHilbert = order => {
 
     // Prep and run function
     const f = hilbert(width, space)
-    const points = f(0, 0, width, 0, 0, f)
+    const pathList = f(0, 0, width, 0, 0, f)
 
     // Set appearance
     const size = 600
@@ -31,11 +31,11 @@ const drawHilbert = order => {
     const yMin = 0
     const yMax = width * space + space
 
-    // Create Canvas
+    // Create tarp
     Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
 
     // Draw
-    Tarpaulin.drawPath(points)
+    Tarpaulin.drawPath(pathList)
 }
 
 drawHilbert(6)

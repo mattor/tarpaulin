@@ -1,4 +1,4 @@
-import Tarpaulin from "../src"
+import Tarpaulin, { Const, Color } from "../src"
 
 const n = 5, a = 60, b = 60
 
@@ -8,18 +8,18 @@ const xMax = a
 const yMin = -b
 const yMax = b
 
-// Create Canvas
+// Create tarp
 
 Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
 
-const points = []
+const pathList = []
 
-for (let t = 0; t < 2 * Math.PI; t += .1) {
+for (let t = 0; t < Const.RADIANS_360_DEGREES; t += .1) {
     const x = Math.pow(Math.abs(Math.cos(t)), 2 / n) * a * Math.sign(Math.cos(t))
     const y = Math.pow(Math.abs(Math.sin(t)), 2 / n) * b * Math.sign(Math.sin(t))
-    points.push([x, y])
+    pathList.push([x, y])
 }
 
-Tarpaulin.drawPath(points, { fillStyle: Tarpaulin.Color.Blue })
+Tarpaulin.drawPath(pathList, { fillStyle: Color.Blue })

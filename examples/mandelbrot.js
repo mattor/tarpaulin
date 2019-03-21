@@ -1,4 +1,4 @@
-import Tarpaulin from "../src"
+import Tarpaulin, { Color, getXYCoords } from "../src"
 
 // Set appearance
 const size = 600
@@ -27,17 +27,17 @@ function checkIfBelongsToMandelbrotSet([x, y]) {
     return 0
 }
 
-// Create Canvas
+// Create tarp
 
-const { canvasWidth, canvasHeight } = Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax, pixelRatio })
+const { paperWidth, paperHeight } = Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax, pixelRatio })
 
 // Start drawing
 
-for (let x = 0; x < canvasWidth; x++) {
-    for (let y = 0; y < canvasHeight; y++) {
-        const belongsToSet = checkIfBelongsToMandelbrotSet(Tarpaulin.getXYCoords([x, y]))
+for (let x = 0; x < paperWidth; x++) {
+    for (let y = 0; y < paperHeight; y++) {
+        const belongsToSet = checkIfBelongsToMandelbrotSet(getXYCoords([x, y]))
         if (belongsToSet === 0) {
-            Tarpaulin.drawPixel([x, y], { fillStyle: Tarpaulin.Color.Black })
+            Tarpaulin.drawPixel([x, y], { fillStyle: Color.Black })
         } else {
             Tarpaulin.drawPixel([x, y], { fillStyle: `hsl(0, 100%, ${belongsToSet}%)` })
         }

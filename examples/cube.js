@@ -7,7 +7,7 @@ const xMax = 1
 const yMin = -1
 const yMax = 1
 
-// Create Canvas
+// Create tarp
 Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 const vertices = [

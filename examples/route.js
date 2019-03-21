@@ -1,21 +1,21 @@
-import Tarpaulin from "../src"
+import Tarpaulin, { getMinMax } from "../src"
 import routePoints from "./data/route-66.json"
 
-const points = []
+const pathList = []
 
 routePoints.forEach(p => {
-    points.push([p.lon, p.lat])
+    pathList.push([p.lon, p.lat])
 })
 
 // Set appearance
 const size = 600
 
-const { xMin, xMax, yMin, yMax } = Tarpaulin.getMinMax(points)
+const { xMin, xMax, yMin, yMax } = getMinMax(pathList)
 
-// Create Canvas
+// Create tarp
 
 Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
 
-Tarpaulin.drawPath(points)
+Tarpaulin.drawPath(pathList)
