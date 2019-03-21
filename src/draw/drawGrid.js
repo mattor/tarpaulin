@@ -8,13 +8,13 @@ export default props => {
 
     while (x <= glob.xMax) {
         drawLine([x, glob.yMin], [x, glob.yMax], props || {
-            strokeStyle: x % 10 === 0 ? Color.BlueGreyLighten4 : Color.BlueGreyLighten5,
+            stroke: x % 10 === 0 ? Color.BlueGreyLighten4 : Color.BlueGreyLighten5,
         })
         x++
     }
     while (y <= glob.xMax) {
         drawLine([glob.xMin, y], [glob.xMax, y], props || {
-            strokeStyle: y % 10 === 0 ? Color.BlueGreyLighten4 : Color.BlueGreyLighten5,
+            stroke: y % 10 === 0 ? Color.BlueGreyLighten4 : Color.BlueGreyLighten5,
         })
         y++
     }

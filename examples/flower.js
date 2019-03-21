@@ -12,7 +12,7 @@ Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
 
-Tarpaulin.drawCircle([0, 0], 1, { fillStyle: Color.Black, strokeStyle: Color.GreyLighten2 })
+Tarpaulin.drawCircle([0, 0], 1, { fill: Color.Black, stroke: Color.GreyLighten2 })
 
 const drawLeafs = sections => {
     const angleStep = Const.RADIANS_360_DEGREES / sections
@@ -27,7 +27,7 @@ const drawLeafs = sections => {
             getNextPoint([0, 0], i * angleStep),
             getNextPoint([0, 0], end),
         ]
-        Tarpaulin.drawPath(pathList, { fillStyle: `hsla(${i * colorStep}, 100%, 50%, 0.1)` })
+        Tarpaulin.drawPath(pathList, { fill: `hsla(${i * colorStep}, 100%, 50%, 0.1)` })
     }
 }
 

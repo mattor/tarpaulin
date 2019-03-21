@@ -37,9 +37,9 @@ for (let x = 0; x < paperWidth; x++) {
     for (let y = 0; y < paperHeight; y++) {
         const belongsToSet = checkIfBelongsToMandelbrotSet(getXYCoords([x, y]))
         if (belongsToSet === 0) {
-            Tarpaulin.drawPixel([x, y], { fillStyle: Color.Black })
+            Tarpaulin.drawPixel([x, y], { fill: Color.Black })
         } else {
-            Tarpaulin.drawPixel([x, y], { fillStyle: `hsl(0, 100%, ${belongsToSet}%)` })
+            Tarpaulin.drawPixel([x, y], { fill: `hsl(0, 100%, ${belongsToSet}%)` })
         }
     }
 }

@@ -1,4 +1,4 @@
-import { glob, initCanvasContext, addSvgElement } from "../utils"
+import { glob, initCanvasStyle, addSvgElement } from "../utils"
 import { getPaperX, getPaperY } from "../helpers"
 
 export default ([x1, y1], [x2, y2], props = {}) => {
@@ -8,12 +8,12 @@ export default ([x1, y1], [x2, y2], props = {}) => {
             y1: getPaperY(y1),
             x2: getPaperX(x2),
             y2: getPaperY(y2),
-            stroke: props.strokeStyle,
+            stroke: props.stroke,
         })
         return
     }
 
-    initCanvasContext(props)
+    initCanvasStyle(props)
 
     glob.paper.beginPath()
     glob.paper.moveTo(getPaperX(x1), getPaperY(y1))

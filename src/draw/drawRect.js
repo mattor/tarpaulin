@@ -1,4 +1,4 @@
-import { glob, initCanvasContext, addSvgElement } from "../utils"
+import { glob, initCanvasStyle, addSvgElement } from "../utils"
 import { getPaperX, getPaperY, getPaperScale } from "../helpers"
 
 export default ([x, y], width, height, props = {}) => {
@@ -8,19 +8,19 @@ export default ([x, y], width, height, props = {}) => {
             y: getPaperY(y),
             width: getPaperScale(width),
             height: getPaperScale(height),
-            fill: props.fillStyle,
-            stroke: props.strokeStyle,
+            fill: props.fill,
+            stroke: props.stroke,
         })
         return
     }
 
-    initCanvasContext(props)
+    initCanvasStyle(props)
 
-    if (props.fillStyle) {
+    if (props.fill) {
         glob.paper.fillRect(getPaperX(x), getPaperY(y), getPaperScale(width), getPaperScale(height))
     }
 
-    if (!props.fillStyle || props.strokeStyle) {
+    if (!props.fill || props.stroke) {
         glob.paper.strokeRect(getPaperX(x), getPaperY(y), getPaperScale(width), getPaperScale(height))
     }
 }

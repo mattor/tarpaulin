@@ -22,4 +22,4 @@ for (let t = 0; t < Const.RADIANS_360_DEGREES; t += .1) {
     pathList.push([x, y])
 }
 
-Tarpaulin.drawPath(pathList, { fillStyle: Color.Blue })
+Tarpaulin.drawPath(pathList, { fill: Color.Blue })

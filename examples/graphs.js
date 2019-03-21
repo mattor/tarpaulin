@@ -21,7 +21,7 @@ function drawGraph(fn, color) {
         x += step
     }
 
-    Tarpaulin.drawPath(pathList, { strokeStyle: color })
+    Tarpaulin.drawPath(pathList, { stroke: color })
 }
 
 // Create tarp

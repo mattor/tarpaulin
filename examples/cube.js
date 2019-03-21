@@ -64,7 +64,7 @@ Tarpaulin.animate(() => {
 
     // Draw
 
-    Tarpaulin.clear({ fillStyle: Color.Black })
+    Tarpaulin.clear({ fill: Color.Black })
 
     sortedFaces.forEach(sortedFace => {
         const face = faces[sortedFace.index]
@@ -74,7 +74,7 @@ Tarpaulin.animate(() => {
             [projectedVerticies[face[1]].x, projectedVerticies[face[1]].y],
             [projectedVerticies[face[2]].x, projectedVerticies[face[2]].y],
             [projectedVerticies[face[3]].x, projectedVerticies[face[3]].y],
-        ], { fillStyle: colors[sortedFace.index] })
+        ], { fill: colors[sortedFace.index] })
     })
 
     angle += 1

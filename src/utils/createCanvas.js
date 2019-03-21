@@ -1,4 +1,4 @@
-import { glob, initGlob, createAndAddCanvas, clear, resetCanvasStyle } from "./"
+import { glob, initGlob, createAndAddCanvas, clear, initCanvasStyle } from "./"
 
 export default ({
     size = 600,
@@ -18,7 +18,7 @@ export default ({
 
     clear()
 
-    resetCanvasStyle()
+    initCanvasStyle()
 
     // Return generated
     return {

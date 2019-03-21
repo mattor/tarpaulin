@@ -20,7 +20,7 @@ const drawFlake = ([x, y], r) => {
             const angle = Const.RADIANS_30_DEGREES + Const.RADIANS_60_DEGREES * i
             pathList.push(getNextPoint([x, y], angle, r))
         }
-        Tarpaulin.drawPath(pathList, { fillStyle: Color.Cyan })
+        Tarpaulin.drawPath(pathList, { fill: Color.Cyan })
     } else {
         // Recurse
         drawFlake([x, y], r / 3)

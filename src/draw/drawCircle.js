@@ -1,5 +1,5 @@
 import { Const } from "../const"
-import { glob, initCanvasContext, addSvgElement } from "../utils"
+import { glob, initCanvasStyle, addSvgElement } from "../utils"
 import { getPaperX, getPaperY, getPaperScale } from "../helpers"
 
 export default ([x, y], radius, props = {}) => {
@@ -8,13 +8,13 @@ export default ([x, y], radius, props = {}) => {
             cx: getPaperX(x),
             cy: getPaperY(y),
             r: getPaperScale(radius),
-            fill: props.fillStyle,
-            stroke: props.strokeStyle,
+            fill: props.fill,
+            stroke: props.stroke,
         })
         return
     }
 
-    initCanvasContext(props)
+    initCanvasStyle(props)
 
     glob.paper.beginPath()
     glob.paper.arc(
@@ -25,11 +25,11 @@ export default ([x, y], radius, props = {}) => {
         Const.RADIANS_360_DEGREES,
     )
 
-    if (props.fillStyle) {
+    if (props.fill) {
         glob.paper.fill()
     }
 
-    if (!props.fillStyle || props.strokeStyle) {
+    if (!props.fill || props.stroke) {
         glob.paper.stroke()
     }
 }
