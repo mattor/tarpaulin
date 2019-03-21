@@ -1,4 +1,4 @@
-import Tarpaulin, { Const, Color } from "../src"
+import Tarpaulin, { Const, Color, getNextPoint } from "../src"
 
 // Set appearance
 const size = 600
@@ -18,7 +18,7 @@ const drawFlake = ([x, y], r) => {
         const pathList = []
         for (let i = 0; i < 6; i++) {
             const angle = Const.RADIANS_30_DEGREES + Const.RADIANS_60_DEGREES * i
-            pathList.push([x + Math.cos(angle) * r, y + Math.sin(angle) * r])
+            pathList.push(getNextPoint([x, y], angle, r))
         }
         Tarpaulin.drawPath(pathList, { fillStyle: Color.Cyan })
     } else {
@@ -26,7 +26,7 @@ const drawFlake = ([x, y], r) => {
         drawFlake([x, y], r / 3)
         for (let i = 0; i < 6; i++) {
             const angle = Const.RADIANS_30_DEGREES + Const.RADIANS_60_DEGREES * i
-            drawFlake([x + Math.cos(angle) * r * 2 / 3, y + Math.sin(angle) * r * 2 / 3], r / 3)
+            drawFlake(getNextPoint([x, y], angle, r * 2 / 3), r / 3)
         }
     }
 }

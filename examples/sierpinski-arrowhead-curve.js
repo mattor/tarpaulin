@@ -5,7 +5,7 @@ function arrowheadCurve(level, pathList, fromPoint, sideLength, angle, angleChan
 
     // Level 0 - bottom of recursion: Draw next part of path
     if (level === 0) {
-        const point = getNextPoint(fromPoint, sideLength, orientation * angle)
+        const point = getNextPoint(fromPoint, orientation * angle, sideLength)
         pathList.push(point)
         currentVector = { point, angle }
         return currentVector

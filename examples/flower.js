@@ -1,4 +1,4 @@
-import Tarpaulin, { Const, Color } from "../src"
+import Tarpaulin, { Const, Color, getNextPoint } from "../src"
 
 // Set appearance
 const size = 600
@@ -23,10 +23,11 @@ const drawLeafs = sections => {
 
     for (let i = 0; i < sections; i++) {
         const pathList = [
-            [Math.cos(start), Math.sin(start)],
-            [Math.cos(i * angleStep), Math.sin(i * angleStep)],
-            [Math.cos(end), Math.sin(end)],
+            getNextPoint([0, 0], start),
+            getNextPoint([0, 0], i * angleStep),
+            getNextPoint([0, 0], end),
         ]
+        //console.log(pathList)
         Tarpaulin.drawPath(pathList, { fillStyle: `hsla(${i * colorStep}, 100%, 50%, 0.1)` })
     }
 }
