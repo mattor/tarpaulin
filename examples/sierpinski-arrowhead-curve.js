@@ -1,4 +1,4 @@
-import Tarpaulin, { Const, getNextPoint } from "../src"
+import Tarpaulin, { Const, Color, getNextPoint } from "../src"
 
 function arrowheadCurve(level, pathList, fromPoint, sideLength, angle, angleDelta, orientation) {
     let currentVector
@@ -52,7 +52,7 @@ function drawSierpinskiArrowheadCurve([x, y], sideLength, { level = 3, orientati
     }
 
     // Draw
-    Tarpaulin.drawPath(pathList)
+    Tarpaulin.animatePath(pathList, { stroke: Color.RedAccent4, strokeWidth: 3 }, 60)
 }
 
 // Set appearance
@@ -65,4 +65,4 @@ const yMax = size
 // Create tarp
 Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
 
-drawSierpinskiArrowheadCurve([size / 2, size / 2], size, { level: 8, orientation: -1 })
+drawSierpinskiArrowheadCurve([size / 2, size / 2], size, { level: 7, orientation: -1 })
