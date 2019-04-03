@@ -1,5 +1,6 @@
 export { default as addSvgElement } from "./addSvgElement"
 export { default as animate } from "./animate"
+export { default as animatePath } from "./animatePath"
 export { default as clear } from "./clear"
 export { default as createCanvas } from "./createCanvas"
 export { default as createSvg } from "./createSvg"

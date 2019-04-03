@@ -21,6 +21,7 @@ import {
 } from "./helpers"
 import {
     animate,
+    animatePath,
     clear,
     createCanvas,
     createSvg,
@@ -46,6 +47,7 @@ const Tarpaulin = {
     getXYCoords,
     // utils
     animate,
+    animatePath,
     clear,
     createCanvas,
     createSvg,
