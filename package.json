@@ -1,6 +1,6 @@
 {
     "name": "tarpaulin",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "A minimal toolset aimed at mathematical drawing on canvas or svg",
     "main": "./lib/index.js",
     "scripts": {
