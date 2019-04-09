@@ -1,4 +1,4 @@
-import Tarpaulin, { Color } from "../src"
+import Tarpaulin, { Color } from "tarpaulin"
 
 // Set appearance
 const size = 640

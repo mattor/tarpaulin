@@ -23,4 +23,3 @@ test
 .eslintrc
 .gitignore
 CHANGELOG.md
-webpack.config.js

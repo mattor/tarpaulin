@@ -1,4 +1,4 @@
-import Tarpaulin, { Point3D, Color } from "../src"
+import Tarpaulin, { Point3D, Color } from "tarpaulin"
 
 // Set appearance
 const size = 300

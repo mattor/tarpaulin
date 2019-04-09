@@ -1,4 +1,4 @@
-import Tarpaulin, { Color, getXYCoords } from "../src"
+import Tarpaulin, { Color, getXYCoords } from "tarpaulin"
 
 // Set appearance
 const size = 600

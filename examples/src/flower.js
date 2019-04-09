@@ -1,4 +1,4 @@
-import Tarpaulin, { Const, Color, getNextPoint } from "../src"
+import Tarpaulin, { Const, Color, getNextPoint } from "tarpaulin"
 
 // Set appearance
 const size = 600

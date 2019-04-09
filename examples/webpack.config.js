@@ -4,9 +4,8 @@ const webpack = require("webpack")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = (env, argv) => {
-    const isProd = argv.mode === "production"
     const example = argv.example || "hilbert"
-    const examplePath = `examples/${example}.js`
+    const examplePath = `src/${example}.js`
 
     if (!fs.existsSync(examplePath)) {
         throw new Error(`No example called "${argv.example}"`)
@@ -14,22 +13,18 @@ module.exports = (env, argv) => {
 
     return {
         entry: {
-            app: [
+            example: [
                 "@babel/polyfill",
                 path.resolve(__dirname, examplePath),
             ],
         },
         devtool: "cheap-source-map",
-        output: {
-            pathinfo: true,
-            filename: "[name].min.js",
-        },
         plugins: [
-            isProd ? null : new webpack.HotModuleReplacementPlugin(),
-            isProd ? null : new HtmlWebpackPlugin({
+            new webpack.HotModuleReplacementPlugin(),
+            new HtmlWebpackPlugin({
                 title: `${example} - Tarpaulin`,
             }),
-        ].filter(Boolean),
+        ],
         module: {
             rules: [
                 {
@@ -41,5 +36,11 @@ module.exports = (env, argv) => {
                 },
             ],
         },
+        resolve: {
+            alias: {
+                "tarpaulin": path.resolve("../src/index.js"),
+            },
+        },
+
     }
 }

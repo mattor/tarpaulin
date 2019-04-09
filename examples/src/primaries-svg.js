@@ -1,4 +1,4 @@
-import Tarpaulin, { Color } from "../src"
+import Tarpaulin, { Color } from "tarpaulin"
 
 // Set appearance
 const size = 600
@@ -8,10 +8,9 @@ const yMin = -50
 const yMax = 50
 
 // Create tarp
-Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
+Tarpaulin.createSvg({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
-
 Tarpaulin.drawGrid()
 Tarpaulin.drawAxes()
 

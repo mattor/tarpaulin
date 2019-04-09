@@ -1,5 +1,5 @@
-import Tarpaulin, { getMinMax } from "../src"
-import routePoints from "./data/route-66.json"
+import Tarpaulin, { getMinMax } from "tarpaulin"
+import routePoints from "../data/route-66.json"
 
 const pathList = []
 

@@ -1,0 +1,26 @@
+{
+    "name": "tarpaulin-examples",
+    "description": "A minimal toolset aimed at mathematical drawing on canvas or svg",
+    "main": "./webpack.config.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mattor/tarpaulin.git"
+    },
+    "author": "Torbjørn Mathisen <herrmathisen@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "start": "webpack-dev-server --mode development --watch --open"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.2.3",
+        "@babel/core": "^7.3.4",
+        "@babel/polyfill": "^7.2.5",
+        "@babel/preset-env": "^7.3.4",
+        "babel-loader": "^8.0.5",
+        "babel-preset-minify": "^0.5.0",
+        "html-webpack-plugin": "^3.2.0",
+        "webpack": "^4.29.6",
+        "webpack-cli": "^3.3.0",
+        "webpack-dev-server": "^3.2.1"
+    }
+}

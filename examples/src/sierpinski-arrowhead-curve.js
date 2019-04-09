@@ -1,4 +1,4 @@
-import Tarpaulin, { Const, Color, getNextPoint } from "../src"
+import Tarpaulin, { Const, Color, getNextPoint } from "tarpaulin"
 
 function arrowheadCurve(level, pathList, fromPoint, sideLength, angle, angleDelta, orientation) {
     let currentVector

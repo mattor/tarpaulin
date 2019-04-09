@@ -1,4 +1,4 @@
-import Tarpaulin, { Const, Color } from "../src"
+import Tarpaulin, { Const, Color } from "tarpaulin"
 
 const n = 5, a = 60, b = 60
 
