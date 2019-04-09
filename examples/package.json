@@ -9,7 +9,22 @@
     "author": "Torbjørn Mathisen <herrmathisen@gmail.com>",
     "license": "MIT",
     "scripts": {
-        "start": "webpack-dev-server --mode development --watch --open"
+        "start": "webpack-dev-server --mode development --watch --open",
+        "start:axes": "webpack-dev-server --mode development --watch --open --example=axes",
+        "start:cube": "webpack-dev-server --mode development --watch --open --example=cube",
+        "start:euler-spiral": "webpack-dev-server --mode development --watch --open --example=euler-spiral",
+        "start:flower": "webpack-dev-server --mode development --watch --open --example=flower",
+        "start:graphs": "webpack-dev-server --mode development --watch --open --example=graphs",
+        "start:hexaflake": "webpack-dev-server --mode development --watch --open --example=hexaflake",
+        "start:hilbert": "webpack-dev-server --mode development --watch --open --example=hilbert",
+        "start:julia": "webpack-dev-server --mode development --watch --open --example=julia",
+        "start:mandelbrot": "webpack-dev-server --mode development --watch --open --example=mandelbrot",
+        "start:primaries-canvas": "webpack-dev-server --mode development --watch --open --example=primaries-canvas",
+        "start:primaries-svg": "webpack-dev-server --mode development --watch --open --example=primaries-svg",
+        "start:pythagoras-tree": "webpack-dev-server --mode development --watch --open --example=pythagoras-tree",
+        "start:route": "webpack-dev-server --mode development --watch --open --example=route",
+        "start:sierpinski-arrowhead-curve": "webpack-dev-server --mode development --watch --open --example=sierpinski-arrowhead-curve",
+        "start:superellipse": "webpack-dev-server --mode development --watch --open --example=superellipse"
     },
     "devDependencies": {
         "@babel/cli": "^7.2.3",
