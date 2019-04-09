@@ -66,3 +66,5 @@ typings/
 # Project specific
 lib
 dist
+examples/package-lock.json
+examples/yarn.lock
