@@ -1,11 +1,9 @@
 import Tarpaulin, { getMinMax } from "tarpaulin"
-import routePoints from "../data/route-66.json"
+import geoJson from "../data/havnepromenaden.json"
 
-const pathList = []
-
-routePoints.forEach(p => {
-    pathList.push([p.lon, p.lat])
-})
+const pathList = geoJson.features
+    .find(f => f.geometry.type === "LineString")
+    .geometry.coordinates
 
 // Set appearance
 const size = 600
@@ -14,7 +12,7 @@ const { xMin, xMax, yMin, yMax } = getMinMax(pathList)
 
 // Create tarp
 
-Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
+Tarpaulin.createSvg({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
 
