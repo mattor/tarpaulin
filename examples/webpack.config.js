@@ -28,15 +28,16 @@ module.exports = (env, argv) => {
         module: {
             rules: [
                 {
-                    test: /\.js$/,
-                    exclude: /node_modules/,
-                    use: {
-                        loader: "babel-loader",
-                    },
+                    test: /\.tsx?$/,
+                    loader: "awesome-typescript-loader",
                 },
             ],
         },
         resolve: {
+            extensions: [
+                ".ts",
+                ".js",
+            ],
             alias: {
                 "tarpaulin": path.resolve("../src/index.js"),
             },

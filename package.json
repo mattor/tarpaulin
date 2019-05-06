@@ -22,7 +22,7 @@
     },
     "homepage": "https://github.com/mattor/tarpaulin#readme",
     "files": [
-        "lib"
+        "/lib"
     ],
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
