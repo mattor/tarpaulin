@@ -1,5 +1,5 @@
-import IDrawProps from "../types/IDrawProps";
 import { Color } from "../const";
+import IDrawProps from "../types/IDrawProps";
 import { glob } from "../utils";
 
 const svgToCanvas = {
@@ -8,7 +8,7 @@ const svgToCanvas = {
     strokeWidth: "lineWidth",
 };
 
-export default (props = <IDrawProps>{}) => {
+export default (props = {} as IDrawProps) => {
     if (!glob.canvasPaper) {
         throw new Error("You have to createCanvas() first");
     }
@@ -21,6 +21,6 @@ export default (props = <IDrawProps>{}) => {
         if (prop === "closed") { continue; }
         const propName = svgToCanvas[prop] || prop;
         const propValue = propName === svgToCanvas.strokeWidth ? props[prop] * glob.pixelRatio : props[prop];
-        glob.paper[propName] = propValue;
+        glob.canvasPaper[propName] = propValue;
     }
 };

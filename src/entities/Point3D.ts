@@ -1,9 +1,9 @@
 import { convertDegToRad } from "../helpers";
 
 export class Point3D {
-    public x = 0
-    public y = 0
-    public z = 0
+    public x = 0;
+    public y = 0;
+    public z = 0;
 
     constructor(x: number, y: number, z: number) {
         this.x = x;

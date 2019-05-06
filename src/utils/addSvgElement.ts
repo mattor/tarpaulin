@@ -1,8 +1,8 @@
-import IDrawProps from "../types/IDrawProps";
 import { Color } from "../const";
+import SvgProps from "../types/SvgProps";
 import { glob } from "../utils";
 
-export default (tag: string, props = <IDrawProps>{}) => {
+export default (tag: string, props = {} as SvgProps) => {
     const el = document.createElementNS("http://www.w3.org/2000/svg", tag);
     for (const prop in props) {
         let value = props[prop];
@@ -15,5 +15,7 @@ export default (tag: string, props = <IDrawProps>{}) => {
         el.setAttributeNS(null, "stroke", props.stroke || Color.Black);
     }
 
-    glob.svgPaper.appendChild(el);
+    if (glob.svgPaper) {
+        glob.svgPaper.appendChild(el);
+    }
 };

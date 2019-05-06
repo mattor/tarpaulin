@@ -1,16 +1,20 @@
-import IDrawProps from "../types/IDrawProps";
 import { getPaperX, getPaperY } from "../helpers";
+import IDrawProps from "../types/IDrawProps";
 import { addSvgElement, glob, initCanvasStyle } from "../utils";
 
-export default ([x1, y1]: number[], [x2, y2]: number[], props = <IDrawProps>{}) => {
-    if (glob.tarp.tagName === "svg") {
+export default ([x1, y1]: number[], [x2, y2]: number[], props = {} as IDrawProps) => {
+    if (glob.svgPaper !== undefined) {
         addSvgElement("line", {
-            x1: getPaperX(x1),
-            y1: getPaperY(y1),
-            x2: getPaperX(x2),
-            y2: getPaperY(y2),
             stroke: props.stroke,
+            x1: getPaperX(x1),
+            x2: getPaperX(x2),
+            y1: getPaperY(y1),
+            y2: getPaperY(y2),
         });
+        return;
+    }
+
+    if (glob.canvasPaper === undefined) {
         return;
     }
 

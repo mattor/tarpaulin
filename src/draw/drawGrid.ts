@@ -1,9 +1,9 @@
-import IDrawProps from "../types/IDrawProps";
 import { Color } from "../const";
+import IDrawProps from "../types/IDrawProps";
 import { glob } from "../utils";
 import { drawLine } from "./";
 
-export default (props = <IDrawProps>{}) => {
+export default (props = {} as IDrawProps) => {
     let x = Math.floor(glob.xMin);
     let y = Math.floor(glob.yMin);
 

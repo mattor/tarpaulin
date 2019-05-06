@@ -1,17 +1,21 @@
-import IDrawProps from "../types/IDrawProps";
 import { Const } from "../const";
 import { getPaperScale, getPaperX, getPaperY } from "../helpers";
+import IDrawProps from "../types/IDrawProps";
 import { addSvgElement, glob, initCanvasStyle } from "../utils";
 
-export default ([x, y]: number[], radius: number, props = <IDrawProps>{}) => {
-    if (glob.tarp.tagName === "svg") {
+export default ([x, y]: number[], radius: number, props = {} as IDrawProps) => {
+    if (glob.svgPaper !== undefined) {
         addSvgElement("circle", {
             cx: getPaperX(x),
             cy: getPaperY(y),
-            r: getPaperScale(radius),
             fill: props.fill,
+            r: getPaperScale(radius),
             stroke: props.stroke,
         });
+        return;
+    }
+
+    if (glob.canvasPaper === undefined) {
         return;
     }
 

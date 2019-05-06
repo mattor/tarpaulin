@@ -31,21 +31,21 @@ interface IConfig {
 }
 
 const glob: IGlob = {
-    size: 0,
-    xMin: 0,
-    xMax: 0,
-    yMin: 0,
-    yMax: 0,
-    pixelRatio: 0,
-    xDiff: 0,
-    yDiff: 0,
-    paperWidth: 0,
     paperHeight: 0,
-    tarpFactorX: 0,
-    tarpFactorY: 0,
     paperScale: 0,
     paperShiftX: 0,
     paperShiftY: 0,
+    paperWidth: 0,
+    pixelRatio: 0,
+    size: 0,
+    tarpFactorX: 0,
+    tarpFactorY: 0,
+    xDiff: 0,
+    xMax: 0,
+    xMin: 0,
+    yDiff: 0,
+    yMax: 0,
+    yMin: 0,
 };
 
 export const init = (config: IConfig) => {

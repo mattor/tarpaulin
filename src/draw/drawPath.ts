@@ -1,18 +1,22 @@
-import IDrawProps from "../types/IDrawProps";
 import { Color } from "../const";
 import { getPaperX, getPaperY } from "../helpers";
+import IDrawProps from "../types/IDrawProps";
 import { addSvgElement, glob, initCanvasStyle } from "../utils";
 
-export default (pathList: number[][], props = <IDrawProps>{ stroke: Color.BlueGreyDarken4, closed: false }) => {
+export default (pathList: number[][], props = { stroke: Color.BlueGreyDarken4, closed: false } as IDrawProps) => {
     const closed = props.fill || props.closed;
 
-    if (glob.tarp.tagName === "svg") {
+    if (glob.svgPaper !== undefined) {
         addSvgElement("path", {
+            "d": `M${pathList.map(([x, y]) => `${getPaperX(x)} ${getPaperY(y)}`).join(" L")}${closed ? " Z" : ""}`,
             "fill": props.fill,
             "stroke": props.stroke,
             "stroke-width": props.strokeWidth,
-            "d": `M${pathList.map(([x, y]) => `${getPaperX(x)} ${getPaperY(y)}`).join(" L")}${closed ? " Z" : ""}`,
         });
+        return;
+    }
+
+    if (glob.canvasPaper === undefined) {
         return;
     }
 
@@ -20,7 +24,9 @@ export default (pathList: number[][], props = <IDrawProps>{ stroke: Color.BlueGr
 
     glob.canvasPaper.beginPath();
     pathList.forEach(([x, y]) => {
-        glob.canvasPaper.lineTo(getPaperX(x), getPaperY(y));
+        if (glob.canvasPaper !== undefined) {
+            glob.canvasPaper.lineTo(getPaperX(x), getPaperY(y));
+        }
     });
     if (closed) {
         const [x, y] = pathList[0];
