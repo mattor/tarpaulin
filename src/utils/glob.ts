@@ -1,33 +1,37 @@
 import { getPaperScale } from "../helpers";
 
+export interface ICanvasPaper {
+    [index: string]: number;
+}
+
 interface IGlob {
-    size: number;
-    xMin: number;
-    xMax: number;
-    yMin: number;
-    yMax: number;
-    pixelRatio: number;
-    xDiff: number;
-    yDiff: number;
-    paperWidth: number;
+    canvasPaper?: CanvasRenderingContext2D;
     paperHeight: number;
-    tarpFactorX: number;
-    tarpFactorY: number;
     paperScale: number;
     paperShiftX: number;
     paperShiftY: number;
-    tarp?: any;
-    canvasPaper?: CanvasRenderingContext2D;
+    paperWidth: number;
+    pixelRatio: number;
+    size: number;
     svgPaper?: SVGElement;
+    tarp?: any;
+    tarpFactorX: number;
+    tarpFactorY: number;
+    xDiff: number;
+    xMax: number;
+    xMin: number;
+    yDiff: number;
+    yMax: number;
+    yMin: number;
 }
 
 interface IConfig {
-    size: number;
-    xMin: number;
-    xMax: number;
-    yMin: number;
-    yMax: number;
     pixelRatio?: number;
+    size: number;
+    xMax: number;
+    xMin: number;
+    yMax: number;
+    yMin: number;
 }
 
 const glob: IGlob = {

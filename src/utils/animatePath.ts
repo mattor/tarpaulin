@@ -1,4 +1,5 @@
 import { drawPath } from "../draw";
+
 import { animate } from "./";
 
 export default (pathList: number[][], props = {}, fps = 30) => {
@@ -11,7 +12,7 @@ export default (pathList: number[][], props = {}, fps = 30) => {
             animation.stop();
         }
 
-        pos++;
+        pos += 1;
     };
 
     const animation = animate(drawPathSegment, fps);

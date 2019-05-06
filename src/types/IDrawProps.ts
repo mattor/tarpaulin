@@ -1,6 +1,7 @@
 export default interface IDrawProps {
+    closed?: boolean;
     fill?: string;
     stroke?: string;
     strokeWidth?: number;
-    closed?: boolean;
+    [key: string]: any;
 }

@@ -2,13 +2,17 @@ import { Color } from "../const";
 import IDrawProps from "../types/IDrawProps";
 import { glob } from "../utils";
 
-const svgToCanvas = {
+interface ISvgToCanvas {
+    [key: string]: any;
+}
+
+const SvgToCanvas: ISvgToCanvas = {
     fill: "fillStyle",
     stroke: "strokeStyle",
     strokeWidth: "lineWidth",
 };
 
-export default (props = {} as IDrawProps) => {
+export default (props = {} as any as IDrawProps) => {
     if (!glob.canvasPaper) {
         throw new Error("You have to createCanvas() first");
     }
@@ -17,10 +21,15 @@ export default (props = {} as IDrawProps) => {
     glob.canvasPaper.strokeStyle = Color.BlueGreyDarken4;
     glob.canvasPaper.lineWidth = glob.pixelRatio;
 
-    for (const prop in props) {
-        if (prop === "closed") { continue; }
-        const propName = svgToCanvas[prop] || prop;
-        const propValue = propName === svgToCanvas.strokeWidth ? props[prop] * glob.pixelRatio : props[prop];
-        glob.canvasPaper[propName] = propValue;
+    if (props.fill) {
+        glob.canvasPaper.fillStyle = props.fill;
+    }
+
+    if (props.stroke) {
+        glob.canvasPaper.strokeStyle = props.stroke;
+    }
+
+    if (props.strokeWidth) {
+        glob.canvasPaper.lineWidth = glob.pixelRatio * props.strokeWidth;
     }
 };

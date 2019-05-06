@@ -2,7 +2,7 @@ import { getPaperScale, getPaperX, getPaperY } from "../helpers";
 import IDrawProps from "../types/IDrawProps";
 import { addSvgElement, glob, initCanvasStyle } from "../utils";
 
-export default ([x, y]: number[], width: number, height: number, props = {} as IDrawProps) => {
+export default ([x, y]: number[], width: number, height: number, props = {} as any as IDrawProps) => {
     if (glob.svgPaper !== undefined) {
         addSvgElement("rect", {
             fill: props.fill,
@@ -12,6 +12,7 @@ export default ([x, y]: number[], width: number, height: number, props = {} as I
             x: getPaperX(x),
             y: getPaperY(y),
         });
+
         return;
     }
 

@@ -16,14 +16,14 @@ export default (drawFn: () => void, fps = 60) => {
     tick();
 
     return {
-        stop: () => {
-            cancelAnimationFrame(rafid);
-            rafid = -1;
-        },
         resume: () => {
             if (rafid === -1) {
                 tick();
             }
+        },
+        stop: () => {
+            cancelAnimationFrame(rafid);
+            rafid = -1;
         },
     };
 };

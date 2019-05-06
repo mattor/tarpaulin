@@ -3,7 +3,10 @@ import { getPaperX, getPaperY } from "../helpers";
 import IDrawProps from "../types/IDrawProps";
 import { addSvgElement, glob, initCanvasStyle } from "../utils";
 
-export default (pathList: number[][], props = { stroke: Color.BlueGreyDarken4, closed: false } as IDrawProps) => {
+export default (pathList: number[][], props = {
+    closed: false,
+    stroke: Color.BlueGreyDarken4,
+} as any as IDrawProps) => {
     const closed = props.fill || props.closed;
 
     if (glob.svgPaper !== undefined) {
@@ -13,6 +16,7 @@ export default (pathList: number[][], props = { stroke: Color.BlueGreyDarken4, c
             "stroke": props.stroke,
             "stroke-width": props.strokeWidth,
         });
+
         return;
     }
 

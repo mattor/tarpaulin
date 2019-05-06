@@ -11,5 +11,5 @@ export default () => {
     glob.tarp.style.width = `${width}px`;
     glob.tarp.style.height = `${height}px`;
     document.body.appendChild(glob.tarp);
-    glob.svgPaper = glob.tarp.getContext("2d");
+    glob.canvasPaper = glob.tarp.getContext("2d");
 };
