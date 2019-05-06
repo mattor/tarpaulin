@@ -1,23 +1,9 @@
 {
     "name": "tarpaulin",
     "version": "1.2.1",
+    "author": "Torbjørn Mathisen <herrmathisen@gmail.com>",
+    "license": "MIT",
     "description": "A minimal toolset aimed at mathematical drawing on canvas or svg",
-    "main": "./lib/index.js",
-    "scripts": {
-        "build": "cross-env BABEL_ENV=production babel src --out-dir lib",
-        "clean": "rimraf lib; rimraf dist",
-        "lint": "eslint . --fix",
-        "prepare": "npm run clean && npm run lint && npm run test && npm run build",
-        "test": "echo \"No tests implemented yet\" && exit 0"
-    },
-    "files": [
-        "lib",
-        "src"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/mattor/tarpaulin.git"
-    },
     "keywords": [
         "browser",
         "canvas",
@@ -27,21 +13,31 @@
         "maths",
         "svg"
     ],
-    "author": "Torbjørn Mathisen <herrmathisen@gmail.com>",
-    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mattor/tarpaulin.git"
+    },
     "bugs": {
         "url": "https://github.com/mattor/tarpaulin/issues"
     },
     "homepage": "https://github.com/mattor/tarpaulin#readme",
+    "files": [
+        "/lib"
+    ],
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "clean": "rimraf lib; rimraf dist",
+        "lint": "tslint --project . --fix",
+        "prepare": "npm run clean && npm run lint && npm run test && npm run build",
+        "test": "echo \"No tests implemented yet\" && exit 0"
+    },
     "devDependencies": {
-        "@babel/cli": "^7.4.4",
-        "@babel/core": "^7.4.4",
-        "@babel/polyfill": "^7.4.4",
-        "@babel/preset-env": "^7.4.4",
-        "babel-eslint": "^10.0.1",
-        "babel-preset-minify": "^0.5.0",
+        "@types/node": "^12.0.0",
         "cross-env": "^5.2.0",
-        "eslint": "^5.16.0",
-        "rimraf": "^2.6.3"
+        "rimraf": "^2.6.3",
+        "tslint": "^5.16.0",
+        "typescript": "^3.4.5"
     }
 }
