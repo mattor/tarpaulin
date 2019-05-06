@@ -1,6 +1,6 @@
 {
     "name": "tarpaulin",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "author": "Torbjørn Mathisen <herrmathisen@gmail.com>",
     "license": "MIT",
     "description": "A minimal toolset aimed at mathematical drawing on canvas or svg",
