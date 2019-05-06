@@ -15,5 +15,5 @@ export default (tag: string, props = <IDrawProps>{}) => {
         el.setAttributeNS(null, "stroke", props.stroke || Color.Black);
     }
 
-    glob.paper.appendChild(el);
+    glob.svgPaper.appendChild(el);
 };

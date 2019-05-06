@@ -17,8 +17,8 @@ export default ([x, y]: number[], radius: number, props = <IDrawProps>{}) => {
 
     initCanvasStyle(props);
 
-    glob.paper.beginPath();
-    glob.paper.arc(
+    glob.canvasPaper.beginPath();
+    glob.canvasPaper.arc(
         getPaperX(x),
         getPaperY(y),
         getPaperScale(radius),
@@ -27,10 +27,10 @@ export default ([x, y]: number[], radius: number, props = <IDrawProps>{}) => {
     );
 
     if (props.fill) {
-        glob.paper.fill();
+        glob.canvasPaper.fill();
     }
 
     if (!props.fill || props.stroke) {
-        glob.paper.stroke();
+        glob.canvasPaper.stroke();
     }
 };

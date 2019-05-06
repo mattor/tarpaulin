@@ -8,5 +8,5 @@ export default ([x, y]: number[], props = <IDrawProps>{}) => {
 
     initCanvasStyle(props);
 
-    glob.paper.fillRect(x, y, 1, 1);
+    glob.canvasPaper.fillRect(x, y, 1, 1);
 };

@@ -16,8 +16,8 @@ export default ([x1, y1]: number[], [x2, y2]: number[], props = <IDrawProps>{}) 
 
     initCanvasStyle(props);
 
-    glob.paper.beginPath();
-    glob.paper.moveTo(getPaperX(x1), getPaperY(y1));
-    glob.paper.lineTo(getPaperX(x2), getPaperY(y2));
-    glob.paper.stroke();
+    glob.canvasPaper.beginPath();
+    glob.canvasPaper.moveTo(getPaperX(x1), getPaperY(y1));
+    glob.canvasPaper.lineTo(getPaperX(x2), getPaperY(y2));
+    glob.canvasPaper.stroke();
 };

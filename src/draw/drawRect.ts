@@ -18,10 +18,10 @@ export default ([x, y]: number[], width: number, height: number, props = <IDrawP
     initCanvasStyle(props);
 
     if (props.fill) {
-        glob.paper.fillRect(getPaperX(x), getPaperY(y), getPaperScale(width), getPaperScale(height));
+        glob.canvasPaper.fillRect(getPaperX(x), getPaperY(y), getPaperScale(width), getPaperScale(height));
     }
 
     if (!props.fill || props.stroke) {
-        glob.paper.strokeRect(getPaperX(x), getPaperY(y), getPaperScale(width), getPaperScale(height));
+        glob.canvasPaper.strokeRect(getPaperX(x), getPaperY(y), getPaperScale(width), getPaperScale(height));
     }
 };

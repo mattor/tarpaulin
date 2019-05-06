@@ -8,7 +8,7 @@ export default ({
     yMax = 1,
     pixelRatio = undefined,
 } = {}) => {
-    if (glob.paper) {
+    if (glob.canvasPaper || glob.svgPaper) {
         throw new Error("Only one tarp allowed per page");
     }
 
@@ -22,7 +22,7 @@ export default ({
 
     // Return generated
     return {
-        paper: glob.paper,
+        paper: glob.canvasPaper,
         paperWidth: glob.paperWidth,
         paperHeight: glob.paperHeight,
     };

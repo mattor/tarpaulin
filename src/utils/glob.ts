@@ -13,11 +13,12 @@ interface IGlob {
     paperHeight: number;
     tarpFactorX: number;
     tarpFactorY: number;
-    tarp: HTMLCanvasElement | SVGElement;
-    paper: CanvasRenderingContext2D;
     paperScale: number;
     paperShiftX: number;
     paperShiftY: number;
+    tarp?: any;
+    canvasPaper?: CanvasRenderingContext2D;
+    svgPaper?: SVGElement;
 }
 
 interface IConfig {

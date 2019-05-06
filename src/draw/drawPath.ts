@@ -18,20 +18,20 @@ export default (pathList: number[][], props = <IDrawProps>{ stroke: Color.BlueGr
 
     initCanvasStyle(props);
 
-    glob.paper.beginPath();
+    glob.canvasPaper.beginPath();
     pathList.forEach(([x, y]) => {
-        glob.paper.lineTo(getPaperX(x), getPaperY(y));
+        glob.canvasPaper.lineTo(getPaperX(x), getPaperY(y));
     });
     if (closed) {
         const [x, y] = pathList[0];
-        glob.paper.lineTo(getPaperX(x), getPaperY(y));
+        glob.canvasPaper.lineTo(getPaperX(x), getPaperY(y));
     }
 
     if (props.fill) {
-        glob.paper.fill();
+        glob.canvasPaper.fill();
     }
 
     if (!props.fill || props.stroke) {
-        glob.paper.stroke();
+        glob.canvasPaper.stroke();
     }
 };

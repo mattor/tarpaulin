@@ -9,13 +9,13 @@ const svgToCanvas = {
 };
 
 export default (props = <IDrawProps>{}) => {
-    if (!glob.paper) {
+    if (!glob.canvasPaper) {
         throw new Error("You have to createCanvas() first");
     }
 
-    glob.paper.fillStyle = Color.BlueGreyLighten3;
-    glob.paper.strokeStyle = Color.BlueGreyDarken4;
-    glob.paper.lineWidth = glob.pixelRatio;
+    glob.canvasPaper.fillStyle = Color.BlueGreyLighten3;
+    glob.canvasPaper.strokeStyle = Color.BlueGreyDarken4;
+    glob.canvasPaper.lineWidth = glob.pixelRatio;
 
     for (const prop in props) {
         if (prop === "closed") { continue; }

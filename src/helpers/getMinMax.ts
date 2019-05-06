@@ -1,4 +1,4 @@
-interface IMinMaxResult {
+export interface IMinMaxResult {
     xMin?: number;
     xMax?: number;
     yMin?: number;
