@@ -14,7 +14,7 @@ export default class ComplexNumber {
     }
 
     public add(addend: ComplexNumber | number) {
-        // Make sure we're dealing with complex number.
+        // Make sure we're dealing with complex number
         const complexAddend = this.toComplexNumber(addend);
 
         return new ComplexNumber({
@@ -24,7 +24,7 @@ export default class ComplexNumber {
     }
 
     public subtract(subtrahend: ComplexNumber | number) {
-        // Make sure we're dealing with complex number.
+        // Make sure we're dealing with complex number
         const complexSubtrahend = this.toComplexNumber(subtrahend);
 
         return new ComplexNumber({
@@ -34,7 +34,7 @@ export default class ComplexNumber {
     }
 
     public multiply(multiplicand: ComplexNumber | number) {
-        // Make sure we're dealing with complex number.
+        // Make sure we're dealing with complex number
         const complexMultiplicand = this.toComplexNumber(multiplicand);
 
         return new ComplexNumber({
@@ -44,13 +44,13 @@ export default class ComplexNumber {
     }
 
     public divide(divider: ComplexNumber | number) {
-        // Make sure we're dealing with complex number.
+        // Make sure we're dealing with complex number
         const complexDivider = this.toComplexNumber(divider);
 
-        // Get divider conjugate.
+        // Get divider conjugate
         const dividerConjugate = this.conjugate(complexDivider);
 
-        // Multiply dividend by divider's conjugate.
+        // Multiply dividend by divider's conjugate
         const finalDivident = this.multiply(dividerConjugate);
 
         // Calculating final divider using formula (a + bi)(a − bi) = a^2 + b^2
@@ -63,7 +63,7 @@ export default class ComplexNumber {
     }
 
     public conjugate(n: ComplexNumber | number) {
-        // Make sure we're dealing with complex number.
+        // Make sure we're dealing with complex number
         const complexNumber = this.toComplexNumber(n);
 
         return new ComplexNumber({
