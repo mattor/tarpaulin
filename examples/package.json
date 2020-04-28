@@ -12,6 +12,7 @@
         "start": "webpack-dev-server --mode development --watch --open",
         "start:axes": "webpack-dev-server --mode development --watch --open --example=axes",
         "start:cube": "webpack-dev-server --mode development --watch --open --example=cube",
+        "start:epicycles": "webpack-dev-server --mode development --watch --open --example=epicycles",
         "start:euler-spiral": "webpack-dev-server --mode development --watch --open --example=euler-spiral",
         "start:flower": "webpack-dev-server --mode development --watch --open --example=flower",
         "start:graphs": "webpack-dev-server --mode development --watch --open --example=graphs",

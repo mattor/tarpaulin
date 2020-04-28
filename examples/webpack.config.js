@@ -14,7 +14,6 @@ module.exports = (env, argv) => {
     return {
         entry: {
             example: [
-                "@babel/polyfill",
                 path.resolve(__dirname, examplePath),
             ],
         },

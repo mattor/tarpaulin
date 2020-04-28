@@ -12,6 +12,7 @@ import {
     drawRect,
 } from "./draw";
 import {
+    ComplexNumber,
     Point3D,
 } from "./entities";
 import {
@@ -32,6 +33,7 @@ const Tarpaulin = {
     Color,
     Const,
     // entities
+    ComplexNumber,
     Point3D,
     // utils
     animate,
