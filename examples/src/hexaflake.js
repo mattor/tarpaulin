@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import Tarpaulin, { Const, Color, getNextPoint } from "tarpaulin"
 
 // Set appearance

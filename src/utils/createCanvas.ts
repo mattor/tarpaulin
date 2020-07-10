@@ -1,4 +1,4 @@
-import { clear, createAndAddCanvas, glob, initCanvasStyle, initGlob } from "./";
+import { clear, createAndAddCanvas, glob, initCanvasStyle, initGlob } from "./"
 
 export interface ICreateCanvasOptions {
     size: number;
@@ -18,21 +18,21 @@ export default ({
     pixelRatio,
 }: ICreateCanvasOptions) => {
     if (glob.canvasPaper || glob.svgPaper) {
-        throw new Error("Only one tarp allowed per page");
+        throw new Error("Only one tarp allowed per page")
     }
 
-    initGlob({ size, xMin, xMax, yMin, yMax, pixelRatio });
+    initGlob({ size, xMin, xMax, yMin, yMax, pixelRatio })
 
-    createAndAddCanvas();
+    createAndAddCanvas()
 
-    clear();
+    clear()
 
-    initCanvasStyle();
+    initCanvasStyle()
 
     // Return generated
     return {
         paper: glob.canvasPaper,
         paperHeight: glob.paperHeight,
         paperWidth: glob.paperWidth,
-    };
-};
+    }
+}

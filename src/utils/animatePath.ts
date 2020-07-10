@@ -1,19 +1,19 @@
-import { drawPath } from "../draw";
+import { drawPath } from "../draw"
 
-import { animate } from "./";
+import { animate } from "./"
 
 export default (pathList: number[][], props = {}, fps = 30) => {
-    let pos = 0;
+    let pos = 0
 
     const drawPathSegment = () => {
-        drawPath([pathList[pos], pathList[pos + 1]], { ...props, closed: false });
+        drawPath([pathList[pos], pathList[pos + 1]], { ...props, closed: false })
 
         if (pos >= pathList.length - 2) {
-            animation.stop();
+            animation.stop()
         }
 
-        pos += 1;
-    };
+        pos += 1
+    }
 
-    const animation = animate(drawPathSegment, fps);
-};
+    const animation = animate(drawPathSegment, fps)
+}

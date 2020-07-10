@@ -1,7 +1,7 @@
 import {
     Color,
     Const,
-} from "./const";
+} from "./const"
 import {
     drawAxes,
     drawCircle,
@@ -10,23 +10,23 @@ import {
     drawPath,
     drawPixel,
     drawRect,
-} from "./draw";
+} from "./draw"
 import {
     ComplexNumber,
     Point3D,
-} from "./entities";
+} from "./entities"
 import {
     getMinMax,
     getNextPoint,
     getXYCoords,
-} from "./helpers";
+} from "./helpers"
 import {
     animate,
     animatePath,
     clear,
     createCanvas,
     createSvg,
-} from "./utils";
+} from "./utils"
 
 const Tarpaulin = {
     // const
@@ -53,6 +53,6 @@ const Tarpaulin = {
     getMinMax,
     getNextPoint,
     getXYCoords,
-};
+}
 
-export default Tarpaulin;
+export default Tarpaulin

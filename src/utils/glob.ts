@@ -1,4 +1,4 @@
-import { getPaperScale } from "../helpers";
+import { getPaperScale } from "../helpers"
 
 export interface ICanvasPaper {
     [index: string]: number;
@@ -50,33 +50,33 @@ const glob: IGlob = {
     yDiff: 0,
     yMax: 0,
     yMin: 0,
-};
+}
 
 export const init = (config: IConfig) => {
-    glob.size = config.size;
-    glob.xMin = config.xMin;
-    glob.xMax = config.xMax;
-    glob.yMin = config.yMin;
-    glob.yMax = config.yMax;
+    glob.size = config.size
+    glob.xMin = config.xMin
+    glob.xMax = config.xMax
+    glob.yMin = config.yMin
+    glob.yMax = config.yMax
 
-    glob.pixelRatio = config.pixelRatio || window.devicePixelRatio || 1;
+    glob.pixelRatio = config.pixelRatio || window.devicePixelRatio || 1
 
-    glob.xDiff = glob.xMax - glob.xMin;
-    glob.yDiff = glob.yMax - glob.yMin;
+    glob.xDiff = glob.xMax - glob.xMin
+    glob.yDiff = glob.yMax - glob.yMin
 
-    glob.paperWidth = glob.pixelRatio * glob.size;
-    glob.paperHeight = glob.pixelRatio * glob.size;
+    glob.paperWidth = glob.pixelRatio * glob.size
+    glob.paperHeight = glob.pixelRatio * glob.size
     if (glob.xDiff > glob.yDiff) {
-        glob.paperHeight = glob.pixelRatio * glob.yDiff / glob.xDiff * glob.size;
+        glob.paperHeight = glob.pixelRatio * glob.yDiff / glob.xDiff * glob.size
     } else {
-        glob.paperWidth = glob.pixelRatio * glob.xDiff / glob.yDiff * glob.size;
+        glob.paperWidth = glob.pixelRatio * glob.xDiff / glob.yDiff * glob.size
     }
 
-    glob.tarpFactorX = glob.xDiff / glob.paperWidth;
-    glob.tarpFactorY = glob.yDiff / glob.paperHeight;
-    glob.paperScale = getPaperScale();
-    glob.paperShiftX = -glob.xMin * glob.paperWidth / glob.xDiff;
-    glob.paperShiftY = glob.yMax * glob.paperHeight / glob.yDiff;
-};
+    glob.tarpFactorX = glob.xDiff / glob.paperWidth
+    glob.tarpFactorY = glob.yDiff / glob.paperHeight
+    glob.paperScale = getPaperScale()
+    glob.paperShiftX = -glob.xMin * glob.paperWidth / glob.xDiff
+    glob.paperShiftY = glob.yMax * glob.paperHeight / glob.yDiff
+}
 
-export default glob;
+export default glob

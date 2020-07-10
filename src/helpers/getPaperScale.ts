@@ -1,3 +1,3 @@
-import { glob } from "../utils";
+import { glob } from "../utils"
 
-export default (l = 1) => l * glob.paperWidth / glob.xDiff;
+export default (l = 1) => l * glob.paperWidth / glob.xDiff
