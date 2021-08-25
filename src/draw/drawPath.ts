@@ -6,7 +6,7 @@ import { addSvgElement, glob, initCanvasStyle } from "../utils"
 export default (pathList: number[][], props = {
     closed: false,
     stroke: Color.BlueGreyDarken4,
-} as any as IDrawProps) => {
+} as unknown as IDrawProps) => {
     const closed = props.fill || props.closed
 
     if (glob.svgPaper !== undefined) {

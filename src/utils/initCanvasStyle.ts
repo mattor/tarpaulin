@@ -2,17 +2,7 @@ import { Color } from "../const"
 import IDrawProps from "../types/IDrawProps"
 import { glob } from "../utils"
 
-interface ISvgToCanvas {
-    [key: string]: any;
-}
-
-const SvgToCanvas: ISvgToCanvas = {
-    fill: "fillStyle",
-    stroke: "strokeStyle",
-    strokeWidth: "lineWidth",
-}
-
-export default (props = {} as any as IDrawProps) => {
+export default (props = {} as unknown as IDrawProps) => {
     if (!glob.canvasPaper) {
         throw new Error("You have to createCanvas() first")
     }

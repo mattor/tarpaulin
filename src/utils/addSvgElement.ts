@@ -5,7 +5,7 @@ export interface ISvgProps {
     [key: string]: any;
 }
 
-export default (tag: string, props = {} as any as ISvgProps) => {
+export default (tag: string, props = {} as unknown as ISvgProps) => {
     const el = document.createElementNS("http://www.w3.org/2000/svg", tag)
 
     for (const prop in props) {
