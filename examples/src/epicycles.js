@@ -2,31 +2,61 @@ import Tarpaulin, { Color, Const, getMinMax, ComplexNumber } from "tarpaulin"
 import peaceHandData from "../data/peace-hand.json"
 //import titleData from "../data/title.json"
 
-function discreteFourierTransform(x) {
-    const X = []
-    const N = x.length
+const CLOSE_TO_ZERO_THRESHOLD = 1e-10;
 
-    for (let k = 0; k < N; k++) {
-        let sum = new ComplexNumber()
+function discreteFourierTransform(inputAmplitudes, zeroThreshold = CLOSE_TO_ZERO_THRESHOLD) {
+    const N = inputAmplitudes.length;
+    const signals = [];
 
-        for (let n = 0; n < N; n++) {
-            const phi = (Const.RADIANS_360_DEGREES * k * n) / N
-            const c = new ComplexNumber({ re: Math.cos(phi), im: -Math.sin(phi) })
-            sum = sum.add(x[n].multiply(c))
+    // Go through every discrete frequency.
+    for (let frequency = 0; frequency < N; frequency += 1) {
+        // Compound signal at current frequency that will ultimately
+        // take part in forming input amplitudes.
+        let frequencySignal = new ComplexNumber();
+
+        // Go through every discrete point in time.
+        for (let timer = 0; timer < N; timer += 1) {
+            const currentAmplitude = inputAmplitudes[timer];
+
+            //console.log(currentAmplitude)
+
+            // Calculate rotation angle.
+            const rotationAngle = -1 * (2 * Math.PI) * frequency * (timer / N);
+
+            // Remember that e^ix = cos(x) + i * sin(x);
+            const dataPointContribution = new ComplexNumber({
+                re: Math.cos(rotationAngle),
+                im: Math.sin(rotationAngle),
+            }).multiply(currentAmplitude);
+
+            // Add this data point's contribution.
+            frequencySignal = frequencySignal.add(dataPointContribution);
         }
 
-        sum.re = sum.re / N
-        sum.im = sum.im / N
+        // Close to zero? You're zero.
+        if (Math.abs(frequencySignal.re) < zeroThreshold) {
+            console.log("zero1")
+            frequencySignal.re = 0;
+        }
 
-        const freq = k
-        const amp = Math.sqrt(sum.re * sum.re + sum.im * sum.im)
-        const phase = Math.atan2(sum.im, sum.re)
+        if (Math.abs(frequencySignal.im) < zeroThreshold) {
+            console.log("zero2")
+            frequencySignal.im = 0;
+        }
 
-        X[k] = { re: sum.re, im: sum.im, freq, amp, phase }
+        // Average contribution at this frequency.
+        // The 1/N factor is usually moved to the reverse transform (going from frequencies
+        // back to time). This is allowed, though it would be nice to have 1/N in the forward
+        // transform since it gives the actual sizes for the time spikes.
+        frequencySignal = frequencySignal.divide(N);
+
+        // Add current frequency signal to the list of compound signals.
+        signals[frequency] = frequencySignal;
     }
 
-    return X
+    return signals;
 }
+
 
 const transformData = data => {
     // Set appearance
@@ -54,7 +84,15 @@ const transformData = data => {
 
     // Generate fourierX
     const x = data.map(i => new ComplexNumber({ re: i[0], im: -i[1] }))
-    const fourierX = discreteFourierTransform(x)
+    const signals = discreteFourierTransform(x)
+    const fourierX = signals.map((signal, freq) => ({
+        ...signal,
+        freq,
+        amp: Math.sqrt(signal.re * signal.re + signal.im * signal.im),
+        phase: Math.atan2(signal.im, signal.re),
+
+    }))
+
     fourierX.sort((a, b) => b.amp - a.amp)
 
     return fourierX
@@ -90,7 +128,7 @@ Tarpaulin.animate(() => {
 
     Tarpaulin.drawPath(pathList, { stroke: Color.GreyLighten2 })
 
-    time += Const.RADIANS_360_DEGREES / fourierX.length
+    time += Const.RADIANS_360_DEGREES / fourierX.length / 1
 
     if (time > Const.RADIANS_360_DEGREES) {
         time = 0
