@@ -1,3 +1,3 @@
-import { glob } from "../utils";
+import { glob } from "../utils"
 
-export default (x: number) => x * glob.paperScale + glob.paperShiftX;
+export default (x: number) => x * glob.paperScale + glob.paperShiftX

@@ -1,6 +1,6 @@
 {
     "name": "tarpaulin",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "author": "Torbjørn Mathisen <herrmathisen@gmail.com>",
     "license": "MIT",
     "description": "A minimal toolset aimed at mathematical drawing on canvas or svg",
@@ -29,15 +29,23 @@
     "scripts": {
         "build": "tsc",
         "clean": "rimraf lib; rimraf dist",
-        "lint": "tslint --project . --fix",
+        "lint": "eslint . --report-unused-disable-directives --fix",
         "prepare": "npm run clean && npm run lint && npm run test && npm run build",
         "test": "echo \"No tests implemented yet\" && exit 0"
     },
     "devDependencies": {
-        "@types/node": "^12.0.0",
-        "cross-env": "^5.2.0",
-        "rimraf": "^2.6.3",
-        "tslint": "^5.16.0",
-        "typescript": "^3.4.5"
+        "@types/node": "^16.7.1",
+        "@typescript-eslint/eslint-plugin": "^4.29.3",
+        "@typescript-eslint/parser": "^4.29.3",
+        "babel-eslint": "^10.1.0",
+        "cross-env": "^7.0.3",
+        "eslint": "^7.32.0",
+        "eslint-config-mattor": "^1.2.0",
+        "eslint-plugin-import": "^2.24.2",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-react": "^7.24.0",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "rimraf": "^3.0.2",
+        "typescript": "^4.3.5"
     }
 }

@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import Tarpaulin, { Color, Const, getMinMax, ComplexNumber } from "tarpaulin"
 import peaceHandData from "../data/peace-hand.json"
 //import titleData from "../data/title.json"
@@ -108,7 +109,7 @@ function drawEpicyclesAndGetPoint(x, y, rotation, fourier, time) {
         x += radius * Math.cos(freq * time + phase + rotation)
         y += radius * Math.sin(freq * time + phase + rotation)
 
-        Tarpaulin.drawCircle([prevx, prevy], radius, { stroke: `rgba(33, 150, 243, 0.5)` })
+        Tarpaulin.drawCircle([prevx, prevy], radius, { stroke: "rgba(33, 150, 243, 0.5)" })
         Tarpaulin.drawLine([prevx, prevy], [x, y], { stroke: Color.Blue })
     }
 

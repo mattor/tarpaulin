@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import Tarpaulin from "tarpaulin"
 
 const hilbert = (width, spacing, pathList = []) => (x, y, lg, i1, i2, f) => {

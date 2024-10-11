@@ -1,4 +1,4 @@
-import { clear, createAndAddSvg, glob, initGlob } from "./";
+import { clear, createAndAddSvg, glob, initGlob } from "./"
 
 export default ({
     size = 600,
@@ -9,19 +9,19 @@ export default ({
     pixelRatio = 1,
 } = {}) => {
     if (glob.canvasPaper || glob.svgPaper) {
-        throw new Error("Only one tarp allowed per page");
+        throw new Error("Only one tarp allowed per page")
     }
 
-    initGlob({ size, xMin, xMax, yMin, yMax, pixelRatio });
+    initGlob({ size, xMin, xMax, yMin, yMax, pixelRatio })
 
-    createAndAddSvg();
+    createAndAddSvg()
 
-    clear();
+    clear()
 
     // Return generated
     return {
         paper: glob.svgPaper,
         paperHeight: glob.paperHeight,
         paperWidth: glob.paperWidth,
-    };
-};
+    }
+}

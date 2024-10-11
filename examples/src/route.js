@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import Tarpaulin, { getMinMax } from "tarpaulin"
 import geoJson from "../data/havnepromenaden.json"
 

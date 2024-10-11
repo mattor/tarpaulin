@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import Tarpaulin, { Point3D, Color } from "tarpaulin"
 
 // Set appearance

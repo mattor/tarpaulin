@@ -1,8 +1,8 @@
-import { getPaperScale, getPaperX, getPaperY } from "../helpers";
-import IDrawProps from "../types/IDrawProps";
-import { addSvgElement, glob, initCanvasStyle } from "../utils";
+import { getPaperScale, getPaperX, getPaperY } from "../helpers"
+import IDrawProps from "../types/IDrawProps"
+import { addSvgElement, glob, initCanvasStyle } from "../utils"
 
-export default ([x, y]: number[], width: number, height: number, props = {} as any as IDrawProps) => {
+export default ([x, y]: number[], width: number, height: number, props = {} as unknown as IDrawProps) => {
     if (glob.svgPaper !== undefined) {
         addSvgElement("rect", {
             fill: props.fill,
@@ -11,22 +11,22 @@ export default ([x, y]: number[], width: number, height: number, props = {} as a
             width: getPaperScale(width),
             x: getPaperX(x),
             y: getPaperY(y),
-        });
+        })
 
-        return;
+        return
     }
 
     if (glob.canvasPaper === undefined) {
-        return;
+        return
     }
 
-    initCanvasStyle(props);
+    initCanvasStyle(props)
 
     if (props.fill) {
-        glob.canvasPaper.fillRect(getPaperX(x), getPaperY(y), getPaperScale(width), getPaperScale(height));
+        glob.canvasPaper.fillRect(getPaperX(x), getPaperY(y), getPaperScale(width), getPaperScale(height))
     }
 
     if (!props.fill || props.stroke) {
-        glob.canvasPaper.strokeRect(getPaperX(x), getPaperY(y), getPaperScale(width), getPaperScale(height));
+        glob.canvasPaper.strokeRect(getPaperX(x), getPaperY(y), getPaperScale(width), getPaperScale(height))
     }
-};
+}
