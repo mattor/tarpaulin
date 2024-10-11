@@ -23,5 +23,5 @@ Tarpaulin.drawPath([[-25, -10], [-42.32, -40], [-7.68, -40]], { fill: Color.Yell
 // Draw filled-only/stroked-only shapes
 Tarpaulin.drawCircle([15, -15], 5, { fill: Color.Green })
 Tarpaulin.drawRect([30, -10], 10, 10)
-Tarpaulin.drawPath([[15, -30], [9.226, -40], [20.773, -40]], { stroke: Color.Black, closed: true })
+Tarpaulin.drawNGon([15, -35], 5, 6.2, { stroke: Color.Black, closed: true })
 Tarpaulin.drawPath([[30, -30], [40, -30], [35, -30], [35, -40]], { stroke: Color.Black, strokeWidth: 5 })

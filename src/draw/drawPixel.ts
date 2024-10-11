@@ -1,7 +1,7 @@
 import IDrawProps from "../types/IDrawProps"
 import { glob, initCanvasStyle } from "../utils"
 
-export default ([x, y]: number[], props = {} as unknown as IDrawProps) => {
+export const drawPixel = ([x, y]: number[], props = {} as unknown as IDrawProps) => {
     if (glob.svgPaper !== undefined) {
         throw new Error("drawPixel() is not supported on SVGs")
     }

@@ -3,7 +3,7 @@ import { getPaperX, getPaperY } from "../helpers"
 import IDrawProps from "../types/IDrawProps"
 import { addSvgElement, glob, initCanvasStyle } from "../utils"
 
-export default (pathList: number[][], props = {
+export const drawPath = (pathList: number[][], props = {
     closed: false,
     stroke: Color.BlueGreyDarken4,
 } as unknown as IDrawProps) => {

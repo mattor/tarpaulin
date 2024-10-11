@@ -4,7 +4,7 @@ import { glob } from "../utils"
 
 import { drawLine } from "./"
 
-export default (props: IDrawProps) => {
+export const drawGrid = (props: IDrawProps) => {
     let x = Math.floor(glob.xMin)
     let y = Math.floor(glob.yMin)
 
