@@ -1,7 +1,6 @@
 {
     "name": "tarpaulin-examples",
     "description": "A minimal toolset aimed at mathematical drawing on canvas or svg",
-    "main": "./webpack.config.js",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/mattor/tarpaulin.git"
@@ -9,29 +8,25 @@
     "author": "Torbjørn Mathisen <herrmathisen@gmail.com>",
     "license": "MIT",
     "scripts": {
-        "start": "webpack serve --mode development --open",
-        "start:axes": "webpack serve --mode development --open --example=axes",
-        "start:cube": "webpack serve --mode development --open --example=cube",
-        "start:epicycles": "webpack serve --mode development --open --example=epicycles",
-        "start:euler-spiral": "webpack serve --mode development --open --example=euler-spiral",
-        "start:flower": "webpack serve --mode development --open --example=flower",
-        "start:graphs": "webpack serve --mode development --open --example=graphs",
-        "start:hexaflake": "webpack serve --mode development --open --example=hexaflake",
-        "start:hilbert": "webpack serve --mode development --open --example=hilbert",
-        "start:julia": "webpack serve --mode development --open --example=julia",
-        "start:mandelbrot": "webpack serve --mode development --open --example=mandelbrot",
-        "start:primaries-canvas": "webpack serve --mode development --open --example=primaries-canvas",
-        "start:primaries-svg": "webpack serve --mode development --open --example=primaries-svg",
-        "start:pythagoras-tree": "webpack serve --mode development --open --example=pythagoras-tree",
-        "start:route": "webpack serve --mode development --open --example=route",
-        "start:sierpinski-arrowhead-curve": "webpack serve --mode development --open --example=sierpinski-arrowhead-curve",
-        "start:superellipse": "webpack serve --mode development --open --example=superellipse"
+        "start": "vite",
+        "start:axes": "example=axes vite",
+        "start:cube": "example=cube vite",
+        "start:epicycles": "example=epicycles vite",
+        "start:euler-spiral": "example=euler-spiral vite",
+        "start:flower": "example=flower vite",
+        "start:graphs": "example=graphs vite",
+        "start:hexaflake": "example=hexaflake vite",
+        "start:hilbert": "example=hilbert vite",
+        "start:julia": "example=julia vite",
+        "start:mandelbrot": "example=mandelbrot vite",
+        "start:primaries-canvas": "example=primaries-canvas vite",
+        "start:primaries-svg": "example=primaries-svg vite",
+        "start:pythagoras-tree": "example=pythagoras-tree vite",
+        "start:route": "example=route vite",
+        "start:sierpinski-arrowhead-curve": "example=sierpinski-arrowhead-curve vite",
+        "start:superellipse": "example=superellips vitee"
     },
     "devDependencies": {
-        "awesome-typescript-loader": "^5.2.1",
-        "html-webpack-plugin": "^5.3.2",
-        "webpack": "^5.51.1",
-        "webpack-cli": "^4.8.0",
-        "webpack-dev-server": "^4.0.0"
+        "vite": "^5.4.8"
     }
 }
