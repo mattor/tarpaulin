@@ -1,5 +1,5 @@
+import type IDrawProps from "../types/IDrawProps"
 import { Color } from "../const"
-import IDrawProps from "../types/IDrawProps"
 import { glob } from "../utils"
 
 export default (props = {} as unknown as IDrawProps) => {

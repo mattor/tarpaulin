@@ -1,8 +1,8 @@
+import type IDrawProps from "../types/IDrawProps"
 import { getPaperScale, getPaperX, getPaperY } from "../helpers"
-import IDrawProps from "../types/IDrawProps"
 import { addSvgElement, glob, initCanvasStyle } from "../utils"
 
-export const drawRect = ([x, y]: number[], width: number, height: number, props = {} as unknown as IDrawProps) => {
+export function drawRect([x, y]: number[], width: number, height: number, props = {} as unknown as IDrawProps) {
     if (glob.svgPaper !== undefined) {
         addSvgElement("rect", {
             fill: props.fill,

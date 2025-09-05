@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import Tarpaulin, { Const, Color, getNextPoint } from "tarpaulin"
+import Tarpaulin, { Color, Const, getNextPoint } from "tarpaulin"
 
 // Set appearance
 const size = 600
@@ -15,7 +15,7 @@ Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 Tarpaulin.drawCircle([0, 0], 1, { fill: Color.Black, stroke: Color.GreyLighten2 })
 
-const drawLeafs = sections => {
+function drawLeafs(sections) {
     const angleStep = Const.RADIANS_360_DEGREES / sections
     const colorStep = 255 / sections * 2
 

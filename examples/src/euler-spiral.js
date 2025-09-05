@@ -16,7 +16,7 @@ Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
 // Start drawing
 
 function drawEulerSpiral(T, N) {
-    let dx, dy, t = 0, prev = { x: 0, y: 0 }, current
+    let dx; let dy; let t = 0; let prev = { x: 0, y: 0 }; let current
     const dt = T / N
     const pathList = []
 

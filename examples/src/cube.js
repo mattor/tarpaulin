@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import Tarpaulin, { Point3D, Color } from "tarpaulin"
+import Tarpaulin, { Color, Point3D } from "tarpaulin"
 
 // Set appearance
 const size = 300
@@ -44,7 +44,7 @@ const colors = [
 let angle = 0
 
 Tarpaulin.animate(() => {
-    const projectedVerticies = vertices.map(vertex => {
+    const projectedVerticies = vertices.map((vertex) => {
         const rotatedVertex = vertex
             .rotateX(angle)
             .rotateY(angle)
@@ -67,7 +67,7 @@ Tarpaulin.animate(() => {
 
     Tarpaulin.clear({ fill: Color.Black })
 
-    sortedFaces.forEach(sortedFace => {
+    sortedFaces.forEach((sortedFace) => {
         const face = faces[sortedFace.index]
 
         Tarpaulin.drawPath([

@@ -1,12 +1,12 @@
 {
     "name": "tarpaulin-examples",
     "description": "A minimal toolset aimed at mathematical drawing on canvas or svg",
+    "author": "Torbjørn Mathisen <herrmathisen@gmail.com>",
+    "license": "MIT",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/mattor/tarpaulin.git"
     },
-    "author": "Torbjørn Mathisen <herrmathisen@gmail.com>",
-    "license": "MIT",
     "scripts": {
         "start": "vite",
         "start:axes": "example=axes vite",

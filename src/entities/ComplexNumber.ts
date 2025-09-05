@@ -1,8 +1,8 @@
 import { convertRadToDeg } from "../helpers"
 
 export default class ComplexNumber {
-    public re: number;
-    public im: number;
+    public re: number
+    public im: number
 
     /**
      * z = re + im * i
@@ -81,19 +81,26 @@ export default class ComplexNumber {
 
         if (this.re < 0 && this.im > 0) {
             phase = Math.PI - phase
-        } else if (this.re < 0 && this.im < 0) {
+        }
+        else if (this.re < 0 && this.im < 0) {
             phase = -(Math.PI - phase)
-        } else if (this.re > 0 && this.im < 0) {
+        }
+        else if (this.re > 0 && this.im < 0) {
             phase = -phase
-        } else if (this.re === 0 && this.im > 0) {
+        }
+        else if (this.re === 0 && this.im > 0) {
             phase = Math.PI / 2
-        } else if (this.re === 0 && this.im < 0) {
+        }
+        else if (this.re === 0 && this.im < 0) {
             phase = -Math.PI / 2
-        } else if (this.re < 0 && this.im === 0) {
+        }
+        else if (this.re < 0 && this.im === 0) {
             phase = Math.PI
-        } else if (this.re > 0 && this.im === 0) {
+        }
+        else if (this.re > 0 && this.im === 0) {
             phase = 0
-        } else if (this.re === 0 && this.im === 0) {
+        }
+        else if (this.re === 0 && this.im === 0) {
             // More correctly would be to set 'indeterminate'.
             // But just for simplicity reasons let's set zero.
             phase = 0

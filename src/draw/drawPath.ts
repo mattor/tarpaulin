@@ -1,12 +1,12 @@
+import type IDrawProps from "../types/IDrawProps"
 import { Color } from "../const"
 import { getPaperX, getPaperY } from "../helpers"
-import IDrawProps from "../types/IDrawProps"
 import { addSvgElement, glob, initCanvasStyle } from "../utils"
 
-export const drawPath = (pathList: number[][], props = {
+export function drawPath(pathList: number[][], props = {
     closed: false,
     stroke: Color.BlueGreyDarken4,
-} as unknown as IDrawProps) => {
+} as unknown as IDrawProps) {
     const closed = props.fill || props.closed
 
     if (glob.svgPaper !== undefined) {

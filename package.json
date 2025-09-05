@@ -1,9 +1,18 @@
 {
     "name": "tarpaulin",
     "version": "1.2.2",
+    "packageManager": "pnpm@10.15.1",
+    "description": "A minimal toolset aimed at mathematical drawing on canvas or svg",
     "author": "Torbjørn Mathisen <herrmathisen@gmail.com>",
     "license": "MIT",
-    "description": "A minimal toolset aimed at mathematical drawing on canvas or svg",
+    "homepage": "https://github.com/mattor/tarpaulin#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mattor/tarpaulin.git"
+    },
+    "bugs": {
+        "url": "https://github.com/mattor/tarpaulin/issues"
+    },
     "keywords": [
         "browser",
         "canvas",
@@ -13,39 +22,25 @@
         "maths",
         "svg"
     ],
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/mattor/tarpaulin.git"
-    },
-    "bugs": {
-        "url": "https://github.com/mattor/tarpaulin/issues"
-    },
-    "homepage": "https://github.com/mattor/tarpaulin#readme",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
     "files": [
         "/lib"
     ],
-    "main": "lib/index.js",
-    "types": "lib/index.d.ts",
     "scripts": {
         "build": "tsc",
         "clean": "rimraf lib; rimraf dist",
-        "lint": "eslint . --report-unused-disable-directives --fix",
+        "lint": "eslint --fix",
         "prepare": "npm run clean && npm run lint && npm run test && npm run build",
         "test": "echo \"No tests implemented yet\" && exit 0"
     },
     "devDependencies": {
-        "@types/node": "^16.7.1",
-        "@typescript-eslint/eslint-plugin": "^4.29.3",
-        "@typescript-eslint/parser": "^4.29.3",
-        "babel-eslint": "^10.1.0",
-        "cross-env": "^7.0.3",
-        "eslint": "^7.32.0",
-        "eslint-config-mattor": "^1.2.0",
-        "eslint-plugin-import": "^2.24.2",
-        "eslint-plugin-jsx-a11y": "^6.4.1",
-        "eslint-plugin-react": "^7.24.0",
-        "eslint-plugin-react-hooks": "^4.2.0",
-        "rimraf": "^3.0.2",
-        "typescript": "^4.3.5"
+        "@antfu/eslint-config": "^5.2.2",
+        "@types/node": "^24.3.1",
+        "cross-env": "^10.0.0",
+        "eslint": "^9.34.0",
+        "eslint-plugin-format": "^1.0.1",
+        "rimraf": "^6.0.1",
+        "typescript": "^5.9.2"
     }
 }

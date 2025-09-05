@@ -1,8 +1,8 @@
+import type IDrawProps from "../types/IDrawProps"
 import { getPaperX, getPaperY } from "../helpers"
-import IDrawProps from "../types/IDrawProps"
 import { addSvgElement, glob, initCanvasStyle } from "../utils"
 
-export const drawLine = ([x1, y1]: number[], [x2, y2]: number[], props = {} as unknown as IDrawProps) => {
+export function drawLine([x1, y1]: number[], [x2, y2]: number[], props = {} as unknown as IDrawProps) {
     if (glob.svgPaper !== undefined) {
         addSvgElement("line", {
             stroke: props.stroke,

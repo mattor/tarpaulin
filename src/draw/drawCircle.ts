@@ -1,9 +1,9 @@
+import type IDrawProps from "../types/IDrawProps"
 import { Const } from "../const"
 import { getPaperScale, getPaperX, getPaperY } from "../helpers"
-import IDrawProps from "../types/IDrawProps"
 import { addSvgElement, glob, initCanvasStyle } from "../utils"
 
-export const drawCircle = ([x, y]: number[], radius: number, props = {} as unknown as IDrawProps) => {
+export function drawCircle([x, y]: number[], radius: number, props = {} as unknown as IDrawProps) {
     if (glob.svgPaper !== undefined) {
         addSvgElement("circle", {
             cx: getPaperX(x),

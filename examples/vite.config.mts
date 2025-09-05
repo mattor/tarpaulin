@@ -1,6 +1,6 @@
-import { resolve } from 'path'
-import fs from 'fs'
-import { defineConfig } from 'vite'
+import fs from "node:fs"
+import { resolve } from "node:path"
+import { defineConfig } from "vite"
 
 export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
     const example = process.env.example || "hilbert"
@@ -15,9 +15,9 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
     return {
         resolve: {
             alias: {
-                "tarpaulin": resolve(__dirname, "../src/index.js"),
-                "example": resolve(__dirname, examplePath),
+                tarpaulin: resolve(__dirname, "../src/index.js"),
+                example: resolve(__dirname, examplePath),
             },
-        }
+        },
     }
 })

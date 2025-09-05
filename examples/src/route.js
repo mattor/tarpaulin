@@ -4,7 +4,8 @@ import geoJson from "../data/havnepromenaden.json"
 
 const pathList = geoJson.features
     .find(f => f.geometry.type === "LineString")
-    .geometry.coordinates
+    .geometry
+    .coordinates
 
 // Set appearance
 const size = 600

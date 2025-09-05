@@ -15,7 +15,7 @@ Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 let depthLimit = 0
 
-const drawBranch = (x1, y1, x2, y2, depth) => {
+function drawBranch(x1, y1, x2, y2, depth) {
     if (depth >= depthLimit) {
         return
     }

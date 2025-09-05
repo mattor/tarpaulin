@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import Tarpaulin, { Const, Color, getNextPoint } from "tarpaulin"
+import Tarpaulin, { Color, Const, getNextPoint } from "tarpaulin"
 
 // Set appearance
 const size = 600
@@ -13,7 +13,7 @@ Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
 
-const drawFlake = ([x, y], r) => {
+function drawFlake([x, y], r) {
     if (r < 5) {
         // Draw
         const pathList = []
@@ -22,7 +22,8 @@ const drawFlake = ([x, y], r) => {
             pathList.push(getNextPoint([x, y], angle, r))
         }
         Tarpaulin.drawPath(pathList, { fill: Color.Cyan })
-    } else {
+    }
+    else {
         // Recurse
         drawFlake([x, y], r / 3)
         for (let i = 0; i < 6; i++) {

@@ -60,16 +60,15 @@ const Tarpaulin = {
 export default Tarpaulin
 
 export {
-    // const
-    Color,
-    Const,
-    // entities
-    ComplexNumber,
-    Point3D,
     // utils
     animate,
     animatePath,
     clear,
+    // const
+    Color,
+    // entities
+    ComplexNumber,
+    Const,
     createCanvas,
     createSvg,
     // draw
@@ -85,4 +84,5 @@ export {
     getMinMax,
     getNextPoint,
     getXYCoords,
+    Point3D,
 }

@@ -1,22 +1,24 @@
 // eslint-disable-next-line import/no-unresolved
 import Tarpaulin from "tarpaulin"
 
-const hilbert = (width, spacing, pathList = []) => (x, y, lg, i1, i2, f) => {
-    if (lg === 1) {
-        const px = (width - x) * spacing
-        const py = (width - y) * spacing
-        pathList.push([px, py])
-        return
+function hilbert(width, spacing, pathList = []) {
+    return (x, y, lg, i1, i2, f) => {
+        if (lg === 1) {
+            const px = (width - x) * spacing
+            const py = (width - y) * spacing
+            pathList.push([px, py])
+            return
+        }
+        lg >>= 1
+        f(x + i1 * lg, y + i1 * lg, lg, i1, 1 - i2, f)
+        f(x + i2 * lg, y + (1 - i2) * lg, lg, i1, i2, f)
+        f(x + (1 - i1) * lg, y + (1 - i1) * lg, lg, i1, i2, f)
+        f(x + (1 - i2) * lg, y + i2 * lg, lg, 1 - i1, i2, f)
+        return pathList
     }
-    lg >>= 1
-    f(x + i1 * lg, y + i1 * lg, lg, i1, 1 - i2, f)
-    f(x + i2 * lg, y + (1 - i2) * lg, lg, i1, i2, f)
-    f(x + (1 - i1) * lg, y + (1 - i1) * lg, lg, i1, i2, f)
-    f(x + (1 - i2) * lg, y + i2 * lg, lg, 1 - i1, i2, f)
-    return pathList
 }
 
-const drawHilbert = order => {
+function drawHilbert(order) {
     // Curve Constants
     const width = 2 ** order
     const space = 10

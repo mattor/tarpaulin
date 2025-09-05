@@ -2,7 +2,7 @@ import { Color } from "../const"
 import { glob } from "../utils"
 
 export interface ISvgProps {
-    [key: string]: any;
+    [key: string]: any
 }
 
 export default (tag: string, props = {} as unknown as ISvgProps) => {

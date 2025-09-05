@@ -1,10 +1,10 @@
+import type IDrawProps from "../types/IDrawProps"
 import { Color } from "../const"
-import IDrawProps from "../types/IDrawProps"
 import { glob } from "../utils"
 
 import { drawLine } from "./"
 
-export const drawGrid = (props: IDrawProps) => {
+export function drawGrid(props: IDrawProps) {
     let x = Math.floor(glob.xMin)
     let y = Math.floor(glob.yMin)
 

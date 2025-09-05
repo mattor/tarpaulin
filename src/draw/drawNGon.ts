@@ -1,5 +1,5 @@
+import type IDrawProps from "../types/IDrawProps"
 import { Color } from "../const"
-import IDrawProps from "../types/IDrawProps"
 import { drawPath } from "./drawPath"
 
 /*
@@ -9,13 +9,13 @@ import { drawPath } from "./drawPath"
 %   yc   -- y-coordinate of the center (real scalar)
 */
 
-export const drawNGon = ([x, y]: number[], n: number, r: number, props = {
+export function drawNGon([x, y]: number[], n: number, r: number, props = {
     closed: false,
     stroke: Color.BlueGreyDarken4,
-} as unknown as IDrawProps) => {
+} as unknown as IDrawProps) {
     const closed = props.fill || props.closed
 
-    let pathList: number[][] = []
+    const pathList: number[][] = []
 
     for (let i = 0; i < n; i++) {
         const angle = (2 * Math.PI * i / n) + (Math.PI / 2)

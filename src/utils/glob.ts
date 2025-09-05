@@ -1,37 +1,37 @@
 import { getPaperScale } from "../helpers"
 
 export interface ICanvasPaper {
-    [index: string]: number;
+    [index: string]: number
 }
 
 interface IGlob {
-    canvasPaper?: CanvasRenderingContext2D;
-    paperHeight: number;
-    paperScale: number;
-    paperShiftX: number;
-    paperShiftY: number;
-    paperWidth: number;
-    pixelRatio: number;
-    size: number;
-    svgPaper?: SVGElement;
-    tarp?: any;
-    tarpFactorX: number;
-    tarpFactorY: number;
-    xDiff: number;
-    xMax: number;
-    xMin: number;
-    yDiff: number;
-    yMax: number;
-    yMin: number;
+    canvasPaper?: CanvasRenderingContext2D
+    paperHeight: number
+    paperScale: number
+    paperShiftX: number
+    paperShiftY: number
+    paperWidth: number
+    pixelRatio: number
+    size: number
+    svgPaper?: SVGElement
+    tarp?: any
+    tarpFactorX: number
+    tarpFactorY: number
+    xDiff: number
+    xMax: number
+    xMin: number
+    yDiff: number
+    yMax: number
+    yMin: number
 }
 
 interface IConfig {
-    pixelRatio?: number;
-    size: number;
-    xMax: number;
-    xMin: number;
-    yMax: number;
-    yMin: number;
+    pixelRatio?: number
+    size: number
+    xMax: number
+    xMin: number
+    yMax: number
+    yMin: number
 }
 
 const glob: IGlob = {
@@ -52,7 +52,7 @@ const glob: IGlob = {
     yMin: 0,
 }
 
-export const init = (config: IConfig) => {
+export function init(config: IConfig) {
     glob.size = config.size
     glob.xMin = config.xMin
     glob.xMax = config.xMax
@@ -68,7 +68,8 @@ export const init = (config: IConfig) => {
     glob.paperHeight = glob.pixelRatio * glob.size
     if (glob.xDiff > glob.yDiff) {
         glob.paperHeight = glob.pixelRatio * glob.yDiff / glob.xDiff * glob.size
-    } else {
+    }
+    else {
         glob.paperWidth = glob.pixelRatio * glob.xDiff / glob.yDiff * glob.size
     }
 

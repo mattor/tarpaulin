@@ -1,8 +1,8 @@
 export interface IMinMaxResult {
-    xMax?: number;
-    xMin?: number;
-    yMax?: number;
-    yMin?: number;
+    xMax?: number
+    xMin?: number
+    yMax?: number
+    yMin?: number
 }
 
 export default (pathList: number[][]) => pathList.reduce((p: IMinMaxResult, [x, y]) => {
@@ -12,4 +12,4 @@ export default (pathList: number[][]) => pathList.reduce((p: IMinMaxResult, [x, 
     p.yMax = (p.yMax === undefined || y > p.yMax) ? y : p.yMax
 
     return p
-},                                                       {})
+}, {})

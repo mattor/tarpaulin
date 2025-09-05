@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import Tarpaulin, { Const, Color, getNextPoint } from "tarpaulin"
+import Tarpaulin, { Color, Const, getNextPoint } from "tarpaulin"
 
 function arrowheadCurve(level, pathList, fromPoint, sideLength, angle, angleDelta, orientation) {
     let currentVector
@@ -48,7 +48,8 @@ function drawSierpinskiArrowheadCurve([x, y], sideLength, { level = 3, orientati
     // Orientation
     if (level % 2 === 0) {
         arrowheadCurve(level, pathList, startPoint, sideLength, 0, 1, orientation)
-    } else {
+    }
+    else {
         arrowheadCurve(level, pathList, startPoint, sideLength, -Const.RADIANS_60_DEGREES, 1, orientation)
     }
 

@@ -1,12 +1,12 @@
 import { clear, createAndAddCanvas, glob, initCanvasStyle, initGlob } from "./"
 
 export interface ICreateCanvasOptions {
-    size: number;
-    xMin: number;
-    xMax: number;
-    yMin: number;
-    yMax: number;
-    pixelRatio?: number;
+    size: number
+    xMin: number
+    xMax: number
+    yMin: number
+    yMax: number
+    pixelRatio?: number
 }
 
 export default ({

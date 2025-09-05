@@ -32,7 +32,7 @@ const yMax = 50
 Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 // Or create an SVG tarp
-//Tarpaulin.createSvg({ size, xMin, xMax, yMin, yMax })
+// Tarpaulin.createSvg({ size, xMin, xMax, yMin, yMax })
 
 // START DRAWING
 

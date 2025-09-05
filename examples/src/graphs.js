@@ -8,8 +8,8 @@ const xMax = 4
 const yMin = -2.5
 const yMax = 2.5
 
-const logFn = x => 1 / (1 + Math.pow(Math.E, -x))
-const expFn = x => Math.pow(2, x)
+const logFn = x => 1 / (1 + Math.E ** -x)
+const expFn = x => 2 ** x
 
 function drawGraph(fn, color) {
     const pathList = []
