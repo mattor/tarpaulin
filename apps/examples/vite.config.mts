@@ -4,7 +4,7 @@ import process from "node:process"
 import { defineConfig } from "vite"
 
 export default defineConfig(() => {
-    const example = process.env.example || "hilbert"
+    const example = process.env.example || "hypercube"
     const examplePath = `./src/${example}.js`
 
     if (!fs.existsSync(examplePath)) {
