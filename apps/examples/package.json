@@ -1,0 +1,36 @@
+{
+    "name": "tarpaulin-examples",
+    "type": "module",
+    "description": "A minimal toolset aimed at mathematical drawing on canvas or svg",
+    "author": "Torbjørn Mathisen <herrmathisen@gmail.com>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mattor/tarpaulin.git"
+    },
+    "scripts": {
+        "start": "vite",
+        "start:axes": "example=axes vite",
+        "start:cube": "example=cube vite",
+        "start:epicycles": "example=epicycles vite",
+        "start:euler-spiral": "example=euler-spiral vite",
+        "start:flower": "example=flower vite",
+        "start:graphs": "example=graphs vite",
+        "start:hexaflake": "example=hexaflake vite",
+        "start:hilbert": "example=hilbert vite",
+        "start:julia": "example=julia vite",
+        "start:mandelbrot": "example=mandelbrot vite",
+        "start:primaries-canvas": "example=primaries-canvas vite",
+        "start:primaries-svg": "example=primaries-svg vite",
+        "start:pythagoras-tree": "example=pythagoras-tree vite",
+        "start:route": "example=route vite",
+        "start:sierpinski-arrowhead-curve": "example=sierpinski-arrowhead-curve vite",
+        "start:superellipse": "example=superellips vitee"
+    },
+    "dependencies": {
+        "tarpaulin": "workspace:*"
+    },
+    "devDependencies": {
+        "vite": "^7.1.4"
+    }
+}

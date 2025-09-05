@@ -1,45 +1,25 @@
 {
-    "name": "tarpaulin",
-    "version": "1.2.2",
+    "name": "tarpaulin-monorepo",
+    "version": "1.0.0",
+    "private": true,
     "packageManager": "pnpm@10.15.1",
-    "description": "A minimal toolset aimed at mathematical drawing on canvas or svg",
-    "author": "Torbjørn Mathisen <herrmathisen@gmail.com>",
-    "license": "MIT",
-    "homepage": "https://github.com/mattor/tarpaulin#readme",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/mattor/tarpaulin.git"
-    },
-    "bugs": {
-        "url": "https://github.com/mattor/tarpaulin/issues"
-    },
-    "keywords": [
-        "browser",
-        "canvas",
-        "draw",
-        "graphics",
-        "javascript",
-        "maths",
-        "svg"
-    ],
-    "main": "lib/index.js",
-    "types": "lib/index.d.ts",
-    "files": [
-        "/lib"
-    ],
     "scripts": {
-        "build": "tsc",
-        "clean": "rimraf lib; rimraf dist",
-        "lint": "eslint --fix",
-        "prepare": "npm run clean && npm run lint && npm run test && npm run build",
-        "test": "echo \"No tests implemented yet\" && exit 0"
+        "preinstall": "npx only-allow pnpm",
+        "build": "pnpm --filter=tarpaulin run build",
+        "start": "pnpm --filter=tarpaulin-examples run start",
+        "test": "pnpm --filter=@tarpaulin/* run test",
+        "lint": "pnpm --filter=@tarpaulin/* run lint",
+        "clean": "rimraf 'packages/*/{dist,node_modules}' && rimraf node_modules",
+        "changeset": "changeset",
+        "version-packages": "changeset version",
+        "release": "pnpm build && pnpm changeset publish"
     },
     "devDependencies": {
         "@antfu/eslint-config": "^5.2.2",
-        "@types/node": "^24.3.1",
-        "cross-env": "^10.0.0",
+        "@changesets/cli": "^2.29.6",
         "eslint": "^9.34.0",
         "eslint-plugin-format": "^1.0.1",
+        "only-allow": "^1.2.1",
         "rimraf": "^6.0.1",
         "typescript": "^5.9.2"
     }

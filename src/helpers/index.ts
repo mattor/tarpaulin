@@ -1,8 +1,0 @@
-export { convertDegToRad } from "./convertDegToRad"
-export { convertRadToDeg } from "./convertRadToDeg"
-export { getMinMax } from "./getMinMax"
-export { getNextPoint } from "./getNextPoint"
-export { getPaperScale } from "./getPaperScale"
-export { getPaperX } from "./getPaperX"
-export { getPaperY } from "./getPaperY"
-export { getXYCoords } from "./getXYCoords"

@@ -1,8 +1,0 @@
-export { drawAxes } from "./drawAxes"
-export { drawCircle } from "./drawCircle"
-export { drawGrid } from "./drawGrid"
-export { drawLine } from "./drawLine"
-export { drawNGon } from "./drawNGon"
-export { drawPath } from "./drawPath"
-export { drawPixel } from "./drawPixel"
-export { drawRect } from "./drawRect"

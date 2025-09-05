@@ -19,7 +19,7 @@ $ yarn add tarpaulin
 ## Usage
 
 ```js
-import Tarpaulin, { Color } from "tarpaulin"
+import * as Tarpaulin from "tarpaulin"
 
 // Set appearance
 const size = 600
@@ -40,15 +40,15 @@ Tarpaulin.drawGrid()
 Tarpaulin.drawAxes()
 
 // Draw filled & stroked shapes
-Tarpaulin.drawCircle([-25, 25], 15, { fill: Color.Red, stroke: Color.Black })
-Tarpaulin.drawRect([10, 40], 30, 30, { fill: Color.Blue, stroke: Color.Black })
-Tarpaulin.drawPath([[-25, -10], [-42.32, -40], [-7.68, -40]], { fill: Color.Yellow, stroke: Color.Black })
+Tarpaulin.drawCircle([-25, 25], 15, { fill: Tarpaulin.Color.Red, stroke: Tarpaulin.Color.Black })
+Tarpaulin.drawRect([10, 40], 30, 30, { fill: Tarpaulin.Color.Blue, stroke: Tarpaulin.Color.Black })
+Tarpaulin.drawPath([[-25, -10], [-42.32, -40], [-7.68, -40]], { fill: Tarpaulin.Color.Yellow, stroke: Tarpaulin.Color.Black })
 
 // Draw filled-only/stroked-only shapes
-Tarpaulin.drawCircle([15, -15], 5, { fill: Color.Green })
+Tarpaulin.drawCircle([15, -15], 5, { fill: Tarpaulin.Color.Green })
 Tarpaulin.drawRect([30, -10], 10, 10)
-Tarpaulin.drawPath([[15, -30], [9.226, -40], [20.773, -40]], { stroke: Color.Black, closed: true })
-Tarpaulin.drawPath([[30, -30], [40, -30], [35, -30], [35, -40]], { stroke: Color.Black, strokeWidth: 5 })
+Tarpaulin.drawPath([[15, -30], [9.226, -40], [20.773, -40]], { stroke: Tarpaulin.Color.Black, closed: true })
+Tarpaulin.drawPath([[30, -30], [40, -30], [35, -30], [35, -40]], { stroke: Tarpaulin.Color.Black, strokeWidth: 5 })
 ```
 
 See more usage examples in [examples](examples/)
