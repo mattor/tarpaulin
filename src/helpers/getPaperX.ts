@@ -1,3 +1,3 @@
 import { glob } from "../utils"
 
-export default (x: number) => x * glob.paperScale + glob.paperShiftX
+export const getPaperX = (x: number) => x * glob.paperScale + glob.paperShiftX

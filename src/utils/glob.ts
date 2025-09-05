@@ -34,7 +34,7 @@ interface IConfig {
     yMin: number
 }
 
-const glob: IGlob = {
+export const glob: IGlob = {
     paperHeight: 0,
     paperScale: 0,
     paperShiftX: 0,
@@ -79,5 +79,3 @@ export function init(config: IConfig) {
     glob.paperShiftX = -glob.xMin * glob.paperWidth / glob.xDiff
     glob.paperShiftY = glob.yMax * glob.paperHeight / glob.yDiff
 }
-
-export default glob

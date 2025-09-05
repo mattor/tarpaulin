@@ -49,5 +49,3 @@ export class Point3D {
         return new Point3D(x, y, this.z)
     }
 }
-
-export default Point3D

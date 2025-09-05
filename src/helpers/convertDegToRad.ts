@@ -1,1 +1,1 @@
-export default (deg: number) => deg * Math.PI / 180
+export const convertDegToRad = (deg: number) => deg * Math.PI / 180

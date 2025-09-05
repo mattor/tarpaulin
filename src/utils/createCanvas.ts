@@ -9,14 +9,14 @@ export interface ICreateCanvasOptions {
     pixelRatio?: number
 }
 
-export default ({
+export function createCanvas({
     size = 600,
     xMin = -1,
     xMax = 1,
     yMin = -1,
     yMax = 1,
     pixelRatio,
-}: ICreateCanvasOptions) => {
+}: ICreateCanvasOptions) {
     if (glob.canvasPaper || glob.svgPaper) {
         throw new Error("Only one tarp allowed per page")
     }

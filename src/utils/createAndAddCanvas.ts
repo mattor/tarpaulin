@@ -1,6 +1,6 @@
 import { glob } from "./"
 
-export default () => {
+export function createAndAddCanvas() {
     const [width, height] = [
         Math.ceil(glob.paperWidth / glob.pixelRatio),
         Math.ceil(glob.paperHeight / glob.pixelRatio),

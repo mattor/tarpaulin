@@ -1,6 +1,6 @@
 import { convertRadToDeg } from "../helpers"
 
-export default class ComplexNumber {
+export class ComplexNumber {
     public re: number
     public im: number
 

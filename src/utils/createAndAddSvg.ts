@@ -1,6 +1,6 @@
 import { glob } from "./"
 
-export default () => {
+export function createAndAddSvg() {
     glob.tarp = document.createElementNS("http://www.w3.org/2000/svg", "svg")
     glob.tarp.setAttributeNS(null, "viewBox", `0 0 ${glob.paperWidth} ${glob.paperHeight}`)
     glob.tarp.setAttributeNS(null, "width", `${glob.paperWidth}`)

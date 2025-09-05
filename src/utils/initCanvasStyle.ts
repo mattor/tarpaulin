@@ -1,8 +1,8 @@
-import type IDrawProps from "../types/IDrawProps"
+import type { IDrawProps } from "../types/IDrawProps"
 import { Color } from "../const"
 import { glob } from "../utils"
 
-export default (props = {} as unknown as IDrawProps) => {
+export function initCanvasStyle(props = {} as unknown as IDrawProps) {
     if (!glob.canvasPaper) {
         throw new Error("You have to createCanvas() first")
     }

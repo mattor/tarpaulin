@@ -2,7 +2,7 @@ import { drawPath } from "../draw"
 
 import { animate } from "./"
 
-export default (pathList: number[][], props = {}, fps = 30) => {
+export function animatePath(pathList: number[][], props = {}, fps = 30) {
     let pos = 0
 
     let animation: any

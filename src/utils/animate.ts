@@ -1,4 +1,4 @@
-export default (drawFn: () => void, fps = 60) => {
+export function animate(drawFn: () => void, fps = 60) {
     let last = Date.now()
     let rafid = -1
     const interval = 1000 / fps
