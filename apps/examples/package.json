@@ -29,6 +29,7 @@
         "lint": "eslint --fix"
     },
     "dependencies": {
+        "lil-gui": "^0.20.0",
         "tarpaulin": "workspace:*"
     },
     "devDependencies": {

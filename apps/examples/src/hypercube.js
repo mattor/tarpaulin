@@ -1,7 +1,8 @@
+import GUI from "lil-gui"
 import * as T from "tarpaulin"
 
 // Set appearance
-const size = 300
+const size = 600
 const xMin = -1
 const xMax = 1
 const yMin = -1
@@ -44,19 +45,42 @@ const faces = [
     [6, 5, 13, 14],
 ]
 
+const gui = new GUI()
+
+const vars = {
+    startX: 0,
+    startY: 90,
+    startZ: 0,
+    startW: 0,
+    xSpeed: 0,
+    ySpeed: 0,
+    zSpeed: 0,
+    wSpeed: 0,
+}
+
+gui.add(vars, "startX")
+gui.add(vars, "startY")
+gui.add(vars, "startZ")
+gui.add(vars, "startW")
+
+gui.add(vars, "xSpeed")
+gui.add(vars, "ySpeed")
+gui.add(vars, "zSpeed")
+gui.add(vars, "wSpeed")
+
 let rx = 0
 let ry = 0
-const rz = 0
+let rz = 0
 let rw = 0
 
 T.animate(() => {
     // Rotate
     const projectedVertices = vertices.map((vertex) => {
         const rotatedVertex = vertex
-            .rotateX(rx)
-            .rotateY(ry)
-            .rotateZ(rz)
-            .rotateW(rw)
+            .rotateX(vars.startX + rx)
+            .rotateY(vars.startY + ry)
+            .rotateZ(vars.startZ + rz)
+            .rotateW(vars.startW + rw)
 
         return rotatedVertex.project(2, 5)
     })
@@ -76,7 +100,8 @@ T.animate(() => {
     })
 
     // Increase rotation angles
-    rx += 1
-    ry += 1
-    rw += 1
+    rx += vars.xSpeed
+    ry += vars.ySpeed
+    rz += vars.zSpeed
+    rw += vars.wSpeed
 })
