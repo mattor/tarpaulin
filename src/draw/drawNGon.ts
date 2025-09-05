@@ -13,8 +13,6 @@ export function drawNGon([x, y]: number[], n: number, r: number, props = {
     closed: false,
     stroke: Color.BlueGreyDarken4,
 } as unknown as IDrawProps) {
-    const closed = props.fill || props.closed
-
     const pathList: number[][] = []
 
     for (let i = 0; i < n; i++) {

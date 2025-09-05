@@ -1,8 +1,9 @@
 import fs from "node:fs"
 import { resolve } from "node:path"
+import process from "node:process"
 import { defineConfig } from "vite"
 
-export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
+export default defineConfig(() => {
     const example = process.env.example || "hilbert"
     const examplePath = `./src/${example}.js`
 

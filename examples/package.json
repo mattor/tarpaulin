@@ -27,6 +27,6 @@
         "start:superellipse": "example=superellips vitee"
     },
     "devDependencies": {
-        "vite": "^5.4.8"
+        "vite": "^7.1.4"
     }
 }

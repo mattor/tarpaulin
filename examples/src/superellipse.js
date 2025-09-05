@@ -1,7 +1,8 @@
-// eslint-disable-next-line import/no-unresolved
 import Tarpaulin, { Color, Const } from "tarpaulin"
 
-const n = 5; const a = 60; const b = 60
+const n = 5
+const a = 60
+const b = 60
 
 const size = 400
 const xMin = -a

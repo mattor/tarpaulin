@@ -11,8 +11,12 @@ export default (tag: string, props = {} as unknown as ISvgProps) => {
     for (const prop in props) {
         if (Object.prototype.hasOwnProperty.call(props, prop)) {
             let value: any = props[prop]
-            if (prop === "fill" && !value) { value = "none" }
-            if (prop === "stroke" && !value) { continue }
+            if (prop === "fill" && !value) {
+                value = "none"
+            }
+            if (prop === "stroke" && !value) {
+                continue
+            }
             el.setAttributeNS(null, prop, value)
         }
     }

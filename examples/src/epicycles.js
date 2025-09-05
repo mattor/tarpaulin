@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-unresolved
 import Tarpaulin, { Color, ComplexNumber, Const, getMinMax } from "tarpaulin"
 import peaceHandData from "../data/peace-hand.json"
 // import titleData from "../data/title.json"
@@ -36,12 +35,10 @@ function discreteFourierTransform(inputAmplitudes, zeroThreshold = CLOSE_TO_ZERO
 
         // Close to zero? You're zero.
         if (Math.abs(frequencySignal.re) < zeroThreshold) {
-            console.log("zero1")
             frequencySignal.re = 0
         }
 
         if (Math.abs(frequencySignal.im) < zeroThreshold) {
-            console.log("zero2")
             frequencySignal.im = 0
         }
 

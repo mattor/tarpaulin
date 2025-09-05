@@ -5,6 +5,8 @@ import { animate } from "./"
 export default (pathList: number[][], props = {}, fps = 30) => {
     let pos = 0
 
+    let animation: any
+
     const drawPathSegment = () => {
         drawPath([pathList[pos], pathList[pos + 1]], { ...props, closed: false })
 
@@ -15,5 +17,5 @@ export default (pathList: number[][], props = {}, fps = 30) => {
         pos += 1
     }
 
-    const animation = animate(drawPathSegment, fps)
+    animation = animate(drawPathSegment, fps)
 }
