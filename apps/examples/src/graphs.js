@@ -1,4 +1,4 @@
-import Tarpaulin from "tarpaulin"
+import * as T from "tarpaulin"
 
 // Set appearance
 const size = 600
@@ -21,24 +21,24 @@ function drawGraph(fn, color) {
         x += step
     }
 
-    Tarpaulin.drawPath(pathList, { stroke: color })
+    T.drawPath(pathList, { stroke: color })
 }
 
 // Create tarp
 
-Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
+T.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
 
-Tarpaulin.drawGrid()
-Tarpaulin.drawAxes()
+T.drawGrid()
+T.drawAxes()
 
-drawGraph(Math.log, Tarpaulin.Color.Red)
-drawGraph(Math.atan, Tarpaulin.Color.Green)
-drawGraph(Math.sin, Tarpaulin.Color.Blue)
-drawGraph(Math.cos, Tarpaulin.Color.Purple)
-drawGraph(Math.atanh, Tarpaulin.Color.Orange)
-drawGraph(logFn, Tarpaulin.Color.Cyan)
-drawGraph(expFn, Tarpaulin.Color.Yellow)
+drawGraph(Math.log, T.Color.Red)
+drawGraph(Math.atan, T.Color.Green)
+drawGraph(Math.sin, T.Color.Blue)
+drawGraph(Math.cos, T.Color.Purple)
+drawGraph(Math.atanh, T.Color.Orange)
+drawGraph(logFn, T.Color.Cyan)
+drawGraph(expFn, T.Color.Yellow)
 
-Tarpaulin.drawCircle([0, 0], 400)
+T.drawCircle([0, 0], 400)

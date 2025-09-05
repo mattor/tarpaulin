@@ -1,4 +1,4 @@
-import * as Tarpaulin from "tarpaulin"
+import * as T from "tarpaulin"
 
 function hilbert(width, spacing, pathList = []) {
     return (x, y, lg, i1, i2, f) => {
@@ -34,10 +34,10 @@ function drawHilbert(order) {
     const yMax = width * space + space
 
     // Create tarp
-    Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
+    T.createCanvas({ size, xMin, xMax, yMin, yMax })
 
     // Draw
-    Tarpaulin.drawPath(pathList)
+    T.drawPath(pathList)
 }
 
 drawHilbert(6)

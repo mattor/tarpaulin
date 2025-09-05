@@ -1,4 +1,4 @@
-import { animate, clear, Color, createCanvas, drawPath, Point4D } from "tarpaulin"
+import * as T from "tarpaulin"
 
 // Set appearance
 const size = 300
@@ -8,25 +8,25 @@ const yMin = -1
 const yMax = 1
 
 // Create tarp
-createCanvas({ size, xMin, xMax, yMin, yMax })
+T.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 const vertices = [
-    new Point4D(-1, 1, -1, 1),
-    new Point4D(1, 1, -1, 1),
-    new Point4D(1, 1, 1, 1),
-    new Point4D(-1, 1, 1, 1),
-    new Point4D(-1, -1, -1, 1),
-    new Point4D(1, -1, -1, 1),
-    new Point4D(1, -1, 1, 1),
-    new Point4D(-1, -1, 1, 1),
-    new Point4D(-1, 1, -1, -1),
-    new Point4D(1, 1, -1, -1),
-    new Point4D(1, 1, 1, -1),
-    new Point4D(-1, 1, 1, -1),
-    new Point4D(-1, -1, -1, -1),
-    new Point4D(1, -1, -1, -1),
-    new Point4D(1, -1, 1, -1),
-    new Point4D(-1, -1, 1, -1),
+    new T.Point4D(-1, 1, -1, 1),
+    new T.Point4D(1, 1, -1, 1),
+    new T.Point4D(1, 1, 1, 1),
+    new T.Point4D(-1, 1, 1, 1),
+    new T.Point4D(-1, -1, -1, 1),
+    new T.Point4D(1, -1, -1, 1),
+    new T.Point4D(1, -1, 1, 1),
+    new T.Point4D(-1, -1, 1, 1),
+    new T.Point4D(-1, 1, -1, -1),
+    new T.Point4D(1, 1, -1, -1),
+    new T.Point4D(1, 1, 1, -1),
+    new T.Point4D(-1, 1, 1, -1),
+    new T.Point4D(-1, -1, -1, -1),
+    new T.Point4D(1, -1, -1, -1),
+    new T.Point4D(1, -1, 1, -1),
+    new T.Point4D(-1, -1, 1, -1),
 ]
 
 const faces = [
@@ -46,10 +46,10 @@ const faces = [
 
 let rx = 0
 let ry = 0
-let rz = 0
+const rz = 0
 let rw = 0
 
-animate(() => {
+T.animate(() => {
     // Rotate
     const projectedVertices = vertices.map((vertex) => {
         const rotatedVertex = vertex
@@ -63,16 +63,16 @@ animate(() => {
 
     // Draw faces
 
-    clear({ fill: Color.Black })
+    T.clear({ fill: T.Color.Black })
 
     faces.forEach((face) => {
-        drawPath([
+        T.drawPath([
             [projectedVertices[face[0]].x, projectedVertices[face[0]].y],
             [projectedVertices[face[1]].x, projectedVertices[face[1]].y],
             [projectedVertices[face[2]].x, projectedVertices[face[2]].y],
             [projectedVertices[face[3]].x, projectedVertices[face[3]].y],
             [projectedVertices[face[0]].x, projectedVertices[face[0]].y],
-        ], { stroke: Color.Red })
+        ], { stroke: T.Color.Red })
     })
 
     // Increase rotation angles

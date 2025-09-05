@@ -1,4 +1,4 @@
-import Tarpaulin from "tarpaulin"
+import * as T from "tarpaulin"
 
 // Set appearance
 const size = 600
@@ -10,7 +10,7 @@ const yMax = 100
 const scale = 100
 
 // Create tarp
-Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
+T.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
 
@@ -38,10 +38,10 @@ function drawEulerSpiral(T, N) {
         prev = current
     }
 
-    Tarpaulin.drawPath(pathList)
+    T.drawPath(pathList)
 }
 
-Tarpaulin.drawGrid()
-Tarpaulin.drawAxes()
+T.drawGrid()
+T.drawAxes()
 
 drawEulerSpiral(10, 10000)

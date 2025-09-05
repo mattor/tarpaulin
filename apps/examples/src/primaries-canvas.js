@@ -1,4 +1,4 @@
-import Tarpaulin, { Color } from "tarpaulin"
+import * as T from "tarpaulin"
 
 // Set appearance
 const size = 600
@@ -8,20 +8,20 @@ const yMin = -50
 const yMax = 50
 
 // Create tarp
-Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
+T.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
 
-Tarpaulin.drawGrid()
-Tarpaulin.drawAxes()
+T.drawGrid()
+T.drawAxes()
 
 // Draw filled & stroked shapes
-Tarpaulin.drawCircle([-25, 25], 15, { fill: Color.Red, stroke: Color.Black })
-Tarpaulin.drawRect([10, 40], 30, 30, { fill: Color.Blue, stroke: Color.Black })
-Tarpaulin.drawPath([[-25, -10], [-42.32, -40], [-7.68, -40]], { fill: Color.Yellow, stroke: Color.Black })
+T.drawCircle([-25, 25], 15, { fill: T.Color.Red, stroke: T.Color.Black })
+T.drawRect([10, 40], 30, 30, { fill: T.Color.Blue, stroke: T.Color.Black })
+T.drawPath([[-25, -10], [-42.32, -40], [-7.68, -40]], { fill: T.Color.Yellow, stroke: T.Color.Black })
 
 // Draw filled-only/stroked-only shapes
-Tarpaulin.drawCircle([15, -15], 5, { fill: Color.Green })
-Tarpaulin.drawRect([30, -10], 10, 10)
-Tarpaulin.drawNGon([15, -35], 5, 6.2, { stroke: Color.Black, closed: true })
-Tarpaulin.drawPath([[30, -30], [40, -30], [35, -30], [35, -40]], { stroke: Color.Black, strokeWidth: 5 })
+T.drawCircle([15, -15], 5, { fill: T.Color.Green })
+T.drawRect([30, -10], 10, 10)
+T.drawNGon([15, -35], 5, 6.2, { stroke: T.Color.Black, closed: true })
+T.drawPath([[30, -30], [40, -30], [35, -30], [35, -40]], { stroke: T.Color.Black, strokeWidth: 5 })

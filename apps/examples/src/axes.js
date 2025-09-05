@@ -1,4 +1,4 @@
-import Tarpaulin from "tarpaulin"
+import * as T from "tarpaulin"
 
 // Set appearance
 const size = 600
@@ -8,9 +8,9 @@ const yMin = -50
 const yMax = 50
 
 // Create tarp
-Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
+T.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
 
-Tarpaulin.drawGrid()
-Tarpaulin.drawAxes()
+T.drawGrid()
+T.drawAxes()

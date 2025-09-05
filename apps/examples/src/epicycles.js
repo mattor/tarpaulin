@@ -1,4 +1,4 @@
-import Tarpaulin, { Color, ComplexNumber, Const, getMinMax } from "tarpaulin"
+import * as T from "tarpaulin"
 import peaceHandData from "../data/peace-hand.json"
 // import titleData from "../data/title.json"
 
@@ -8,32 +8,32 @@ function discreteFourierTransform(inputAmplitudes, zeroThreshold = CLOSE_TO_ZERO
     const N = inputAmplitudes.length
     const signals = []
 
-    // Go through every discrete frequency.
+    // Go through every discrete frequency
     for (let frequency = 0; frequency < N; frequency += 1) {
         // Compound signal at current frequency that will ultimately
         // take part in forming input amplitudes.
-        let frequencySignal = new ComplexNumber()
+        let frequencySignal = new T.ComplexNumber()
 
-        // Go through every discrete point in time.
+        // Go through every discrete point in time
         for (let timer = 0; timer < N; timer += 1) {
             const currentAmplitude = inputAmplitudes[timer]
 
             // console.log(currentAmplitude)
 
-            // Calculate rotation angle.
+            // Calculate rotation angle
             const rotationAngle = -1 * (2 * Math.PI) * frequency * (timer / N)
 
-            // Remember that e^ix = cos(x) + i * sin(x);
-            const dataPointContribution = new ComplexNumber({
+            // Remember that e^ix = cos(x) + i * sin(x)
+            const dataPointContribution = new T.ComplexNumber({
                 re: Math.cos(rotationAngle),
                 im: Math.sin(rotationAngle),
             }).multiply(currentAmplitude)
 
-            // Add this data point's contribution.
+            // Add this data point's contribution
             frequencySignal = frequencySignal.add(dataPointContribution)
         }
 
-        // Close to zero? You're zero.
+        // Close to zero? You're zero
         if (Math.abs(frequencySignal.re) < zeroThreshold) {
             frequencySignal.re = 0
         }
@@ -42,13 +42,13 @@ function discreteFourierTransform(inputAmplitudes, zeroThreshold = CLOSE_TO_ZERO
             frequencySignal.im = 0
         }
 
-        // Average contribution at this frequency.
+        // Average contribution at this frequency
         // The 1/N factor is usually moved to the reverse transform (going from frequencies
         // back to time). This is allowed, though it would be nice to have 1/N in the forward
         // transform since it gives the actual sizes for the time spikes.
         frequencySignal = frequencySignal.divide(N)
 
-        // Add current frequency signal to the list of compound signals.
+        // Add current frequency signal to the list of compound signals
         signals[frequency] = frequencySignal
     }
 
@@ -57,10 +57,10 @@ function discreteFourierTransform(inputAmplitudes, zeroThreshold = CLOSE_TO_ZERO
 
 function transformData(data) {
     // Set appearance
-    const { xMin, xMax, yMin, yMax } = getMinMax(data)
+    const { xMin, xMax, yMin, yMax } = T.getMinMax(data)
 
     /*
-    // Transform data around origo
+    // Transform data around origin
     const transformedPathList = data.map(i => [
         i[0] - xMin - ((xMax - xMin) / 2),
         i[1] - yMin - ((yMax - yMin) / 2),
@@ -71,7 +71,7 @@ function transformData(data) {
     const canvasPadding = (xMax - xMin) / 3
 
     // Create tarp
-    Tarpaulin.createCanvas({
+    T.createCanvas({
         size: 800,
         xMin: xMin - canvasPadding,
         xMax: xMax + canvasPadding,
@@ -79,8 +79,8 @@ function transformData(data) {
         yMax: yMax + canvasPadding,
     })
 
-    // Generate fourierX
-    const x = data.map(i => new ComplexNumber({ re: i[0], im: -i[1] }))
+    // Generate Fourier X
+    const x = data.map(i => new T.ComplexNumber({ re: i[0], im: -i[1] }))
     const signals = discreteFourierTransform(x)
     const fourierX = signals.map((signal, freq) => ({
         ...signal,
@@ -97,16 +97,16 @@ function transformData(data) {
 
 function drawEpicyclesAndGetPoint(x, y, rotation, fourier, time) {
     for (let i = 0; i < fourier.length; i++) {
-        const prevx = x
-        const prevy = y
+        const prevX = x
+        const prevY = y
         const freq = fourier[i].freq
         const radius = fourier[i].amp
         const phase = fourier[i].phase
         x += radius * Math.cos(freq * time + phase + rotation)
         y += radius * Math.sin(freq * time + phase + rotation)
 
-        Tarpaulin.drawCircle([prevx, prevy], radius, { stroke: "rgba(33, 150, 243, 0.5)" })
-        Tarpaulin.drawLine([prevx, prevy], [x, y], { stroke: Color.Blue })
+        T.drawCircle([prevX, prevY], radius, { stroke: "rgba(33, 150, 243, 0.5)" })
+        T.drawLine([prevX, prevY], [x, y], { stroke: T.Color.Blue })
     }
 
     return [x, y]
@@ -118,16 +118,16 @@ let time = 0
 
 // Start drawing
 
-Tarpaulin.animate(() => {
-    Tarpaulin.clear({ fill: Color.Black })
+T.animate(() => {
+    T.clear({ fill: T.Color.Black })
 
     pathList.push(drawEpicyclesAndGetPoint(0, 0, 0, fourierX, time))
 
-    Tarpaulin.drawPath(pathList, { stroke: Color.GreyLighten2 })
+    T.drawPath(pathList, { stroke: T.Color.GreyLighten2 })
 
-    time += Const.RADIANS_360_DEGREES / fourierX.length / 1
+    time += T.Const.RADIANS_360_DEGREES / fourierX.length / 1
 
-    if (time > Const.RADIANS_360_DEGREES) {
+    if (time > T.Const.RADIANS_360_DEGREES) {
         time = 0
         pathList = []
     }

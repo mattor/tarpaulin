@@ -11,7 +11,7 @@ export default defineConfig(() => {
         throw new Error(`No example called "${process.env.example}"`)
     }
 
-    console.log(`Building example: ${example}`)
+    console.log(`Starting example: ${example}`)
 
     return {
         resolve: {

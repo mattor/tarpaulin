@@ -25,7 +25,8 @@
         "start:pythagoras-tree": "example=pythagoras-tree vite",
         "start:route": "example=route vite",
         "start:sierpinski-arrowhead-curve": "example=sierpinski-arrowhead-curve vite",
-        "start:superellipse": "example=superellips vitee"
+        "start:superellipse": "example=superellipse vite",
+        "lint": "eslint --fix"
     },
     "dependencies": {
         "tarpaulin": "workspace:*"

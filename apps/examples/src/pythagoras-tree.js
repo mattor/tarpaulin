@@ -1,4 +1,4 @@
-import Tarpaulin, { Color } from "tarpaulin"
+import * as T from "tarpaulin"
 
 // Set appearance
 const size = 640
@@ -8,7 +8,7 @@ const yMin = 0
 const yMax = 84
 
 // Create tarp
-Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax })
+T.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
 
@@ -29,13 +29,13 @@ function drawBranch(x1, y1, x2, y2, depth) {
     const x5 = x4 + 0.5 * (dx - dy)
     const y5 = y4 + 0.5 * (dx + dy)
 
-    Tarpaulin.drawPath([
+    T.drawPath([
         [x1, y1],
         [x2, y2],
         [x3, y3],
         [x5, y5],
         [x4, y4],
-    ], { fill: `${Color.Green}CC` })
+    ], { fill: `${T.Color.Green}CC` })
 
     drawBranch(x4, y4, x5, y5, depth + 1)
     drawBranch(x5, y5, x3, y3, depth + 1)
@@ -43,8 +43,8 @@ function drawBranch(x1, y1, x2, y2, depth) {
 
 const firstDelta = 10
 
-Tarpaulin.animate(() => {
-    Tarpaulin.clear()
+T.animate(() => {
+    T.clear()
     drawBranch(xMax / 2 - firstDelta, 2, xMax / 2 + firstDelta, 2, 0)
     depthLimit = (depthLimit + 1) % 12
 }, 1)

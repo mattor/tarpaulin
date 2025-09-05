@@ -1,4 +1,4 @@
-import Tarpaulin, { Color, getXYCoords } from "tarpaulin"
+import * as T from "tarpaulin"
 
 // Set appearance
 const size = 600
@@ -35,18 +35,18 @@ function checkIfBelongsToJuliaSet([x, y]) {
 
 // Create tarp
 
-const { paperWidth, paperHeight } = Tarpaulin.createCanvas({ size, xMin, xMax, yMin, yMax, pixelRatio })
+const { paperWidth, paperHeight } = T.createCanvas({ size, xMin, xMax, yMin, yMax, pixelRatio })
 
 // Start drawing
 
 for (let x = 0; x < paperWidth; x++) {
     for (let y = 0; y < paperHeight; y++) {
-        const belongsToSet = checkIfBelongsToJuliaSet(getXYCoords([x, y]))
+        const belongsToSet = checkIfBelongsToJuliaSet(T.getXYCoords([x, y]))
         if (belongsToSet === 0) {
-            Tarpaulin.drawPixel([x, y], { fill: Color.Black })
+            T.drawPixel([x, y], { fill: T.Color.Black })
         }
         else {
-            Tarpaulin.drawPixel([x, y], { fill: `hsl(0, 100%, ${belongsToSet}%)` })
+            T.drawPixel([x, y], { fill: `hsl(0, 100%, ${belongsToSet}%)` })
         }
     }
 }
