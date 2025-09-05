@@ -1,4 +1,4 @@
-import { animate, clear, Color, createCanvas, drawPath, Point3D } from "tarpaulin"
+import { animate, clear, Color, createCanvas, drawPath, Point4D } from "tarpaulin"
 
 // Set appearance
 const size = 300
@@ -11,82 +11,72 @@ const yMax = 1
 createCanvas({ size, xMin, xMax, yMin, yMax })
 
 const vertices = [
-    new Point3D(-1, 1, -1),
-    new Point3D(1, 1, -1),
-    new Point3D(1, -1, -1),
-    new Point3D(-1, -1, -1),
-    new Point3D(-1, 1, 1),
-    new Point3D(1, 1, 1),
-    new Point3D(1, -1, 1),
-    new Point3D(-1, -1, 1),
+    new Point4D(-1, 1, -1, 1),
+    new Point4D(1, 1, -1, 1),
+    new Point4D(1, 1, 1, 1),
+    new Point4D(-1, 1, 1, 1),
+    new Point4D(-1, -1, -1, 1),
+    new Point4D(1, -1, -1, 1),
+    new Point4D(1, -1, 1, 1),
+    new Point4D(-1, -1, 1, 1),
+    new Point4D(-1, 1, -1, -1),
+    new Point4D(1, 1, -1, -1),
+    new Point4D(1, 1, 1, -1),
+    new Point4D(-1, 1, 1, -1),
+    new Point4D(-1, -1, -1, -1),
+    new Point4D(1, -1, -1, -1),
+    new Point4D(1, -1, 1, -1),
+    new Point4D(-1, -1, 1, -1),
 ]
 
-const hypercubeVertices = []
-for (let i = 0; i < 16; i++) {
-    const x = (i & 1) ? 1 : -1
-    const y = (i & 2) ? 1 : -1
-    const z = (i & 4) ? 1 : -1
-    const w = (i & 8) ? 1 : -1
-    hypercubeVertices.push(new Point3D(x, y, z, w))
-}
-
-console.log(hypercubeVertices)
-
-// The vertices for each of the 6 faces, indices to defined vertices
 const faces = [
     [0, 1, 2, 3],
-    [1, 5, 6, 2],
-    [5, 4, 7, 6],
-    [4, 0, 3, 7],
+    [4, 7, 6, 5],
     [0, 4, 5, 1],
-    [3, 2, 6, 7],
+    [2, 6, 7, 3],
+    [8, 9, 10, 11],
+    [12, 15, 14, 13],
+    [8, 12, 13, 9],
+    [10, 14, 15, 11],
+    [0, 1, 9, 8],
+    [2, 3, 11, 10],
+    [4, 7, 15, 12],
+    [6, 5, 13, 14],
 ]
 
-const colors = [
-    Color.Red,
-    Color.Green,
-    Color.Blue,
-    Color.Yellow,
-    Color.Cyan,
-    Color.Purple,
-]
-
-let angle = 0
+let rx = 0
+let ry = 0
+let rz = 0
+let rw = 0
 
 animate(() => {
-    const projectedVerticies = vertices.map((vertex) => {
+    // Rotate
+    const projectedVertices = vertices.map((vertex) => {
         const rotatedVertex = vertex
-            .rotateX(angle)
-            .rotateY(angle)
-        return rotatedVertex.project(5, 10)
+            .rotateX(rx)
+            .rotateY(ry)
+            .rotateZ(rz)
+            .rotateW(rw)
+
+        return rotatedVertex.project(2, 5)
     })
 
-    const sortedFaces = faces
-        .map((face, index) => ({
-            index,
-            z: (
-                projectedVerticies[face[0]].z
-                + projectedVerticies[face[1]].z
-                + projectedVerticies[face[2]].z
-                + projectedVerticies[face[3]].z
-            ) / face.length,
-        }))
-        .sort((a, b) => b.z - a.z)
-
-    // Draw
+    // Draw faces
 
     clear({ fill: Color.Black })
 
-    sortedFaces.forEach((sortedFace) => {
-        const face = faces[sortedFace.index]
-
+    faces.forEach((face) => {
         drawPath([
-            [projectedVerticies[face[0]].x, projectedVerticies[face[0]].y],
-            [projectedVerticies[face[1]].x, projectedVerticies[face[1]].y],
-            [projectedVerticies[face[2]].x, projectedVerticies[face[2]].y],
-            [projectedVerticies[face[3]].x, projectedVerticies[face[3]].y],
-        ], { fill: colors[sortedFace.index] })
+            [projectedVertices[face[0]].x, projectedVertices[face[0]].y],
+            [projectedVertices[face[1]].x, projectedVertices[face[1]].y],
+            [projectedVertices[face[2]].x, projectedVertices[face[2]].y],
+            [projectedVertices[face[3]].x, projectedVertices[face[3]].y],
+            [projectedVertices[face[0]].x, projectedVertices[face[0]].y],
+        ], { stroke: Color.Red })
     })
 
-    angle += 1
+    // Increase rotation angles
+    rx += 1
+    ry += 1
+    rw += 1
 })
