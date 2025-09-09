@@ -1,4 +1,4 @@
-import { convertDegToRad } from "../helpers/convertDegToRad"
+import { convertDegToRad } from "../math/convertDegToRad"
 
 export const RADIANS_30_DEGREES = convertDegToRad(30)
 export const RADIANS_45_DEGREES = convertDegToRad(45)

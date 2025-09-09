@@ -1,4 +1,4 @@
-import { getTarpScale } from "../helpers/getTarpScale"
+import { getTarpScale } from "../math/getTarpScale"
 import { glob } from "./glob"
 
 interface IConfig {

@@ -1,6 +1,6 @@
 import type { IDrawProps } from "../types/IDrawProps"
-import { getTarpX } from "../helpers/getTarpX"
-import { getTarpY } from "../helpers/getTarpY"
+import { getTarpX } from "../math/getTarpX"
+import { getTarpY } from "../math/getTarpY"
 import { addSvgElement } from "../utils/addSvgElement"
 import { glob } from "../utils/glob"
 import { initCanvasStyle } from "../utils/initCanvasStyle"

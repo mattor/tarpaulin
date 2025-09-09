@@ -12,7 +12,7 @@ interface IGlob {
     pixelRatio: number
     size: number
     svgTarp?: SVGElement
-    tarp?: any
+    tarp?: HTMLCanvasElement | SVGElement
     tarpFactorX: number
     tarpFactorY: number
     xDiff: number

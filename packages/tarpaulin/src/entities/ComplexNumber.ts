@@ -1,4 +1,4 @@
-import { convertRadToDeg } from "../helpers/convertRadToDeg"
+import { convertRadToDeg } from "../math/convertRadToDeg"
 
 export class ComplexNumber {
     public re: number

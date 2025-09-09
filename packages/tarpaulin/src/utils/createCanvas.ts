@@ -20,14 +20,18 @@ export function createCanvas({
     yMin = -1,
     yMax = 1,
     pixelRatio,
-}: ICreateCanvasOptions) {
+}: ICreateCanvasOptions): {
+    tarpElement: HTMLCanvasElement
+    tarpHeight: number
+    tarpWidth: number
+} {
     if (glob.canvasTarp || glob.svgTarp) {
         throw new Error("Only one tarp allowed per page")
     }
 
     initGlob({ size, xMin, xMax, yMin, yMax, pixelRatio })
 
-    createAndAddCanvas()
+    const { tarpElement, tarpHeight, tarpWidth } = createAndAddCanvas()
 
     clear()
 
@@ -35,8 +39,8 @@ export function createCanvas({
 
     // Return generated
     return {
-        tarp: glob.canvasTarp,
-        tarpHeight: glob.tarpHeight,
-        tarpWidth: glob.tarpWidth,
+        tarpElement,
+        tarpHeight,
+        tarpWidth,
     }
 }

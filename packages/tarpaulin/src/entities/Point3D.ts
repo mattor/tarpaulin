@@ -1,4 +1,4 @@
-import { convertDegToRad } from "../helpers/convertDegToRad"
+import { convertDegToRad } from "../math/convertDegToRad"
 
 export class Point3D {
     public x = 0
