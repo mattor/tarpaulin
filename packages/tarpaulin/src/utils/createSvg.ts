@@ -11,7 +11,7 @@ export function createSvg({
     yMax = 1,
     pixelRatio = 1,
 } = {}) {
-    if (glob.canvasPaper || glob.svgPaper) {
+    if (glob.canvasTarp || glob.svgTarp) {
         throw new Error("Only one tarp allowed per page")
     }
 
@@ -23,8 +23,8 @@ export function createSvg({
 
     // Return generated
     return {
-        paper: glob.svgPaper,
-        paperHeight: glob.paperHeight,
-        paperWidth: glob.paperWidth,
+        tarp: glob.svgTarp,
+        tarpHeight: glob.tarpHeight,
+        tarpWidth: glob.tarpWidth,
     }
 }

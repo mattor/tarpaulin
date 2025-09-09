@@ -3,15 +3,15 @@ import { glob } from "../utils/glob"
 import { initCanvasStyle } from "../utils/initCanvasStyle"
 
 export function drawPixel([x, y]: number[], props = {} as unknown as IDrawProps) {
-    if (glob.svgPaper !== undefined) {
+    if (glob.svgTarp !== undefined) {
         throw new Error("drawPixel() is not supported on SVGs")
     }
 
-    if (glob.canvasPaper === undefined) {
+    if (glob.canvasTarp === undefined) {
         return
     }
 
     initCanvasStyle(props)
 
-    glob.canvasPaper.fillRect(x, y, 1, 1)
+    glob.canvasTarp.fillRect(x, y, 1, 1)
 }

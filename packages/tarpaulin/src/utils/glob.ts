@@ -1,17 +1,17 @@
-export interface ICanvasPaper {
+export interface ICanvasTarp {
     [index: string]: number
 }
 
 interface IGlob {
-    canvasPaper?: CanvasRenderingContext2D
-    paperHeight: number
-    paperScale: number
-    paperShiftX: number
-    paperShiftY: number
-    paperWidth: number
+    canvasTarp?: CanvasRenderingContext2D
+    tarpHeight: number
+    tarpScale: number
+    tarpShiftX: number
+    tarpShiftY: number
+    tarpWidth: number
     pixelRatio: number
     size: number
-    svgPaper?: SVGElement
+    svgTarp?: SVGElement
     tarp?: any
     tarpFactorX: number
     tarpFactorY: number
@@ -24,11 +24,11 @@ interface IGlob {
 }
 
 export const glob: IGlob = {
-    paperHeight: 0,
-    paperScale: 0,
-    paperShiftX: 0,
-    paperShiftY: 0,
-    paperWidth: 0,
+    tarpHeight: 0,
+    tarpScale: 0,
+    tarpShiftX: 0,
+    tarpShiftY: 0,
+    tarpWidth: 0,
     pixelRatio: 0,
     size: 0,
     tarpFactorX: 0,

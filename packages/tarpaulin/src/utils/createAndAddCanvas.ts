@@ -2,8 +2,8 @@ import { glob } from "./glob"
 
 export function createAndAddCanvas() {
     const [width, height] = [
-        Math.ceil(glob.paperWidth / glob.pixelRatio),
-        Math.ceil(glob.paperHeight / glob.pixelRatio),
+        Math.ceil(glob.tarpWidth / glob.pixelRatio),
+        Math.ceil(glob.tarpHeight / glob.pixelRatio),
     ]
     glob.tarp = document.createElement("canvas")
     glob.tarp.width = width * glob.pixelRatio
@@ -11,5 +11,5 @@ export function createAndAddCanvas() {
     glob.tarp.style.width = `${width}px`
     glob.tarp.style.height = `${height}px`
     document.body.appendChild(glob.tarp)
-    glob.canvasPaper = glob.tarp.getContext("2d")
+    glob.canvasTarp = glob.tarp.getContext("2d")
 }

@@ -25,7 +25,7 @@ export function addSvgElement(tag: string, props = {} as unknown as ISvgProps) {
         el.setAttributeNS(null, "stroke", props.stroke || Color.Black)
     }
 
-    if (glob.svgPaper) {
-        glob.svgPaper.appendChild(el)
+    if (glob.svgTarp) {
+        glob.svgTarp.appendChild(el)
     }
 }

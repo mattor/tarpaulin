@@ -29,12 +29,12 @@ function checkIfBelongsToMandelbrotSet([x, y]) {
 
 // Create tarp
 
-const { paperWidth, paperHeight } = T.createCanvas({ size, xMin, xMax, yMin, yMax, pixelRatio })
+const { tarpWidth, tarpHeight } = T.createCanvas({ size, xMin, xMax, yMin, yMax, pixelRatio })
 
 // Start drawing
 
-for (let x = 0; x < paperWidth; x++) {
-    for (let y = 0; y < paperHeight; y++) {
+for (let x = 0; x < tarpWidth; x++) {
+    for (let y = 0; y < tarpHeight; y++) {
         const belongsToSet = checkIfBelongsToMandelbrotSet(T.getXYCoords([x, y]))
         if (belongsToSet === 0) {
             T.drawPixel([x, y], { fill: T.Color.Black })

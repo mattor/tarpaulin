@@ -21,7 +21,7 @@ export function createCanvas({
     yMax = 1,
     pixelRatio,
 }: ICreateCanvasOptions) {
-    if (glob.canvasPaper || glob.svgPaper) {
+    if (glob.canvasTarp || glob.svgTarp) {
         throw new Error("Only one tarp allowed per page")
     }
 
@@ -35,8 +35,8 @@ export function createCanvas({
 
     // Return generated
     return {
-        paper: glob.canvasPaper,
-        paperHeight: glob.paperHeight,
-        paperWidth: glob.paperWidth,
+        tarp: glob.canvasTarp,
+        tarpHeight: glob.tarpHeight,
+        tarpWidth: glob.tarpWidth,
     }
 }
