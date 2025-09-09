@@ -6,21 +6,26 @@ const xMin = -2
 const xMax = 1
 const yMin = -1.25
 const yMax = 1.25
-const pixelRatio = 2
+const pixelRatio = window.devicePixelRatio
 
-function checkIfBelongsToMandelbrotSet([x, y]) {
-    let realComponentOfResult = x
-    let imaginaryComponentOfResult = y
-    // Set max number of iterations
-    const maxIterations = (yMax - yMin) * 50
+const R = 5
+const maxIterations = (yMax - yMin) * 50
+
+function f(acc, z) {
+    return [acc[0] * acc[0] - acc[1] * acc[1] + z[0], 2 * acc[0] * acc[1] + z[1]]
+}
+
+function abs(z) { // absolute value of a complex number
+    return Math.sqrt(z[0] * z[0] + z[1] * z[1])
+}
+
+function isInMandelbrotSet(z) {
+    let acc = [...z]
     for (let i = 0; i < maxIterations; i++) {
-        const tempRealComponent = realComponentOfResult * realComponentOfResult - imaginaryComponentOfResult * imaginaryComponentOfResult + x
-        const tempImaginaryComponent = 2.0 * realComponentOfResult * imaginaryComponentOfResult + y
-        realComponentOfResult = tempRealComponent
-        imaginaryComponentOfResult = tempImaginaryComponent
+        acc = f(acc, z)
         // Return a number as a percentage
-        if (realComponentOfResult * imaginaryComponentOfResult > 5) {
-            return (i / maxIterations * 100)
+        if (abs(acc) > R) {
+            return i / maxIterations * 100
         }
     }
     // Return zero if in set
@@ -35,7 +40,7 @@ const { tarpWidth, tarpHeight } = T.createCanvas({ size, xMin, xMax, yMin, yMax,
 
 for (let x = 0; x < tarpWidth; x++) {
     for (let y = 0; y < tarpHeight; y++) {
-        const belongsToSet = checkIfBelongsToMandelbrotSet(T.getXYCoords([x, y]))
+        const belongsToSet = isInMandelbrotSet(T.getXYCoords([x, y]))
         if (belongsToSet === 0) {
             T.drawPixel([x, y], { fill: T.Color.Black })
         }
