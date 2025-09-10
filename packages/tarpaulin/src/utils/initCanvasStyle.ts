@@ -10,6 +10,7 @@ export function initCanvasStyle(props = {} as unknown as IDrawProps) {
     glob.canvasTarp.fillStyle = Color.BlueGreyLighten3
     glob.canvasTarp.strokeStyle = Color.BlueGreyDarken4
     glob.canvasTarp.lineWidth = glob.pixelRatio
+    glob.canvasTarp.font = `${glob.pixelRatio * 12}px Arial`
 
     if (props.fill) {
         glob.canvasTarp.fillStyle = props.fill
