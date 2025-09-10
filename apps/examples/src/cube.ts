@@ -79,3 +79,8 @@ T.animate(() => {
 
     angle += 1
 })
+
+export function deactivate() {
+    console.log("deactivate")
+    T.destroy()
+}

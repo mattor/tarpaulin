@@ -22,3 +22,8 @@ tarpElement.addEventListener("mousemove", (event: MouseEvent) => {
     // eslint-disable-next-line no-console
     console.log({ mouseX, mouseY })
 })
+
+export function deactivate() {
+    console.log("deactivate")
+    T.destroy()
+}
