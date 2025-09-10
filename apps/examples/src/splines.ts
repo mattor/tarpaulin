@@ -73,12 +73,14 @@ function paint(): void {
     }
 }
 
+paint()
+
 function getActivePointIndex(event: MouseEvent): number | null {
-    const x = event.offsetX
-    const y = size - event.offsetY
+    const mouseX = T.getMouseX(event.offsetX)
+    const mouseY = T.getMouseY(event.offsetY)
 
     for (let i = 0; i < points.length; i++) {
-        if (Math.abs(points[i][0] - x) < clickRadius && Math.abs(points[i][1] - y) < clickRadius) {
+        if (Math.abs(points[i][0] - mouseX) < clickRadius && Math.abs(points[i][1] - mouseY) < clickRadius) {
             return i
         }
     }
@@ -86,43 +88,33 @@ function getActivePointIndex(event: MouseEvent): number | null {
     return null
 }
 
-// Initialize the application
-function init(): void {
-    // Detect clicking a point on the canvas
-    tarpElement.addEventListener("mousedown", (event: MouseEvent) => {
+// Detect clicking a point on the canvas
+tarpElement.addEventListener("mousedown", (event: MouseEvent) => {
+    const activePoint = getActivePointIndex(event)
+    if (activePoint !== null) {
+        activePointIndex = activePoint
+    }
+})
+
+// Detect hovering/dragging a point on the canvas
+tarpElement.addEventListener("mousemove", (event: MouseEvent) => {
+    if (activePointIndex !== null) {
+        points[activePointIndex][0] = T.getMouseX(event.offsetX)
+        points[activePointIndex][1] = T.getMouseY(event.offsetY)
+        paint()
+    }
+    else {
         const activePoint = getActivePointIndex(event)
         if (activePoint !== null) {
-            activePointIndex = activePoint
-        }
-    })
-
-    // Detect hovering/dragging a point on the canvas
-    tarpElement.addEventListener("mousemove", (event: MouseEvent) => {
-        if (activePointIndex !== null) {
-            const x = event.offsetX
-            const y = size - event.offsetY
-            points[activePointIndex][0] = x
-            points[activePointIndex][1] = y
-            paint()
+            tarpElement.style.cursor = "pointer" // Change cursor to pointer when hovering over a point
         }
         else {
-            const activePoint = getActivePointIndex(event)
-            if (activePoint !== null) {
-                tarpElement.style.cursor = "pointer" // Change cursor to pointer when hovering over a point
-            }
-            else {
-                tarpElement.style.cursor = "default" // Reset cursor when not hovering over a point
-            }
+            tarpElement.style.cursor = "default" // Reset cursor when not hovering over a point
         }
-    })
+    }
+})
 
-    // Detect releasing a point on the canvas
-    tarpElement.addEventListener("mouseup", () => {
-        activePointIndex = null
-    })
-
-    paint()
-}
-
-// Start the application when the page loads
-document.addEventListener("DOMContentLoaded", init)
+// Detect releasing a point on the canvas
+tarpElement.addEventListener("mouseup", () => {
+    activePointIndex = null
+})
