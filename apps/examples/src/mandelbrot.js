@@ -6,7 +6,6 @@ const xMin = -2
 const xMax = 1
 const yMin = -1.25
 const yMax = 1.25
-const pixelRatio = window.devicePixelRatio
 
 const R = 5
 const maxIterations = (yMax - yMin) * 50
@@ -34,7 +33,7 @@ function isInMandelbrotSet(z) {
 
 // Create tarp
 
-const { tarpWidth, tarpHeight } = T.createCanvas({ size, xMin, xMax, yMin, yMax, pixelRatio })
+const { tarpWidth, tarpHeight } = T.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
 

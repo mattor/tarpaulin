@@ -8,6 +8,28 @@ const xMax = 1
 const yMin = -1
 const yMax = 1
 
+// State
+const options = {
+    startX: 0,
+    startY: 90,
+    startZ: 0,
+    startW: 0,
+    xSpeed: 0,
+    ySpeed: 0,
+    zSpeed: 0,
+    wSpeed: 0,
+}
+
+const gui = new GUI()
+gui.add(options, "startX")
+gui.add(options, "startY")
+gui.add(options, "startZ")
+gui.add(options, "startW")
+gui.add(options, "xSpeed")
+gui.add(options, "ySpeed")
+gui.add(options, "zSpeed")
+gui.add(options, "wSpeed")
+
 // Create tarp
 T.createCanvas({ size, xMin, xMax, yMin, yMax })
 
@@ -45,29 +67,6 @@ const faces = [
     [6, 5, 13, 14],
 ]
 
-const gui = new GUI()
-
-const vars = {
-    startX: 0,
-    startY: 90,
-    startZ: 0,
-    startW: 0,
-    xSpeed: 0,
-    ySpeed: 0,
-    zSpeed: 0,
-    wSpeed: 0,
-}
-
-gui.add(vars, "startX")
-gui.add(vars, "startY")
-gui.add(vars, "startZ")
-gui.add(vars, "startW")
-
-gui.add(vars, "xSpeed")
-gui.add(vars, "ySpeed")
-gui.add(vars, "zSpeed")
-gui.add(vars, "wSpeed")
-
 let rx = 0
 let ry = 0
 let rz = 0
@@ -77,10 +76,10 @@ T.animate(() => {
     // Rotate
     const projectedVertices = vertices.map((vertex) => {
         const rotatedVertex = vertex
-            .rotateX(vars.startX + rx)
-            .rotateY(vars.startY + ry)
-            .rotateZ(vars.startZ + rz)
-            .rotateW(vars.startW + rw)
+            .rotateX(options.startX + rx)
+            .rotateY(options.startY + ry)
+            .rotateZ(options.startZ + rz)
+            .rotateW(options.startW + rw)
 
         return rotatedVertex.project(2, 5)
     })
@@ -100,8 +99,8 @@ T.animate(() => {
     })
 
     // Increase rotation angles
-    rx += vars.xSpeed
-    ry += vars.ySpeed
-    rz += vars.zSpeed
-    rw += vars.wSpeed
+    rx += options.xSpeed
+    ry += options.ySpeed
+    rz += options.zSpeed
+    rw += options.wSpeed
 })

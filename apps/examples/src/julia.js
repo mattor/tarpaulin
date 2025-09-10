@@ -6,7 +6,6 @@ const xMin = -2
 const xMax = 2
 const yMin = -4 / 3
 const yMax = 4 / 3
-const pixelRatio = window.devicePixelRatio
 
 const maxIterations = 50
 
@@ -32,7 +31,7 @@ function isInJuliaSet(z, c, R) {
 
 // Create tarp
 
-const { tarpElement, tarpWidth, tarpHeight } = T.createCanvas({ size, xMin, xMax, yMin, yMax, pixelRatio })
+const { tarpElement, tarpWidth, tarpHeight } = T.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 function draw(c) {
     const R = (1 + Math.sqrt(1 + 4 * abs(c))) / 2
@@ -57,7 +56,7 @@ draw([-1, 1 / 4]) // all complex number are in the form of [a, b] which means a 
 tarpElement.addEventListener("mousemove", (e) => {
     const localX = e.offsetX
     const localY = e.offsetY
-    const a = T.remapValueBetweenScales(localX, 0, e.target.width / pixelRatio, xMin, xMax)
-    const b = T.remapValueBetweenScales(localY, 0, e.target.height / pixelRatio, yMin, yMax)
+    const a = T.remapValueBetweenScales(localX, 0, tarpWidth, xMin, xMax)
+    const b = T.remapValueBetweenScales(localY, 0, tarpHeight, yMin, yMax)
     draw([a, b])
 })
