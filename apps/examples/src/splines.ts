@@ -116,4 +116,5 @@ T.onMouseEvent("mouseup", () => {
 
 export function deactivate() {
     T.destroy()
+    gui.destroy()
 }
