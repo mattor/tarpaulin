@@ -2,11 +2,11 @@ import type { IDrawProps } from "../types/IDrawProps"
 import { getTarpX } from "../math/getTarpX"
 import { getTarpY } from "../math/getTarpY"
 import { addSvgElement } from "../utils/addSvgElement"
-import { glob } from "../utils/glob"
+import { globalState } from "../utils/globalState"
 import { initCanvasStyle } from "../utils/initCanvasStyle"
 
 export function drawLine([x1, y1]: number[], [x2, y2]: number[], props = {} as unknown as IDrawProps) {
-    if (glob.svgTarp !== undefined) {
+    if (globalState.svgTarp !== undefined) {
         addSvgElement("line", {
             stroke: props.stroke,
             x1: getTarpX(x1),
@@ -18,14 +18,14 @@ export function drawLine([x1, y1]: number[], [x2, y2]: number[], props = {} as u
         return
     }
 
-    if (glob.canvasTarp === undefined) {
+    if (globalState.canvasTarp === undefined) {
         return
     }
 
     initCanvasStyle(props)
 
-    glob.canvasTarp.beginPath()
-    glob.canvasTarp.moveTo(getTarpX(x1), getTarpY(y1))
-    glob.canvasTarp.lineTo(getTarpX(x2), getTarpY(y2))
-    glob.canvasTarp.stroke()
+    globalState.canvasTarp.beginPath()
+    globalState.canvasTarp.moveTo(getTarpX(x1), getTarpY(y1))
+    globalState.canvasTarp.lineTo(getTarpX(x2), getTarpY(y2))
+    globalState.canvasTarp.stroke()
 }

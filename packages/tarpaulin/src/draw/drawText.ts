@@ -3,11 +3,11 @@ import { getTarpScale } from "../math/getTarpScale"
 import { getTarpX } from "../math/getTarpX"
 import { getTarpY } from "../math/getTarpY"
 import { addSvgElement } from "../utils/addSvgElement"
-import { glob } from "../utils/glob"
+import { globalState } from "../utils/globalState"
 import { initCanvasStyle } from "../utils/initCanvasStyle"
 
 export function drawText([x, y]: number[], text: string, props = {} as unknown as IDrawProps) {
-    if (glob.svgTarp !== undefined) {
+    if (globalState.svgTarp !== undefined) {
         addSvgElement("text", {
             fill: props.fill,
             children: text,
@@ -18,11 +18,11 @@ export function drawText([x, y]: number[], text: string, props = {} as unknown a
         return
     }
 
-    if (glob.canvasTarp === undefined) {
+    if (globalState.canvasTarp === undefined) {
         return
     }
 
     initCanvasStyle(props)
 
-    glob.canvasTarp.fillText(text, getTarpX(x), getTarpY(y))
+    globalState.canvasTarp.fillText(text, getTarpX(x), getTarpY(y))
 }

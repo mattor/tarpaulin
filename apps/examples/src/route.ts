@@ -3,8 +3,8 @@ import geoJson from "../data/harbor-promenade.json"
 
 const pathList = geoJson.features
     .find(f => f.geometry.type === "LineString")
-    .geometry
-    .coordinates
+    ?.geometry
+    .coordinates ?? []
 
 // Set appearance
 const size = 600
@@ -18,3 +18,7 @@ T.createSvg({ size, xMin, xMax, yMin, yMax })
 // Start drawing
 
 T.drawPath(pathList)
+
+export function deactivate() {
+    T.destroy()
+}

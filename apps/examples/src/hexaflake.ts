@@ -12,10 +12,10 @@ T.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
 
-function drawFlake([x, y], r) {
+function drawFlake([x, y]: number[], r: number) {
     if (r < 5) {
         // Draw
-        const pathList = []
+        const pathList: number[][] = []
         for (let i = 0; i < 6; i++) {
             const angle = T.Const.RADIANS_30_DEGREES + T.Const.RADIANS_60_DEGREES * i
             pathList.push(T.getNextPoint([x, y], angle, r))
@@ -33,3 +33,7 @@ function drawFlake([x, y], r) {
 }
 
 drawFlake([0, 0], 300)
+
+export function deactivate() {
+    T.destroy()
+}

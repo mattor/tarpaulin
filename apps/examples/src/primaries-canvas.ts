@@ -25,3 +25,7 @@ T.drawCircle([15, -15], 5, { fill: T.Color.Green })
 T.drawRect([30, -10], 10, 10)
 T.drawNGon([15, -35], 5, 6.2, { stroke: T.Color.Black, closed: true })
 T.drawPath([[30, -30], [40, -30], [35, -30], [35, -40]], { stroke: T.Color.Black, strokeWidth: 5 })
+
+export function deactivate() {
+    T.destroy()
+}

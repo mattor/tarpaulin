@@ -1,7 +1,11 @@
 import * as T from "tarpaulin"
 
-function hilbert(width, spacing, pathList = []) {
-    return (x, y, lg, i1, i2, f) => {
+interface HilbertFunction {
+    (x: number, y: number, lg: number, i1: number, i2: number, f: HilbertFunction): number[][]
+}
+
+function hilbert(width: number, spacing: number, pathList: number[][] = []) {
+    return (x: number, y: number, lg: number, i1: number, i2: number, f: HilbertFunction) => {
         if (lg === 1) {
             const px = (width - x) * spacing
             const py = (width - y) * spacing
@@ -17,14 +21,14 @@ function hilbert(width, spacing, pathList = []) {
     }
 }
 
-function drawHilbert(order) {
+function drawHilbert(order: number) {
     // Curve Constants
     const width = 2 ** order
     const space = 10
 
     // Prep and run function
     const f = hilbert(width, space)
-    const pathList = f(0, 0, width, 0, 0, f)
+    const pathList: number[][] = f(0, 0, width, 0, 0, f)
 
     // Set appearance
     const size = 600
@@ -41,3 +45,7 @@ function drawHilbert(order) {
 }
 
 drawHilbert(6)
+
+export function deactivate() {
+    T.destroy()
+}

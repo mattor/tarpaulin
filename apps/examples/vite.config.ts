@@ -5,7 +5,7 @@ import { defineConfig } from "vite"
 
 export default defineConfig(() => {
     const example = process.env.example || "mandelbrot"
-    const examplePath = `./src/${example}.js`
+    const examplePath = `./src/index.ts`
 
     if (!fs.existsSync(examplePath)) {
         throw new Error(`No example called "${process.env.example}"`)

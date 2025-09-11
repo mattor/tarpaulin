@@ -16,7 +16,7 @@ T.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
 
-const pathList = []
+const pathList: number[][] = []
 
 for (let t = 0; t < T.Const.RADIANS_360_DEGREES; t += 0.1) {
     const x = Math.abs(Math.cos(t)) ** (2 / n) * a * Math.sign(Math.cos(t))
@@ -25,3 +25,7 @@ for (let t = 0; t < T.Const.RADIANS_360_DEGREES; t += 0.1) {
 }
 
 T.drawPath(pathList, { fill: T.Color.Blue })
+
+export function deactivate() {
+    T.destroy()
+}

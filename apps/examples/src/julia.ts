@@ -9,15 +9,15 @@ const yMax = 4 / 3
 
 const maxIterations = 50
 
-function f(z, c) { // calculate the value of the function with complex arguments.
+function f(z: number[], c: number[]) { // calculate the value of the function with complex arguments.
     return [z[0] * z[0] - z[1] * z[1] + c[0], 2 * z[0] * z[1] + c[1]]
 }
 
-function abs(z) { // absolute value of a complex number
+function abs(z: number[]) { // absolute value of a complex number
     return Math.sqrt(z[0] * z[0] + z[1] * z[1])
 }
 
-function isInJuliaSet(z, c, R) {
+function isInJuliaSet(z: number[], c: number[], R: number) {
     for (let i = 0; i < maxIterations; i++) {
         z = f(z, c)
         if (abs(z) > R) {
@@ -33,7 +33,7 @@ function isInJuliaSet(z, c, R) {
 
 const { tarpElement, tarpWidth, tarpHeight } = T.createCanvas({ size, xMin, xMax, yMin, yMax })
 
-function draw(c) {
+function draw(c: number[]) {
     const R = (1 + Math.sqrt(1 + 4 * abs(c))) / 2
 
     for (let x = 0; x < tarpWidth; x++) {
@@ -60,3 +60,7 @@ tarpElement.addEventListener("mousemove", (e) => {
     const b = T.remapValueBetweenScales(localY, 0, tarpHeight, yMin, yMax)
     draw([a, b])
 })
+
+export function deactivate() {
+    T.destroy()
+}

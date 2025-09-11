@@ -1,26 +1,26 @@
 import type { IDrawProps } from "../types/IDrawProps"
 import * as Color from "../const/Color"
-import { glob } from "../utils/glob"
+import { globalState } from "../utils/globalState"
 
 export function initCanvasStyle(props = {} as unknown as IDrawProps) {
-    if (!glob.canvasTarp) {
+    if (!globalState.canvasTarp) {
         throw new Error("You have to createCanvas() first")
     }
 
-    glob.canvasTarp.fillStyle = Color.BlueGreyLighten3
-    glob.canvasTarp.strokeStyle = Color.BlueGreyDarken4
-    glob.canvasTarp.lineWidth = glob.pixelRatio
-    glob.canvasTarp.font = `${glob.pixelRatio * 12}px Arial`
+    globalState.canvasTarp.fillStyle = Color.BlueGreyLighten3
+    globalState.canvasTarp.strokeStyle = Color.BlueGreyDarken4
+    globalState.canvasTarp.lineWidth = globalState.pixelRatio
+    globalState.canvasTarp.font = `${globalState.pixelRatio * 12}px Arial`
 
     if (props.fill) {
-        glob.canvasTarp.fillStyle = props.fill
+        globalState.canvasTarp.fillStyle = props.fill
     }
 
     if (props.stroke) {
-        glob.canvasTarp.strokeStyle = props.stroke
+        globalState.canvasTarp.strokeStyle = props.stroke
     }
 
     if (props.strokeWidth) {
-        glob.canvasTarp.lineWidth = glob.pixelRatio * props.strokeWidth
+        globalState.canvasTarp.lineWidth = globalState.pixelRatio * props.strokeWidth
     }
 }

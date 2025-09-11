@@ -24,6 +24,5 @@ tarpElement.addEventListener("mousemove", (event: MouseEvent) => {
 })
 
 export function deactivate() {
-    console.log("deactivate")
     T.destroy()
 }

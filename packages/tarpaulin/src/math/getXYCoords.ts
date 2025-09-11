@@ -1,8 +1,8 @@
-import { glob } from "../utils/glob"
+import { globalState } from "../utils/globalState"
 
 export function getXYCoords([x, y]: number[]) {
     return [
-        x * glob.tarpFactorX + glob.xMin,
-        -y * glob.tarpFactorY - glob.yMin,
+        x * globalState.tarpFactorX + globalState.xMin,
+        -y * globalState.tarpFactorY - globalState.yMin,
     ]
 }

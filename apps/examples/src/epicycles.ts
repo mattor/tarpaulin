@@ -55,7 +55,7 @@ function discreteFourierTransform(inputAmplitudes, zeroThreshold = CLOSE_TO_ZERO
     return signals
 }
 
-function transformData(data) {
+function transformData(data: number[][]) {
     // Set appearance
     const { xMin, xMax, yMin, yMax } = T.getMinMax(data)
 
@@ -95,7 +95,7 @@ function transformData(data) {
     return fourierX
 }
 
-function drawEpicyclesAndGetPoint(x, y, rotation, fourier, time) {
+function drawEpicyclesAndGetPoint(x: number, y: number, rotation: number, fourier: any[], time: number) {
     for (let i = 0; i < fourier.length; i++) {
         const prevX = x
         const prevY = y
@@ -132,3 +132,7 @@ T.animate(() => {
         pathList = []
     }
 }, 30)
+
+export function deactivate() {
+    T.destroy()
+}

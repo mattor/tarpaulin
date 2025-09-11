@@ -10,7 +10,7 @@
         "url": "git+https://github.com/mattor/tarpaulin.git"
     },
     "scripts": {
-        "start": "vite",
+        "dev": "vite",
         "start:axes": "example=axes vite",
         "start:cube": "example=cube vite",
         "start:epicycles": "example=epicycles vite",

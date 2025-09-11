@@ -118,3 +118,7 @@ tarpElement.addEventListener("mousemove", (event: MouseEvent) => {
 tarpElement.addEventListener("mouseup", () => {
     activePointIndex = null
 })
+
+export function deactivate() {
+    T.destroy()
+}

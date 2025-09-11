@@ -2,7 +2,7 @@ import type { IDrawProps } from "../types/IDrawProps"
 import { getTarpX } from "../math/getTarpX"
 import { getTarpY } from "../math/getTarpY"
 import { addSvgElement } from "../utils/addSvgElement"
-import { glob } from "../utils/glob"
+import { globalState } from "../utils/globalState"
 import { initCanvasStyle } from "../utils/initCanvasStyle"
 
 export function drawBezier(ps: number[][], props = {} as unknown as IDrawProps) {
@@ -11,7 +11,7 @@ export function drawBezier(ps: number[][], props = {} as unknown as IDrawProps) 
         return
     }
 
-    if (glob.svgTarp !== undefined) {
+    if (globalState.svgTarp !== undefined) {
         addSvgElement("path", {
             d: `M${ps.map(([x, y]) => `${getTarpX(x)} ${getTarpY(y)}`).join(" L")}`,
             fill: props.fill,
@@ -19,16 +19,16 @@ export function drawBezier(ps: number[][], props = {} as unknown as IDrawProps) 
         })
     }
 
-    if (glob.canvasTarp === undefined) {
+    if (globalState.canvasTarp === undefined) {
         return
     }
 
     initCanvasStyle(props)
 
     const [p1, p2, p3, p4] = ps
-    glob.canvasTarp.beginPath()
-    glob.canvasTarp.moveTo(getTarpX(p1[0]), getTarpY(p1[1]))
-    glob.canvasTarp.bezierCurveTo(
+    globalState.canvasTarp.beginPath()
+    globalState.canvasTarp.moveTo(getTarpX(p1[0]), getTarpY(p1[1]))
+    globalState.canvasTarp.bezierCurveTo(
         getTarpX(p2[0]),
         getTarpY(p2[1]),
         getTarpX(p3[0]),
@@ -36,5 +36,5 @@ export function drawBezier(ps: number[][], props = {} as unknown as IDrawProps) 
         getTarpX(p4[0]),
         getTarpY(p4[1]),
     )
-    glob.canvasTarp.stroke()
+    globalState.canvasTarp.stroke()
 }

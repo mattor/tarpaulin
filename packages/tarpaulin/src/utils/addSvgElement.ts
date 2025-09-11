@@ -1,5 +1,5 @@
 import * as Color from "../const/Color"
-import { glob } from "../utils/glob"
+import { globalState } from "../utils/globalState"
 
 export interface ISvgProps {
     [key: string]: any
@@ -31,7 +31,7 @@ export function addSvgElement(tag: string, props = {} as unknown as ISvgProps) {
         })
     }
 
-    if (glob.svgTarp) {
-        glob.svgTarp.appendChild(el)
+    if (globalState.svgTarp) {
+        globalState.svgTarp.appendChild(el)
     }
 }

@@ -14,19 +14,19 @@ T.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
 
-function drawEulerSpiral(T, N) {
-    let dx
-    let dy
-    let t = 0
+function drawEulerSpiral(t: number, N: number) {
+    let dx: number
+    let dy: number
+    let time = 0
     let prev = { x: 0, y: 0 }
-    let current
-    const dt = T / N
-    const pathList = []
+    let current: typeof prev
+    const dt = t / N
+    const pathList: number[][] = []
 
     while (N--) {
-        dx = Math.cos(t * t) * dt
-        dy = Math.sin(t * t) * dt
-        t += dt
+        dx = Math.cos(time * time) * dt
+        dy = Math.sin(time * time) * dt
+        time += dt
 
         current = {
             x: prev.x + dx,
@@ -45,3 +45,7 @@ T.drawGrid()
 T.drawAxes()
 
 drawEulerSpiral(10, 10000)
+
+export function deactivate() {
+    T.destroy()
+}

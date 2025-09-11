@@ -48,3 +48,7 @@ T.animate(() => {
     drawBranch(xMax / 2 - firstDelta, 2, xMax / 2 + firstDelta, 2, 0)
     depthLimit = (depthLimit + 1) % 12
 }, 1)
+
+export function deactivate() {
+    T.destroy()
+}

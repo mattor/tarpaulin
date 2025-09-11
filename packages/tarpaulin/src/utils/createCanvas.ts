@@ -1,8 +1,8 @@
 import { clear } from "./clear"
 import { createAndAddCanvas } from "./createAndAddCanvas"
-import { glob } from "./glob"
+import { globalState } from "./globalState"
 import { initCanvasStyle } from "./initCanvasStyle"
-import { initGlob } from "./initGlob"
+import { initGlobalState } from "./initGlobalState"
 
 export interface ICreateCanvasOptions {
     size: number
@@ -25,11 +25,11 @@ export function createCanvas({
     tarpHeight: number
     tarpWidth: number
 } {
-    if (glob.canvasTarp || glob.svgTarp) {
+    if (globalState.canvasTarp || globalState.svgTarp) {
         throw new Error("Only one tarp allowed per page")
     }
 
-    initGlob({ size, xMin, xMax, yMin, yMax, pixelRatio })
+    initGlobalState({ size, xMin, xMax, yMin, yMax, pixelRatio })
 
     const { tarpElement, tarpHeight, tarpWidth } = createAndAddCanvas()
 

@@ -81,6 +81,5 @@ T.animate(() => {
 })
 
 export function deactivate() {
-    console.log("deactivate")
     T.destroy()
 }

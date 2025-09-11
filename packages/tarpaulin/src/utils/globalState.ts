@@ -1,8 +1,11 @@
+import type { Animation } from "./animate"
+
 export interface ICanvasTarp {
     [index: string]: number
 }
 
-interface IGlob {
+interface GlobalState {
+    animations: Animation[]
     canvasTarp?: CanvasRenderingContext2D
     tarpHeight: number
     tarpScale: number
@@ -23,7 +26,8 @@ interface IGlob {
     yMin: number
 }
 
-export const glob: IGlob = {
+export const globalState: GlobalState = {
+    animations: [],
     tarpHeight: 0,
     tarpScale: 0,
     tarpShiftX: 0,
