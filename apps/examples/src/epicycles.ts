@@ -4,9 +4,9 @@ import peaceHandData from "../data/peace-hand.json"
 
 const CLOSE_TO_ZERO_THRESHOLD = 1e-10
 
-function discreteFourierTransform(inputAmplitudes: [number, number][], zeroThreshold = CLOSE_TO_ZERO_THRESHOLD) {
+function discreteFourierTransform(inputAmplitudes: T.ComplexNumber[], zeroThreshold = CLOSE_TO_ZERO_THRESHOLD) {
     const N = inputAmplitudes.length
-    const signals: [number, number][] = []
+    const signals: T.ComplexNumber[] = []
 
     // Go through every discrete frequency
     for (let frequency = 0; frequency < N; frequency += 1) {
@@ -49,15 +49,15 @@ function discreteFourierTransform(inputAmplitudes: [number, number][], zeroThres
         frequencySignal = frequencySignal.divide(N)
 
         // Add current frequency signal to the list of compound signals
-        signals[frequency] = [frequencySignal.re, frequencySignal.im]
+        signals[frequency] = frequencySignal
     }
 
     return signals
 }
 
-function transformData(data: [number, number][]) {
+function transformData(data: number[][]) {
     // Set appearance
-    const { xMin, xMax, yMin, yMax } = T.getMinMax(data)
+    const { xMin, xMax, yMin, yMax } = T.getMinMax(data as T.Point2D[])
 
     /*
     // Transform data around origin
@@ -95,7 +95,7 @@ function transformData(data: [number, number][]) {
     return fourierX
 }
 
-function drawEpicyclesAndGetPoint(x: number, y: number, rotation: number, fourier: any[], time: number) {
+function drawEpicyclesAndGetPoint(x: number, y: number, rotation: number, fourier: any[], time: number): T.Point2D {
     for (let i = 0; i < fourier.length; i++) {
         const prevX = x
         const prevY = y
@@ -113,7 +113,7 @@ function drawEpicyclesAndGetPoint(x: number, y: number, rotation: number, fourie
 }
 
 const fourierX = transformData(peaceHandData)
-let pathList = []
+let pathList: T.Point2D[] = []
 let time = 0
 
 // Start drawing

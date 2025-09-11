@@ -1,4 +1,5 @@
-import type { IDrawProps } from "../types/IDrawProps"
+import type { DrawProps } from "../types/DrawProps"
+import type { Point2D } from "../types/Point2D"
 import * as Color from "../const/Color"
 import { getTarpX } from "../math/getTarpX"
 import { getTarpY } from "../math/getTarpY"
@@ -6,10 +7,10 @@ import { addSvgElement } from "../utils/addSvgElement"
 import { globalState } from "../utils/globalState"
 import { initCanvasStyle } from "../utils/initCanvasStyle"
 
-export function drawPath(pathList: [number, number][], props = {
+export function drawPath(pathList: Point2D[], props = {
     closed: false,
     stroke: Color.BlueGreyDarken4,
-} as unknown as IDrawProps) {
+} as unknown as DrawProps) {
     const closed = props.fill || props.closed
 
     if (globalState.svgTarp !== undefined) {

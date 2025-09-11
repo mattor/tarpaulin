@@ -1,8 +1,8 @@
-import type { IDrawProps } from "../types/IDrawProps"
+import type { DrawProps } from "../types/DrawProps"
 import * as Color from "../const/Color"
 import { globalState } from "../utils/globalState"
 
-export function initCanvasStyle(props = {} as unknown as IDrawProps) {
+export function initCanvasStyle(props = {} as unknown as DrawProps) {
     if (!globalState.canvasTarp) {
         throw new Error("You have to createCanvas() first")
     }

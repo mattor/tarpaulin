@@ -1,10 +1,10 @@
 import * as T from "tarpaulin"
 import geoJson from "../data/harbor-promenade.json"
 
-const pathList: [number, number][] = geoJson.features
+const pathList: T.Point2D[] = geoJson.features
     .find(f => f.geometry.type === "LineString")
     ?.geometry
-    .coordinates as [number, number][] ?? []
+    .coordinates as T.Point2D[] ?? []
 
 // Set appearance
 const size = 600

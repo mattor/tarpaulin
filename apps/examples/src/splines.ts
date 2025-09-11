@@ -14,7 +14,7 @@ const { tarpElement } = T.createCanvas({ size, xMin, xMax, yMin, yMax })
 // Constants
 const clickRadius: number = 10
 const labels = ["A", "B", "C", "D"]
-const points: [number, number][] = [
+const points: T.Point2D[] = [
     [size * 0.10, size * 0.90],
     [size * 0.10, size * 0.10],
     [size * 0.90, size * 0.10],
@@ -38,7 +38,7 @@ function paint(): void {
     T.drawBezier(points, { stroke: "rgba(0, 0, 0, 1)" })
 
     // 1st generation
-    const aPoints: [number, number][][] = [[], []]
+    const aPoints: T.Point2D[][] = [[], []]
     for (let startPointIndex = 0; startPointIndex < points.length - 2; startPointIndex++) {
         const myPoints = [points[startPointIndex], points[startPointIndex + 1], points[startPointIndex + 2]]
         for (let i = 1; i < options.numLines; i++) {

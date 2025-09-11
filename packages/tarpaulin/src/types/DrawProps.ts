@@ -1,4 +1,4 @@
-export interface IDrawProps {
+export interface DrawProps {
     closed?: boolean
     fill?: string
     stroke?: string

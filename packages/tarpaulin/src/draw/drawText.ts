@@ -1,11 +1,12 @@
-import type { IDrawProps } from "../types/IDrawProps"
+import type { DrawProps } from "../types/DrawProps"
+import type { Point2D } from "../types/Point2D"
 import { getTarpX } from "../math/getTarpX"
 import { getTarpY } from "../math/getTarpY"
 import { addSvgElement } from "../utils/addSvgElement"
 import { globalState } from "../utils/globalState"
 import { initCanvasStyle } from "../utils/initCanvasStyle"
 
-export function drawText([x, y]: [number, number], text: string, props = {} as unknown as IDrawProps) {
+export function drawText([x, y]: Point2D, text: string, props = {} as unknown as DrawProps) {
     if (globalState.svgTarp !== undefined) {
         addSvgElement("text", {
             fill: props.fill,

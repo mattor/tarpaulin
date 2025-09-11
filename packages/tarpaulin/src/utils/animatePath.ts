@@ -1,7 +1,8 @@
+import type { Point2D } from "../types/Point2D"
 import { drawPath } from "../draw/drawPath"
 import { animate } from "./animate"
 
-export function animatePath(pathList: [number, number][], props = {}, fps = 30) {
+export function animatePath(pathList: Point2D[], props = {}, fps = 30) {
     let pos = 0
 
     let animation: any

@@ -1,4 +1,5 @@
-import type { IDrawProps } from "../types/IDrawProps"
+import type { DrawProps } from "../types/DrawProps"
+import type { Point2D } from "../types/Point2D"
 import * as Const from "../const/Const"
 import { getTarpScale } from "../math/getTarpScale"
 import { getTarpX } from "../math/getTarpX"
@@ -7,7 +8,7 @@ import { addSvgElement } from "../utils/addSvgElement"
 import { globalState } from "../utils/globalState"
 import { initCanvasStyle } from "../utils/initCanvasStyle"
 
-export function drawCircle([x, y]: [number, number], radius: number, props = {} as unknown as IDrawProps) {
+export function drawCircle([x, y]: Point2D, radius: number, props = {} as unknown as DrawProps) {
     if (globalState.svgTarp !== undefined) {
         addSvgElement("circle", {
             cx: getTarpX(x),

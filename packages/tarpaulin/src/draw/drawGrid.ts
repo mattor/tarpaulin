@@ -1,9 +1,9 @@
-import type { IDrawProps } from "../types/IDrawProps"
+import type { DrawProps } from "../types/DrawProps"
 import * as Color from "../const/Color"
 import { globalState } from "../utils/globalState"
 import { drawLine } from "./drawLine"
 
-export function drawGrid(props?: IDrawProps) {
+export function drawGrid(props?: DrawProps) {
     let x = Math.floor(globalState.xMin)
     let y = Math.floor(globalState.yMin)
 

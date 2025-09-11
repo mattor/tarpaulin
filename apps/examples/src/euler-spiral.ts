@@ -21,7 +21,7 @@ function drawEulerSpiral(t: number, N: number) {
     let prev = { x: 0, y: 0 }
     let current: typeof prev
     const dt = t / N
-    const pathList: [number, number][] = []
+    const pathList: T.Point2D[] = []
 
     while (N--) {
         dx = Math.cos(time * time) * dt

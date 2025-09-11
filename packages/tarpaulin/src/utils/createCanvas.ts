@@ -4,7 +4,7 @@ import { globalState } from "./globalState"
 import { initCanvasStyle } from "./initCanvasStyle"
 import { initGlobalState } from "./initGlobalState"
 
-export interface ICreateCanvasOptions {
+export interface CanvasOptions {
     size: number
     xMin: number
     xMax: number
@@ -20,7 +20,7 @@ export function createCanvas({
     yMin = -1,
     yMax = 1,
     pixelRatio,
-}: ICreateCanvasOptions): {
+}: CanvasOptions): {
     tarpElement: HTMLCanvasElement
     tarpHeight: number
     tarpWidth: number

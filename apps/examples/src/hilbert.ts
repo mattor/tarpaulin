@@ -1,16 +1,16 @@
 import * as T from "tarpaulin"
 
 interface HilbertFunction {
-    (x: number, y: number, lg: number, i1: number, i2: number, f: HilbertFunction): [number, number][]
+    (x: number, y: number, lg: number, i1: number, i2: number, f: HilbertFunction): T.Point2D[]
 }
 
-function hilbert(width: number, spacing: number, pathList: [number, number][] = []) {
+function hilbert(width: number, spacing: number, pathList: T.Point2D[] = []) {
     return (x: number, y: number, lg: number, i1: number, i2: number, f: HilbertFunction) => {
         if (lg === 1) {
             const px = (width - x) * spacing
             const py = (width - y) * spacing
             pathList.push([px, py])
-            return
+            return []
         }
         lg >>= 1
         f(x + i1 * lg, y + i1 * lg, lg, i1, 1 - i2, f)
@@ -28,7 +28,7 @@ function drawHilbert(order: number) {
 
     // Prep and run function
     const f = hilbert(width, spacing)
-    const pathList: [number, number][] = f(0, 0, width, 0, 0, f)
+    const pathList: T.Point2D[] = f(0, 0, width, 0, 0, f)
 
     // Set appearance
     const size = 600

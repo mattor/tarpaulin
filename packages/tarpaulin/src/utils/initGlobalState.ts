@@ -1,7 +1,7 @@
 import { getTarpScale } from "../math/getTarpScale"
 import { globalState } from "./globalState"
 
-interface IConfig {
+interface GlobalStateOptions {
     pixelRatio?: number
     size: number
     xMax: number
@@ -10,7 +10,7 @@ interface IConfig {
     yMin: number
 }
 
-export function initGlobalState(config: IConfig) {
+export function initGlobalState(config: GlobalStateOptions) {
     globalState.size = config.size
     globalState.xMin = config.xMin
     globalState.xMax = config.xMax

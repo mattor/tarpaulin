@@ -1,11 +1,12 @@
-import type { IDrawProps } from "../types/IDrawProps"
+import type { DrawProps } from "../types/DrawProps"
+import type { Point2D } from "../types/Point2D"
 import { getTarpX } from "../math/getTarpX"
 import { getTarpY } from "../math/getTarpY"
 import { addSvgElement } from "../utils/addSvgElement"
 import { globalState } from "../utils/globalState"
 import { initCanvasStyle } from "../utils/initCanvasStyle"
 
-export function drawBezier(ps: [number, number][], props = {} as unknown as IDrawProps) {
+export function drawBezier(ps: Point2D[], props = {} as unknown as DrawProps) {
     if (ps.length !== 4) {
         console.error("drawBezier requires exactly 4 points")
         return

@@ -9,15 +9,15 @@ const yMax = 4 / 3
 
 const maxIterations = 50
 
-function f(z: [number, number], c: [number, number]): [number, number] { // calculate the value of the function with complex arguments.
+function f(z: T.Point2D, c: T.Point2D): T.Point2D { // calculate the value of the function with complex arguments.
     return [z[0] * z[0] - z[1] * z[1] + c[0], 2 * z[0] * z[1] + c[1]]
 }
 
-function abs(z: [number, number]) { // absolute value of a complex number
+function abs(z: T.Point2D) { // absolute value of a complex number
     return Math.sqrt(z[0] * z[0] + z[1] * z[1])
 }
 
-function isInJuliaSet(z: [number, number], c: [number, number], R: number) {
+function isInJuliaSet(z: T.Point2D, c: T.Point2D, R: number) {
     for (let i = 0; i < maxIterations; i++) {
         z = f(z, c)
         if (abs(z) > R) {
@@ -33,7 +33,7 @@ function isInJuliaSet(z: [number, number], c: [number, number], R: number) {
 
 const { tarpElement, tarpWidth, tarpHeight } = T.createCanvas({ size, xMin, xMax, yMin, yMax })
 
-function draw(c: [number, number]) {
+function draw(c: T.Point2D) {
     const R = (1 + Math.sqrt(1 + 4 * abs(c))) / 2
 
     for (let x = 0; x < tarpWidth; x++) {

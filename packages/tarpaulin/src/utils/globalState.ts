@@ -1,6 +1,6 @@
 import type { Animation } from "./animate"
 
-export interface ICanvasTarp {
+export interface CanvasTarp {
     [index: string]: number
 }
 
