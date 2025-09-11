@@ -26,7 +26,7 @@ function drawGraph(fn: (x: number) => number, color: string) {
 
 // Create tarp
 
-T.createCanvas({ size, xMin, xMax, yMin, yMax })
+T.createSvg({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
 

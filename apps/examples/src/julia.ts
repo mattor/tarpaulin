@@ -9,18 +9,14 @@ const yMax = 4 / 3
 
 const maxIterations = 50
 
-function f(z: T.Point2D, c: T.Point2D): T.Point2D { // calculate the value of the function with complex arguments.
-    return [z[0] * z[0] - z[1] * z[1] + c[0], 2 * z[0] * z[1] + c[1]]
+function f(z: T.ComplexNumber, c: T.ComplexNumber) { // calculate the value of the function with complex arguments.
+    return new T.ComplexNumber({ re: z.re * z.re - z.im * z.im + c.re, im: 2 * z.re * z.im + c.im })
 }
 
-function abs(z: T.Point2D) { // absolute value of a complex number
-    return Math.sqrt(z[0] * z[0] + z[1] * z[1])
-}
-
-function isInJuliaSet(z: T.Point2D, c: T.Point2D, R: number) {
+function isInJuliaSet(z: T.ComplexNumber, c: T.ComplexNumber, R: number) {
     for (let i = 0; i < maxIterations; i++) {
         z = f(z, c)
-        if (abs(z) > R) {
+        if (z.abs() > R) {
             // Return a number as a percentage
             return i / maxIterations * 100
         }
@@ -33,12 +29,13 @@ function isInJuliaSet(z: T.Point2D, c: T.Point2D, R: number) {
 
 const { tarpWidth, tarpHeight } = T.createCanvas({ size, xMin, xMax, yMin, yMax })
 
-function draw(c: T.Point2D) {
-    const R = (1 + Math.sqrt(1 + 4 * abs(c))) / 2
+function draw(c: T.ComplexNumber) {
+    const R = (1 + Math.sqrt(1 + 4 * c.abs())) / 2
 
     for (let x = 0; x < tarpWidth; x++) {
         for (let y = 0; y < tarpHeight; y++) {
-            const belongsToSet = isInJuliaSet(T.getXYCoords([x, y]), c, R)
+            const [re, im] = T.getXYCoords([x, y])
+            const belongsToSet = isInJuliaSet(new T.ComplexNumber({ re, im }), c, R)
             if (belongsToSet === 0) {
                 T.drawPixel([x, y], { fill: T.Color.Black })
             }
@@ -51,10 +48,10 @@ function draw(c: T.Point2D) {
 
 // Start drawing
 
-draw([-1, 1 / 4]) // all complex number are in the form of [a, b] which means a + i*b
+draw(new T.ComplexNumber({ re: -1, im: 1 / 4 })) // all complex number are in the form of [a, b] which means a + i*b
 
-T.onMouseEvent("mousemove", ([a, b]) => {
-    draw([a, b])
+T.onMouseEvent("mousemove", ([re, im]) => {
+    draw(new T.ComplexNumber({ re, im }))
 })
 
 export function deactivate() {

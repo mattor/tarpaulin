@@ -72,7 +72,7 @@ export class ComplexNumber {
         })
     }
 
-    public getRadius() {
+    public abs() {
         return Math.sqrt((this.re ** 2) + (this.im ** 2))
     }
 
@@ -116,7 +116,7 @@ export class ComplexNumber {
     public getPolarForm(inRadians = true) {
         return {
             phase: this.getPhase(inRadians),
-            radius: this.getRadius(),
+            radius: this.abs(),
         }
     }
 

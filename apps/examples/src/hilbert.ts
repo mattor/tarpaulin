@@ -38,7 +38,7 @@ function drawHilbert(order: number) {
     const yMax = width * spacing + spacing
 
     // Create tarp
-    T.createCanvas({ size, xMin, xMax, yMin, yMax })
+    T.createSvg({ size, xMin, xMax, yMin, yMax })
 
     // Draw
     T.drawPath(pathList)

@@ -10,20 +10,16 @@ const yMax = 1.25
 const R = 5
 const maxIterations = (yMax - yMin) * 50
 
-function f(acc: T.Point2D, z: T.Point2D): T.Point2D {
-    return [acc[0] * acc[0] - acc[1] * acc[1] + z[0], 2 * acc[0] * acc[1] + z[1]]
+function f(acc: T.ComplexNumber, z: T.ComplexNumber) {
+    return new T.ComplexNumber({ re: acc.re * acc.re - acc.im * acc.im + z.re, im: 2 * acc.re * acc.im + z.im })
 }
 
-function abs(z: T.Point2D) { // absolute value of a complex number
-    return Math.sqrt(z[0] * z[0] + z[1] * z[1])
-}
-
-function isInMandelbrotSet(z: T.Point2D) {
-    let acc: T.Point2D = [z[0], z[1]]
+function isInMandelbrotSet(z: T.ComplexNumber) {
+    let acc = new T.ComplexNumber(z)
     for (let i = 0; i < maxIterations; i++) {
         acc = f(acc, z)
         // Return a number as a percentage
-        if (abs(acc) > R) {
+        if (acc.abs() > R) {
             return i / maxIterations * 100
         }
     }
@@ -39,7 +35,8 @@ const { tarpWidth, tarpHeight } = T.createCanvas({ size, xMin, xMax, yMin, yMax 
 
 for (let x = 0; x < tarpWidth; x++) {
     for (let y = 0; y < tarpHeight; y++) {
-        const belongsToSet = isInMandelbrotSet(T.getXYCoords([x, y]))
+        const [re, im] = T.getXYCoords([x, y])
+        const belongsToSet = isInMandelbrotSet(new T.ComplexNumber({ re, im }))
         if (belongsToSet === 0) {
             T.drawPixel([x, y], { fill: T.Color.Black })
         }

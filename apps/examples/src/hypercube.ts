@@ -107,4 +107,5 @@ T.animate(() => {
 
 export function deactivate() {
     T.destroy()
+    gui.destroy()
 }

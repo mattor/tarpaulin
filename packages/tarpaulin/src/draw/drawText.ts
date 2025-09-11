@@ -9,10 +9,12 @@ import { initCanvasStyle } from "../utils/initCanvasStyle"
 export function drawText([x, y]: Point2D, text: string, props = {} as unknown as DrawProps) {
     if (globalState.svgTarp !== undefined) {
         addSvgElement("text", {
-            fill: props.fill,
-            children: text,
-            x: getTarpX(x),
-            y: getTarpY(y),
+            "fill": props.fill,
+            "children": text,
+            "x": getTarpX(x),
+            "y": getTarpY(y),
+            "font-size": "12px",
+            "font-family": "Arial",
         })
 
         return

@@ -25,10 +25,8 @@ export function addSvgElement(tag: string, props = {} as unknown as SvgProps) {
         el.setAttributeNS(null, "stroke", props.stroke || Color.Black)
     }
 
-    if (props.children) {
-        props.children.forEach((child: any) => {
-            el.appendChild(child)
-        })
+    if (props.children && typeof props.children === "string") {
+        el.appendChild(new Text(props.children))
     }
 
     if (globalState.svgTarp) {

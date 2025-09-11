@@ -8,7 +8,7 @@ const yMin = -1.01
 const yMax = 1.01
 
 // Create tarp
-T.createCanvas({ size, xMin, xMax, yMin, yMax })
+T.createSvg({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
 

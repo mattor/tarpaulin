@@ -12,10 +12,8 @@ T.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 // Start drawing
 
-let depthLimit = 0
-
 function drawBranch(x1: number, y1: number, x2: number, y2: number, depth: number) {
-    if (depth >= depthLimit) {
+    if (depth === 0) {
         return
     }
 
@@ -37,16 +35,17 @@ function drawBranch(x1: number, y1: number, x2: number, y2: number, depth: numbe
         [x4, y4],
     ], { fill: `${T.Color.Green}CC` })
 
-    drawBranch(x4, y4, x5, y5, depth + 1)
-    drawBranch(x5, y5, x3, y3, depth + 1)
+    drawBranch(x4, y4, x5, y5, depth - 1)
+    drawBranch(x5, y5, x3, y3, depth - 1)
 }
 
 const firstDelta = 10
+let depth = 1
 
 T.animate(() => {
     T.clear()
-    drawBranch(xMax / 2 - firstDelta, 2, xMax / 2 + firstDelta, 2, 0)
-    depthLimit = (depthLimit + 1) % 12
+    drawBranch(xMax / 2 - firstDelta, 2, xMax / 2 + firstDelta, 2, depth)
+    depth = (depth + 1) % 12
 }, 1)
 
 export function deactivate() {
