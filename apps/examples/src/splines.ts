@@ -35,7 +35,7 @@ function paint(): void {
     // Clear canvas
     T.clear()
 
-    T.drawBezier(points, { stroke: "rgba(0, 0, 0, 1)" })
+    T.drawBezier(points, { stroke: T.Color.Black })
 
     // 1st generation
     const aPoints: T.Point2D[][] = [[], []]
@@ -45,10 +45,10 @@ function paint(): void {
             const t = i / options.numLines
             const p1 = T.lerpPoints2D(myPoints[0], myPoints[1], t)
             const p2 = T.lerpPoints2D(myPoints[1], myPoints[2], t)
-            T.drawLine(p1, p2, { stroke: "rgba(255, 111, 0, 0.5)" })
+            T.drawLine(p1, p2, { stroke: `${T.Color.OrangeAccent4}80` })
             const p = T.lerpPoints2D(p1, p2, t)
             aPoints[startPointIndex].push(p)
-            T.drawCircle(p, 3, { fill: "rgba(255, 111, 0, 1)" })
+            T.drawCircle(p, 3, { fill: T.Color.OrangeAccent4 })
         }
     }
 
@@ -56,20 +56,20 @@ function paint(): void {
     for (let i = 0; i < aPoints[0].length; i++) {
         const p1 = aPoints[0][i]
         const p2 = aPoints[1][i]
-        T.drawLine(p1, p2, { stroke: "rgba(35, 174, 35, 0.5)" })
+        T.drawLine(p1, p2, { stroke: `${T.Color.GreenAccent4}80` })
         const t = (i + 1) / (aPoints[0].length + 1)
         const p = T.lerpPoints2D(p1, p2, t)
-        T.drawCircle(p, 3, { fill: "rgba(35, 174, 35, 1)" })
+        T.drawCircle(p, 3, { fill: T.Color.GreenAccent4 })
     }
 
     // 0th generation
     for (let i = 0; i < points.length; i++) {
         const p = points[i]
         if (i > 0) {
-            T.drawLine(points[i - 1], points[i], { stroke: "rgba(64, 64, 64, 0.5)" })
+            T.drawLine(points[i - 1], points[i], { stroke: `${T.Color.GreyDarken4}80` })
         }
-        T.drawCircle(p, 3, { fill: "rgba(64, 64, 64, 1)" })
-        T.drawText([p[0] + 10, p[1] - 20], `${labels[points.indexOf(p)]} (${Math.round(p[0])}, ${Math.round(p[1])})`, { fill: "rgba(64, 64, 64, 1)" })
+        T.drawCircle(p, 3, { fill: T.Color.GreyDarken4 })
+        T.drawText([p[0] + 10, p[1] - 20], `${labels[points.indexOf(p)]} (${Math.round(p[0])}, ${Math.round(p[1])})`, { fill: T.Color.GreyDarken4 })
     }
 }
 
