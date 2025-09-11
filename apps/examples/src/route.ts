@@ -1,10 +1,10 @@
 import * as T from "tarpaulin"
 import geoJson from "../data/harbor-promenade.json"
 
-const pathList = geoJson.features
+const pathList: [number, number][] = geoJson.features
     .find(f => f.geometry.type === "LineString")
     ?.geometry
-    .coordinates ?? []
+    .coordinates as [number, number][] ?? []
 
 // Set appearance
 const size = 600

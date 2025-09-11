@@ -7,7 +7,7 @@ import { addSvgElement } from "../utils/addSvgElement"
 import { globalState } from "../utils/globalState"
 import { initCanvasStyle } from "../utils/initCanvasStyle"
 
-export function drawCircle([x, y]: number[], radius: number, props = {} as unknown as IDrawProps) {
+export function drawCircle([x, y]: [number, number], radius: number, props = {} as unknown as IDrawProps) {
     if (globalState.svgTarp !== undefined) {
         addSvgElement("circle", {
             cx: getTarpX(x),

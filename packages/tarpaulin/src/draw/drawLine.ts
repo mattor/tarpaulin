@@ -5,7 +5,7 @@ import { addSvgElement } from "../utils/addSvgElement"
 import { globalState } from "../utils/globalState"
 import { initCanvasStyle } from "../utils/initCanvasStyle"
 
-export function drawLine([x1, y1]: number[], [x2, y2]: number[], props = {} as unknown as IDrawProps) {
+export function drawLine([x1, y1]: [number, number], [x2, y2]: [number, number], props = {} as unknown as IDrawProps) {
     if (globalState.svgTarp !== undefined) {
         addSvgElement("line", {
             stroke: props.stroke,

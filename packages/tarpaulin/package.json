@@ -33,7 +33,8 @@
         "build": "rollup -c",
         "dev": "rollup -c -w",
         "test": "jest",
-        "lint": "eslint --fix"
+        "lint": "eslint --fix",
+        "check": "tsc --noEmit"
     },
     "devDependencies": {
         "@rollup/plugin-commonjs": "^28.0.6",

@@ -4,9 +4,9 @@ import peaceHandData from "../data/peace-hand.json"
 
 const CLOSE_TO_ZERO_THRESHOLD = 1e-10
 
-function discreteFourierTransform(inputAmplitudes, zeroThreshold = CLOSE_TO_ZERO_THRESHOLD) {
+function discreteFourierTransform(inputAmplitudes: [number, number][], zeroThreshold = CLOSE_TO_ZERO_THRESHOLD) {
     const N = inputAmplitudes.length
-    const signals = []
+    const signals: [number, number][] = []
 
     // Go through every discrete frequency
     for (let frequency = 0; frequency < N; frequency += 1) {
@@ -49,13 +49,13 @@ function discreteFourierTransform(inputAmplitudes, zeroThreshold = CLOSE_TO_ZERO
         frequencySignal = frequencySignal.divide(N)
 
         // Add current frequency signal to the list of compound signals
-        signals[frequency] = frequencySignal
+        signals[frequency] = [frequencySignal.re, frequencySignal.im]
     }
 
     return signals
 }
 
-function transformData(data: number[][]) {
+function transformData(data: [number, number][]) {
     // Set appearance
     const { xMin, xMax, yMin, yMax } = T.getMinMax(data)
 

@@ -6,7 +6,7 @@ import { addSvgElement } from "../utils/addSvgElement"
 import { globalState } from "../utils/globalState"
 import { initCanvasStyle } from "../utils/initCanvasStyle"
 
-export function drawPath(pathList: number[][], props = {
+export function drawPath(pathList: [number, number][], props = {
     closed: false,
     stroke: Color.BlueGreyDarken4,
 } as unknown as IDrawProps) {

@@ -5,7 +5,7 @@ import { addSvgElement } from "../utils/addSvgElement"
 import { globalState } from "../utils/globalState"
 import { initCanvasStyle } from "../utils/initCanvasStyle"
 
-export function drawBezier(ps: number[][], props = {} as unknown as IDrawProps) {
+export function drawBezier(ps: [number, number][], props = {} as unknown as IDrawProps) {
     if (ps.length !== 4) {
         console.error("drawBezier requires exactly 4 points")
         return

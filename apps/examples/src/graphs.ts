@@ -11,7 +11,7 @@ const logFn = (x: number) => 1 / (1 + Math.E ** -x)
 const expFn = (x: number) => 2 ** x
 
 function drawGraph(fn: (x: number) => number, color: string) {
-    const pathList: number[][] = []
+    const pathList: [number, number][] = []
     const step = 0.01
     let x = xMin
 

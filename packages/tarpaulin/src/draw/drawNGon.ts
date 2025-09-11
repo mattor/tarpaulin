@@ -9,11 +9,11 @@ import { drawPath } from "./drawPath"
 %   yc   -- y-coordinate of the center (real scalar)
 */
 
-export function drawNGon([x, y]: number[], n: number, r: number, props = {
+export function drawNGon([x, y]: [number, number], n: number, r: number, props = {
     closed: false,
     stroke: Color.BlueGreyDarken4,
 } as unknown as IDrawProps) {
-    const pathList: number[][] = []
+    const pathList: [number, number][] = []
 
     for (let i = 0; i < n; i++) {
         const angle = (2 * Math.PI * i / n) + (Math.PI / 2)

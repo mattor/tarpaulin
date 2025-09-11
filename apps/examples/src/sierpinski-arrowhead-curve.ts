@@ -1,7 +1,7 @@
 import * as T from "tarpaulin"
 
-function arrowheadCurve(level: number, pathList: number[][], fromPoint: number[], sideLength: number, angle: number, angleDelta: number, orientation: number) {
-    let currentVector
+function arrowheadCurve(level: number, pathList: [number, number][], fromPoint: [number, number], sideLength: number, angle: number, angleDelta: number, orientation: number) {
+    let currentVector: { point: [number, number], angle: number }
 
     // Level 0 - bottom of recursion: Draw next part of path
     if (level === 0) {
@@ -30,19 +30,19 @@ function arrowheadCurve(level: number, pathList: number[][], fromPoint: number[]
     return currentVector
 }
 
-function drawSierpinskiArrowheadCurve([x, y], sideLength, { level = 3, orientation = -1 } = {}) {
+function drawSierpinskiArrowheadCurve([x, y]: [number, number], sideLength: number, { level = 3, orientation = -1 }: { level?: number, orientation?: number } = {}) {
     if (orientation !== -1 || orientation === 1) { // TODO: What is this?
         orientation = 1
     }
 
     // Set starting point
     const height = sideLength * Math.sin(T.Const.RADIANS_60_DEGREES)
-    const startPoint = [
+    const startPoint: [number, number] = [
         x - 1 / 2 * sideLength,
         y + orientation * 1 / 2 * height,
     ]
 
-    const pathList = [startPoint]
+    const pathList: [number, number][] = [startPoint]
 
     // Orientation
     if (level % 2 === 0) {

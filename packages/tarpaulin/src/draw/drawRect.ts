@@ -6,7 +6,7 @@ import { addSvgElement } from "../utils/addSvgElement"
 import { globalState } from "../utils/globalState"
 import { initCanvasStyle } from "../utils/initCanvasStyle"
 
-export function drawRect([x, y]: number[], width: number, height: number, props = {} as unknown as IDrawProps) {
+export function drawRect([x, y]: [number, number], width: number, height: number, props = {} as unknown as IDrawProps) {
     if (globalState.svgTarp !== undefined) {
         addSvgElement("rect", {
             fill: props.fill,

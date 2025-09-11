@@ -1,17 +1,22 @@
 export interface IMinMaxResult {
-    xMax?: number
-    xMin?: number
-    yMax?: number
-    yMin?: number
+    xMax: number
+    xMin: number
+    yMax: number
+    yMin: number
 }
 
-export function getMinMax(pathList: number[][]) {
+export function getMinMax(pathList: [number, number][]) {
     return pathList.reduce((p: IMinMaxResult, [x, y]) => {
-        p.xMin = (p.xMin === undefined || x < p.xMin) ? x : p.xMin
-        p.xMax = (p.xMax === undefined || x > p.xMax) ? x : p.xMax
-        p.yMin = (p.yMin === undefined || y < p.yMin) ? y : p.yMin
-        p.yMax = (p.yMax === undefined || y > p.yMax) ? y : p.yMax
+        p.xMin = x < p.xMin ? x : p.xMin
+        p.xMax = x > p.xMax ? x : p.xMax
+        p.yMin = y < p.yMin ? y : p.yMin
+        p.yMax = y > p.yMax ? y : p.yMax
 
         return p
-    }, {})
+    }, {
+        xMax: -Infinity,
+        xMin: Infinity,
+        yMax: -Infinity,
+        yMin: Infinity,
+    })
 }
