@@ -3,17 +3,17 @@ import { getMouseX } from "../math/getMouseX"
 import { getMouseY } from "../math/getMouseY"
 import { globalState } from "./globalState"
 
-export type EventName = "mousemove" | "mousedown" | "mouseup"
+export type MouseEventType = "mousemove" | "mousedown" | "mouseup" | "mouseenter" | "mouseleave" | "click"
 
-export function onMouseEvent(eventName: EventName, callback: (coordinates: Point2D, event: MouseEvent) => void) {
-    const enhancedCallback = (e: Event) => {
+export function onMouseEvent(eventType: MouseEventType, enhancedCallback: (coordinates: Point2D, event: MouseEvent) => void) {
+    const callback = (e: Event) => {
         const mouseEvent = e as MouseEvent
         const mouseX = getMouseX(mouseEvent.offsetX)
         const mouseY = getMouseY(mouseEvent.offsetY)
-        callback([mouseX, mouseY], mouseEvent)
+        enhancedCallback([mouseX, mouseY], mouseEvent)
     }
 
-    globalState.eventListeners.push({ eventName, callback: enhancedCallback })
+    globalState.eventListeners.push({ eventType, callback })
 
-    globalState.tarp?.addEventListener(eventName, enhancedCallback)
+    globalState.tarp?.addEventListener(eventType, callback)
 }

@@ -1,35 +1,25 @@
 ## Tarpaulin Examples
 
-### Run examples with [npm](https://www.npmjs.com/):
+### Run examples in dev-mode with [npm](https://www.npmjs.com/):
 
 ```sh
 git clone https://github.com/mattor/tarpaulin
-cd tarpaulin
 npm i
-cd examples
-npm i
-npm start
+npm run dev
 ```
 
-To run a specific example, use
-
-```sh
-npm run start:exammple-name
-```
-
-### Run examples with [yarn](https://yarnpkg.com):
+### Run examples in dev-mode with [yarn](https://yarnpkg.com):
 
 ```sh
 git clone https://github.com/mattor/tarpaulin
-cd tarpaulin
 yarn
-cd examples
-yarn
-yarn start
+yarn dev
 ```
 
-To run a specific example, use
+## Run examples in dev-mode with [pnpm](https://pnpm.io):
 
 ```sh
-yarn start --example=exammple-name
+git clone https://github.com/mattor/tarpaulin
+pnpm i
+pnpm dev
 ```

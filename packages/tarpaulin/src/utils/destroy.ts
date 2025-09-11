@@ -9,7 +9,7 @@ export function destroy() {
 
     // Remove all event listeners
     globalState.eventListeners.forEach((listener) => {
-        globalState.tarp?.removeEventListener(listener.eventName, listener.callback)
+        globalState.tarp?.removeEventListener(listener.eventType, listener.callback)
     })
     globalState.eventListeners = []
 

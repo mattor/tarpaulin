@@ -17,13 +17,16 @@ async function loadExample(exampleName: string): Promise<void> {
         })
 
         // Dynamic import for workspace packages
-        const exampleModule = await import(`./src/${exampleName}.ts`)
+        const exampleModule = await import(`./${exampleName}.ts`)
         const example: Example = {
             name: exampleName,
             ...(exampleModule.default || exampleModule),
         }
 
         activeExamples.add(example)
+
+        document.title = `${exampleName} - Tarpaulin`
+
         console.log(`Example loaded: ${exampleName}`)
     }
     catch (error) {
@@ -34,7 +37,7 @@ async function loadExample(exampleName: string): Promise<void> {
 function getExampleNameFromHash() {
     const { hash } = window.location
     const exampleName = hash.split("#").pop()
-    if (!exampleName)
+    if (!exampleName || exampleName === "index")
         return
     return exampleName
 }
