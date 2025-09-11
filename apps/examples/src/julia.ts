@@ -9,15 +9,15 @@ const yMax = 4 / 3
 
 const maxIterations = 50
 
-function f(z, c) { // calculate the value of the function with complex arguments.
+function f(z: T.Point2D, c: T.Point2D): T.Point2D { // calculate the value of the function with complex arguments.
     return [z[0] * z[0] - z[1] * z[1] + c[0], 2 * z[0] * z[1] + c[1]]
 }
 
-function abs(z) { // absolute value of a complex number
+function abs(z: T.Point2D) { // absolute value of a complex number
     return Math.sqrt(z[0] * z[0] + z[1] * z[1])
 }
 
-function isInJuliaSet(z, c, R) {
+function isInJuliaSet(z: T.Point2D, c: T.Point2D, R: number) {
     for (let i = 0; i < maxIterations; i++) {
         z = f(z, c)
         if (abs(z) > R) {
@@ -31,9 +31,9 @@ function isInJuliaSet(z, c, R) {
 
 // Create tarp
 
-const { tarpElement, tarpWidth, tarpHeight } = T.createCanvas({ size, xMin, xMax, yMin, yMax })
+const { tarpWidth, tarpHeight } = T.createCanvas({ size, xMin, xMax, yMin, yMax })
 
-function draw(c) {
+function draw(c: T.Point2D) {
     const R = (1 + Math.sqrt(1 + 4 * abs(c))) / 2
 
     for (let x = 0; x < tarpWidth; x++) {
@@ -53,10 +53,10 @@ function draw(c) {
 
 draw([-1, 1 / 4]) // all complex number are in the form of [a, b] which means a + i*b
 
-tarpElement.addEventListener("mousemove", (e) => {
-    const localX = e.offsetX
-    const localY = e.offsetY
-    const a = T.remapValueBetweenScales(localX, 0, tarpWidth, xMin, xMax)
-    const b = T.remapValueBetweenScales(localY, 0, tarpHeight, yMin, yMax)
+T.onMouseEvent("mousemove", ([a, b]) => {
     draw([a, b])
 })
+
+export function deactivate() {
+    T.destroy()
+}

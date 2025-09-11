@@ -1,8 +1,13 @@
-export interface ICanvasTarp {
+import type { Animation } from "./animate"
+import type { MouseEventType } from "./onMouseEvent"
+
+export interface CanvasTarp {
     [index: string]: number
 }
 
-interface IGlob {
+interface GlobalState {
+    animations: Animation[]
+    eventListeners: { eventType: MouseEventType, callback: (event: Event) => void }[]
     canvasTarp?: CanvasRenderingContext2D
     tarpHeight: number
     tarpScale: number
@@ -23,7 +28,9 @@ interface IGlob {
     yMin: number
 }
 
-export const glob: IGlob = {
+export const globalState: GlobalState = {
+    animations: [],
+    eventListeners: [],
     tarpHeight: 0,
     tarpScale: 0,
     tarpShiftX: 0,

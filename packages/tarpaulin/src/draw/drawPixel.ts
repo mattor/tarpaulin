@@ -1,17 +1,18 @@
-import type { IDrawProps } from "../types/IDrawProps"
-import { glob } from "../utils/glob"
+import type { DrawProps } from "../types/DrawProps"
+import type { Point2D } from "../types/Point2D"
+import { globalState } from "../utils/globalState"
 import { initCanvasStyle } from "../utils/initCanvasStyle"
 
-export function drawPixel([x, y]: number[], props = {} as unknown as IDrawProps) {
-    if (glob.svgTarp !== undefined) {
+export function drawPixel([x, y]: Point2D, props = {} as unknown as DrawProps) {
+    if (globalState.svgTarp !== undefined) {
         throw new Error("drawPixel() is not supported on SVGs")
     }
 
-    if (glob.canvasTarp === undefined) {
+    if (globalState.canvasTarp === undefined) {
         return
     }
 
     initCanvasStyle(props)
 
-    glob.canvasTarp.fillRect(x, y, 1, 1)
+    globalState.canvasTarp.fillRect(x, y, 1, 1)
 }

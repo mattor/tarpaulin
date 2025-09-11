@@ -1,21 +1,21 @@
-import { glob } from "./glob"
+import { globalState } from "./globalState"
 
 export function createAndAddCanvas() {
     const [width, height] = [
-        Math.ceil(glob.tarpWidth / glob.pixelRatio),
-        Math.ceil(glob.tarpHeight / glob.pixelRatio),
+        Math.ceil(globalState.tarpWidth / globalState.pixelRatio),
+        Math.ceil(globalState.tarpHeight / globalState.pixelRatio),
     ]
-    glob.tarp = document.createElement("canvas")
-    glob.tarp.width = width * glob.pixelRatio
-    glob.tarp.height = height * glob.pixelRatio
-    glob.tarp.style.width = `${width}px`
-    glob.tarp.style.height = `${height}px`
-    document.body.appendChild(glob.tarp)
-    glob.canvasTarp = glob.tarp.getContext("2d") || undefined
+    globalState.tarp = document.createElement("canvas")
+    globalState.tarp.width = width * globalState.pixelRatio
+    globalState.tarp.height = height * globalState.pixelRatio
+    globalState.tarp.style.width = `${width}px`
+    globalState.tarp.style.height = `${height}px`
+    document.body.appendChild(globalState.tarp)
+    globalState.canvasTarp = globalState.tarp.getContext("2d") || undefined
 
     return {
-        tarpElement: glob.tarp,
-        tarpHeight: glob.tarpHeight,
-        tarpWidth: glob.tarpWidth,
+        tarpElement: globalState.tarp,
+        tarpHeight: globalState.tarpHeight,
+        tarpWidth: globalState.tarpWidth,
     }
 }

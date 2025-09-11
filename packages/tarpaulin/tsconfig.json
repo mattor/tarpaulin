@@ -1,7 +1,6 @@
 {
     "compilerOptions": {
         "target": "ES6",
-        "jsx": "react",
         "rootDir": "./src",
         "module": "ESNext",
         "strict": true,

@@ -1,3 +1,10 @@
+import { globalState } from "./globalState"
+
+export interface Animation {
+    resume: () => void
+    stop: () => void
+}
+
 export function animate(drawFn: () => void, fps = 60) {
     let last = Date.now()
     let rafid = -1
@@ -15,7 +22,7 @@ export function animate(drawFn: () => void, fps = 60) {
 
     tick()
 
-    return {
+    const response: Animation = {
         resume: () => {
             if (rafid === -1) {
                 tick()
@@ -26,4 +33,8 @@ export function animate(drawFn: () => void, fps = 60) {
             rafid = -1
         },
     }
+
+    globalState.animations.push(response)
+
+    return response
 }

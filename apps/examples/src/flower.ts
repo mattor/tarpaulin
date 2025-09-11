@@ -14,7 +14,7 @@ T.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 T.drawCircle([0, 0], 1, { fill: T.Color.Black, stroke: T.Color.GreyLighten2 })
 
-function drawLeafs(sections) {
+function drawLeafs(sections: number) {
     const angleStep = T.Const.RADIANS_360_DEGREES / sections
     const colorStep = 255 / sections * 2
 
@@ -32,3 +32,7 @@ function drawLeafs(sections) {
 }
 
 drawLeafs(24)
+
+export function deactivate() {
+    T.destroy()
+}

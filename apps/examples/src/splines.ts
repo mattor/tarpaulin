@@ -14,7 +14,7 @@ const { tarpElement } = T.createCanvas({ size, xMin, xMax, yMin, yMax })
 // Constants
 const clickRadius: number = 10
 const labels = ["A", "B", "C", "D"]
-const points = [
+const points: T.Point2D[] = [
     [size * 0.10, size * 0.90],
     [size * 0.10, size * 0.10],
     [size * 0.90, size * 0.10],
@@ -38,7 +38,7 @@ function paint(): void {
     T.drawBezier(points, { stroke: "rgba(0, 0, 0, 1)" })
 
     // 1st generation
-    const aPoints: number[][][] = [[], []]
+    const aPoints: T.Point2D[][] = [[], []]
     for (let startPointIndex = 0; startPointIndex < points.length - 2; startPointIndex++) {
         const myPoints = [points[startPointIndex], points[startPointIndex + 1], points[startPointIndex + 2]]
         for (let i = 1; i < options.numLines; i++) {
@@ -75,36 +75,31 @@ function paint(): void {
 
 paint()
 
-function getActivePointIndex(event: MouseEvent): number | null {
-    const mouseX = T.getMouseX(event.offsetX)
-    const mouseY = T.getMouseY(event.offsetY)
-
+function getActivePointIndex([mouseX, mouseY]: T.Point2D): number | null {
     for (let i = 0; i < points.length; i++) {
         if (Math.abs(points[i][0] - mouseX) < clickRadius && Math.abs(points[i][1] - mouseY) < clickRadius) {
             return i
         }
     }
-
     return null
 }
 
 // Detect clicking a point on the canvas
-tarpElement.addEventListener("mousedown", (event: MouseEvent) => {
-    const activePoint = getActivePointIndex(event)
+T.onMouseEvent("mousedown", (coords) => {
+    const activePoint = getActivePointIndex(coords)
     if (activePoint !== null) {
         activePointIndex = activePoint
     }
 })
 
 // Detect hovering/dragging a point on the canvas
-tarpElement.addEventListener("mousemove", (event: MouseEvent) => {
+T.onMouseEvent("mousemove", (coords) => {
     if (activePointIndex !== null) {
-        points[activePointIndex][0] = T.getMouseX(event.offsetX)
-        points[activePointIndex][1] = T.getMouseY(event.offsetY)
+        points[activePointIndex] = coords
         paint()
     }
     else {
-        const activePoint = getActivePointIndex(event)
+        const activePoint = getActivePointIndex(coords)
         if (activePoint !== null) {
             tarpElement.style.cursor = "pointer" // Change cursor to pointer when hovering over a point
         }
@@ -115,6 +110,10 @@ tarpElement.addEventListener("mousemove", (event: MouseEvent) => {
 })
 
 // Detect releasing a point on the canvas
-tarpElement.addEventListener("mouseup", () => {
+T.onMouseEvent("mouseup", () => {
     activePointIndex = null
 })
+
+export function deactivate() {
+    T.destroy()
+}

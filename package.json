@@ -6,8 +6,9 @@
     "scripts": {
         "preinstall": "npx only-allow pnpm",
         "build": "pnpm --filter=tarpaulin run build",
-        "start": "pnpm --filter=tarpaulin-examples run start",
+        "dev": "pnpm --parallel dev",
         "lint": "pnpm lint:app && pnpm lint:package && eslint --fix",
+        "check": "pnpm --parallel check",
         "lint:app": "pnpm --filter=tarpaulin-examples run lint",
         "lint:package": "pnpm --filter=tarpaulin run lint",
         "clean": "rimraf 'packages/*/{dist,node_modules}' && rimraf node_modules",

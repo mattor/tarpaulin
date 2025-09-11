@@ -1,8 +1,9 @@
-import { glob } from "../utils/glob"
+import type { Point2D } from "../types/Point2D"
+import { globalState } from "../utils/globalState"
 
-export function getXYCoords([x, y]: number[]) {
+export function getXYCoords([x, y]: Point2D): Point2D {
     return [
-        x * glob.tarpFactorX + glob.xMin,
-        -y * glob.tarpFactorY - glob.yMin,
+        x * globalState.tarpFactorX + globalState.xMin,
+        -y * globalState.tarpFactorY - globalState.yMin,
     ]
 }

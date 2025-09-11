@@ -1,7 +1,7 @@
 {
     "name": "tarpaulin",
     "type": "module",
-    "version": "1.3.1",
+    "version": "1.4.0",
     "packageManager": "pnpm@10.15.1",
     "description": "A minimal toolset aimed at mathematical drawing on canvas or svg",
     "author": "Torbjørn Mathisen <herrmathisen@gmail.com>",
@@ -33,7 +33,8 @@
         "build": "rollup -c",
         "dev": "rollup -c -w",
         "test": "jest",
-        "lint": "eslint --fix"
+        "lint": "eslint --fix",
+        "check": "tsc --noEmit"
     },
     "devDependencies": {
         "@rollup/plugin-commonjs": "^28.0.6",

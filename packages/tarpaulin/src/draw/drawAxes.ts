@@ -1,9 +1,9 @@
-import type { IDrawProps } from "../types/IDrawProps"
+import type { DrawProps } from "../types/DrawProps"
 import * as Color from "../const/Color"
-import { glob } from "../utils/glob"
+import { globalState } from "../utils/globalState"
 import { drawLine } from "./drawLine"
 
-export function drawAxes(props = { stroke: Color.BlueGreyLighten3 } as unknown as IDrawProps) {
-    drawLine([glob.xMin, 0], [glob.xMax, 0], props)
-    drawLine([0, glob.yMin], [0, glob.yMax], props)
+export function drawAxes(props = { stroke: Color.BlueGreyLighten3 } as unknown as DrawProps) {
+    drawLine([globalState.xMin, 0], [globalState.xMax, 0], props)
+    drawLine([0, globalState.yMin], [0, globalState.yMax], props)
 }

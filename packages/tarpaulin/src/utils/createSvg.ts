@@ -1,7 +1,7 @@
 import { clear } from "./clear"
 import { createAndAddSvg } from "./createAndAddSvg"
-import { glob } from "./glob"
-import { initGlob } from "./initGlob"
+import { globalState } from "./globalState"
+import { initGlobalState } from "./initGlobalState"
 
 export function createSvg({
     size = 600,
@@ -11,11 +11,11 @@ export function createSvg({
     yMax = 1,
     pixelRatio = 1,
 } = {}) {
-    if (glob.canvasTarp || glob.svgTarp) {
+    if (globalState.canvasTarp || globalState.svgTarp) {
         throw new Error("Only one tarp allowed per page")
     }
 
-    initGlob({ size, xMin, xMax, yMin, yMax, pixelRatio })
+    initGlobalState({ size, xMin, xMax, yMin, yMax, pixelRatio })
 
     createAndAddSvg()
 
@@ -23,8 +23,8 @@ export function createSvg({
 
     // Return generated
     return {
-        tarp: glob.svgTarp,
-        tarpHeight: glob.tarpHeight,
-        tarpWidth: glob.tarpWidth,
+        tarp: globalState.svgTarp,
+        tarpHeight: globalState.tarpHeight,
+        tarpWidth: globalState.tarpWidth,
     }
 }
