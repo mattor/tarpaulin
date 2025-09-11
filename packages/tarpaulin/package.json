@@ -1,7 +1,7 @@
 {
     "name": "tarpaulin",
     "type": "module",
-    "version": "1.3.1",
+    "version": "1.4.0",
     "packageManager": "pnpm@10.15.1",
     "description": "A minimal toolset aimed at mathematical drawing on canvas or svg",
     "author": "Torbjørn Mathisen <herrmathisen@gmail.com>",
