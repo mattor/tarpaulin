@@ -16,6 +16,12 @@ Install with [yarn](https://yarnpkg.com):
 $ yarn add tarpaulin
 ```
 
+Install with [pnpm](https://pnpm.io):
+
+```sh
+$ pnpm add tarpaulin
+```
+
 ## Usage
 
 ```js
@@ -51,4 +57,4 @@ T.drawPath([[15, -30], [9.226, -40], [20.773, -40]], { stroke: T.Color.Black, cl
 T.drawPath([[30, -30], [40, -30], [35, -30], [35, -40]], { stroke: T.Color.Black, strokeWidth: 5 })
 ```
 
-See more usage examples in [examples](examples/)
+See more usage examples in [examples](apps/examples/)

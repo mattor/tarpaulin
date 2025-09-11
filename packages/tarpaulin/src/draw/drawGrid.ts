@@ -1,20 +1,20 @@
-import type { IDrawProps } from "../types/IDrawProps"
+import type { DrawProps } from "../types/DrawProps"
 import * as Color from "../const/Color"
-import { glob } from "../utils/glob"
+import { globalState } from "../utils/globalState"
 import { drawLine } from "./drawLine"
 
-export function drawGrid(props?: IDrawProps) {
-    let x = Math.floor(glob.xMin)
-    let y = Math.floor(glob.yMin)
+export function drawGrid(props?: DrawProps) {
+    let x = Math.floor(globalState.xMin)
+    let y = Math.floor(globalState.yMin)
 
-    while (x <= glob.xMax) {
-        drawLine([x, glob.yMin], [x, glob.yMax], props ?? {
+    while (x <= globalState.xMax) {
+        drawLine([x, globalState.yMin], [x, globalState.yMax], props ?? {
             stroke: x % 10 === 0 ? Color.BlueGreyLighten4 : Color.BlueGreyLighten5,
         })
         x += 1
     }
-    while (y <= glob.xMax) {
-        drawLine([glob.xMin, y], [glob.xMax, y], props ?? {
+    while (y <= globalState.xMax) {
+        drawLine([globalState.xMin, y], [globalState.xMax, y], props ?? {
             stroke: y % 10 === 0 ? Color.BlueGreyLighten4 : Color.BlueGreyLighten5,
         })
         y += 1

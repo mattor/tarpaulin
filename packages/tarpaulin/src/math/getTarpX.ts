@@ -1,3 +1,3 @@
-import { glob } from "../utils/glob"
+import { globalState } from "../utils/globalState"
 
-export const getTarpX = (x: number) => x * glob.tarpScale + glob.tarpShiftX
+export const getTarpX = (x: number) => x * globalState.tarpScale + globalState.tarpShiftX

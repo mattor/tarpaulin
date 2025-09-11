@@ -1,5 +1,5 @@
-import { glob } from "../utils/glob"
+import { globalState } from "../utils/globalState"
 
 export function getMouseY(offsetY: number) {
-    return glob.yMax - (offsetY / glob.size) * glob.yDiff
+    return globalState.yMax - (offsetY / globalState.size) * globalState.yDiff
 }

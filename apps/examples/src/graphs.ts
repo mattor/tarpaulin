@@ -7,11 +7,11 @@ const xMax = 4
 const yMin = -2.5
 const yMax = 2.5
 
-const logFn = x => 1 / (1 + Math.E ** -x)
-const expFn = x => 2 ** x
+const logFn = (x: number) => 1 / (1 + Math.E ** -x)
+const expFn = (x: number) => 2 ** x
 
-function drawGraph(fn, color) {
-    const pathList = []
+function drawGraph(fn: (x: number) => number, color: string) {
+    const pathList: T.Point2D[] = []
     const step = 0.01
     let x = xMin
 
@@ -42,3 +42,7 @@ drawGraph(logFn, T.Color.Cyan)
 drawGraph(expFn, T.Color.Yellow)
 
 T.drawCircle([0, 0], 400)
+
+export function deactivate() {
+    T.destroy()
+}

@@ -1,7 +1,7 @@
 import * as Color from "../const/Color"
 import { drawRect } from "../draw/drawRect"
-import { glob } from "../utils/glob"
+import { globalState } from "../utils/globalState"
 
 export function clear(props = { fill: Color.White }) {
-    drawRect([glob.xMin, glob.yMax], glob.xDiff, glob.yDiff, props)
+    drawRect([globalState.xMin, globalState.yMax], globalState.xDiff, globalState.yDiff, props)
 }

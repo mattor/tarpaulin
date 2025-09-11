@@ -10,16 +10,16 @@ const yMax = 1.25
 const R = 5
 const maxIterations = (yMax - yMin) * 50
 
-function f(acc, z) {
+function f(acc: T.Point2D, z: T.Point2D): T.Point2D {
     return [acc[0] * acc[0] - acc[1] * acc[1] + z[0], 2 * acc[0] * acc[1] + z[1]]
 }
 
-function abs(z) { // absolute value of a complex number
+function abs(z: T.Point2D) { // absolute value of a complex number
     return Math.sqrt(z[0] * z[0] + z[1] * z[1])
 }
 
-function isInMandelbrotSet(z) {
-    let acc = [...z]
+function isInMandelbrotSet(z: T.Point2D) {
+    let acc: T.Point2D = [z[0], z[1]]
     for (let i = 0; i < maxIterations; i++) {
         acc = f(acc, z)
         // Return a number as a percentage
@@ -47,4 +47,8 @@ for (let x = 0; x < tarpWidth; x++) {
             T.drawPixel([x, y], { fill: `hsl(0, 100%, ${belongsToSet}%)` })
         }
     }
+}
+
+export function deactivate() {
+    T.destroy()
 }

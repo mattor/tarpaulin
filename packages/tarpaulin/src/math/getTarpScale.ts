@@ -1,3 +1,3 @@
-import { glob } from "../utils/glob"
+import { globalState } from "../utils/globalState"
 
-export const getTarpScale = (l = 1) => l * glob.tarpWidth / glob.xDiff
+export const getTarpScale = (l = 1) => l * globalState.tarpWidth / globalState.xDiff

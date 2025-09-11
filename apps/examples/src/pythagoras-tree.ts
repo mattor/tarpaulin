@@ -14,7 +14,7 @@ T.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 let depthLimit = 0
 
-function drawBranch(x1, y1, x2, y2, depth) {
+function drawBranch(x1: number, y1: number, x2: number, y2: number, depth: number) {
     if (depth >= depthLimit) {
         return
     }
@@ -48,3 +48,7 @@ T.animate(() => {
     drawBranch(xMax / 2 - firstDelta, 2, xMax / 2 + firstDelta, 2, 0)
     depthLimit = (depthLimit + 1) % 12
 }, 1)
+
+export function deactivate() {
+    T.destroy()
+}

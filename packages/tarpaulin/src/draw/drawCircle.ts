@@ -1,14 +1,15 @@
-import type { IDrawProps } from "../types/IDrawProps"
+import type { DrawProps } from "../types/DrawProps"
+import type { Point2D } from "../types/Point2D"
 import * as Const from "../const/Const"
 import { getTarpScale } from "../math/getTarpScale"
 import { getTarpX } from "../math/getTarpX"
 import { getTarpY } from "../math/getTarpY"
 import { addSvgElement } from "../utils/addSvgElement"
-import { glob } from "../utils/glob"
+import { globalState } from "../utils/globalState"
 import { initCanvasStyle } from "../utils/initCanvasStyle"
 
-export function drawCircle([x, y]: number[], radius: number, props = {} as unknown as IDrawProps) {
-    if (glob.svgTarp !== undefined) {
+export function drawCircle([x, y]: Point2D, radius: number, props = {} as unknown as DrawProps) {
+    if (globalState.svgTarp !== undefined) {
         addSvgElement("circle", {
             cx: getTarpX(x),
             cy: getTarpY(y),
@@ -20,14 +21,14 @@ export function drawCircle([x, y]: number[], radius: number, props = {} as unkno
         return
     }
 
-    if (glob.canvasTarp === undefined) {
+    if (globalState.canvasTarp === undefined) {
         return
     }
 
     initCanvasStyle(props)
 
-    glob.canvasTarp.beginPath()
-    glob.canvasTarp.arc(
+    globalState.canvasTarp.beginPath()
+    globalState.canvasTarp.arc(
         getTarpX(x),
         getTarpY(y),
         getTarpScale(radius),
@@ -36,10 +37,10 @@ export function drawCircle([x, y]: number[], radius: number, props = {} as unkno
     )
 
     if (props.fill) {
-        glob.canvasTarp.fill()
+        globalState.canvasTarp.fill()
     }
 
     if (!props.fill || props.stroke) {
-        glob.canvasTarp.stroke()
+        globalState.canvasTarp.stroke()
     }
 }

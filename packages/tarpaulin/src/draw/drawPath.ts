@@ -1,18 +1,19 @@
-import type { IDrawProps } from "../types/IDrawProps"
+import type { DrawProps } from "../types/DrawProps"
+import type { Point2D } from "../types/Point2D"
 import * as Color from "../const/Color"
 import { getTarpX } from "../math/getTarpX"
 import { getTarpY } from "../math/getTarpY"
 import { addSvgElement } from "../utils/addSvgElement"
-import { glob } from "../utils/glob"
+import { globalState } from "../utils/globalState"
 import { initCanvasStyle } from "../utils/initCanvasStyle"
 
-export function drawPath(pathList: number[][], props = {
+export function drawPath(pathList: Point2D[], props = {
     closed: false,
     stroke: Color.BlueGreyDarken4,
-} as unknown as IDrawProps) {
+} as unknown as DrawProps) {
     const closed = props.fill || props.closed
 
-    if (glob.svgTarp !== undefined) {
+    if (globalState.svgTarp !== undefined) {
         addSvgElement("path", {
             "d": `M${pathList.map(([x, y]) => `${getTarpX(x)} ${getTarpY(y)}`).join(" L")}${closed ? " Z" : ""}`,
             "fill": props.fill,
@@ -23,28 +24,28 @@ export function drawPath(pathList: number[][], props = {
         return
     }
 
-    if (glob.canvasTarp === undefined) {
+    if (globalState.canvasTarp === undefined) {
         return
     }
 
     initCanvasStyle(props)
 
-    glob.canvasTarp.beginPath()
+    globalState.canvasTarp.beginPath()
     pathList.forEach(([x, y]) => {
-        if (glob.canvasTarp !== undefined) {
-            glob.canvasTarp.lineTo(getTarpX(x), getTarpY(y))
+        if (globalState.canvasTarp !== undefined) {
+            globalState.canvasTarp.lineTo(getTarpX(x), getTarpY(y))
         }
     })
     if (closed) {
         const [x, y] = pathList[0]
-        glob.canvasTarp.lineTo(getTarpX(x), getTarpY(y))
+        globalState.canvasTarp.lineTo(getTarpX(x), getTarpY(y))
     }
 
     if (props.fill) {
-        glob.canvasTarp.fill()
+        globalState.canvasTarp.fill()
     }
 
     if (!props.fill || props.stroke) {
-        glob.canvasTarp.stroke()
+        globalState.canvasTarp.stroke()
     }
 }

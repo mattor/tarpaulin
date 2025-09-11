@@ -1,12 +1,16 @@
 import * as T from "tarpaulin"
 
-function hilbert(width, spacing, pathList = []) {
-    return (x, y, lg, i1, i2, f) => {
+interface HilbertFunction {
+    (x: number, y: number, lg: number, i1: number, i2: number, f: HilbertFunction): T.Point2D[]
+}
+
+function hilbert(width: number, spacing: number, pathList: T.Point2D[] = []) {
+    return (x: number, y: number, lg: number, i1: number, i2: number, f: HilbertFunction) => {
         if (lg === 1) {
             const px = (width - x) * spacing
             const py = (width - y) * spacing
             pathList.push([px, py])
-            return
+            return []
         }
         lg >>= 1
         f(x + i1 * lg, y + i1 * lg, lg, i1, 1 - i2, f)
@@ -17,21 +21,21 @@ function hilbert(width, spacing, pathList = []) {
     }
 }
 
-function drawHilbert(order) {
+function drawHilbert(order: number) {
     // Curve Constants
     const width = 2 ** order
-    const space = 10
+    const spacing = 10
 
     // Prep and run function
-    const f = hilbert(width, space)
-    const pathList = f(0, 0, width, 0, 0, f)
+    const f = hilbert(width, spacing)
+    const pathList: T.Point2D[] = f(0, 0, width, 0, 0, f)
 
     // Set appearance
     const size = 600
     const xMin = 0
-    const xMax = width * space + space
+    const xMax = width * spacing + spacing
     const yMin = 0
-    const yMax = width * space + space
+    const yMax = width * spacing + spacing
 
     // Create tarp
     T.createCanvas({ size, xMin, xMax, yMin, yMax })
@@ -41,3 +45,7 @@ function drawHilbert(order) {
 }
 
 drawHilbert(6)
+
+export function deactivate() {
+    T.destroy()
+}

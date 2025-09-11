@@ -104,3 +104,7 @@ T.animate(() => {
     rz += options.zSpeed
     rw += options.wSpeed
 })
+
+export function deactivate() {
+    T.destroy()
+}
