@@ -1,4 +1,5 @@
 import type { Animation } from "./animate"
+import type { EventName } from "./onMouseEvent"
 
 export interface CanvasTarp {
     [index: string]: number
@@ -6,6 +7,7 @@ export interface CanvasTarp {
 
 interface GlobalState {
     animations: Animation[]
+    eventListeners: { eventName: EventName, callback: (event: Event) => void }[]
     canvasTarp?: CanvasRenderingContext2D
     tarpHeight: number
     tarpScale: number
@@ -28,6 +30,7 @@ interface GlobalState {
 
 export const globalState: GlobalState = {
     animations: [],
+    eventListeners: [],
     tarpHeight: 0,
     tarpScale: 0,
     tarpShiftX: 0,

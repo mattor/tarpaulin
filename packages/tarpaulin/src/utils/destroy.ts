@@ -7,11 +7,18 @@ export function destroy() {
     })
     globalState.animations = []
 
-    // Reset global state
+    // Remove all event listeners
+    globalState.eventListeners.forEach((listener) => {
+        globalState.tarp?.removeEventListener(listener.eventName, listener.callback)
+    })
+    globalState.eventListeners = []
+
+    // Remove the tarp
     if (globalState.tarp) {
         globalState.tarp.remove()
     }
 
+    // Reset global state
     globalState.tarp = undefined
     globalState.svgTarp = undefined
     globalState.canvasTarp = undefined

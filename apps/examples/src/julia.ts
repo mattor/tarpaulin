@@ -31,7 +31,7 @@ function isInJuliaSet(z: T.Point2D, c: T.Point2D, R: number) {
 
 // Create tarp
 
-const { tarpElement, tarpWidth, tarpHeight } = T.createCanvas({ size, xMin, xMax, yMin, yMax })
+const { tarpWidth, tarpHeight } = T.createCanvas({ size, xMin, xMax, yMin, yMax })
 
 function draw(c: T.Point2D) {
     const R = (1 + Math.sqrt(1 + 4 * abs(c))) / 2
@@ -53,11 +53,7 @@ function draw(c: T.Point2D) {
 
 draw([-1, 1 / 4]) // all complex number are in the form of [a, b] which means a + i*b
 
-tarpElement.addEventListener("mousemove", (e) => {
-    const localX = e.offsetX
-    const localY = e.offsetY
-    const a = T.remapValueBetweenScales(localX, 0, tarpWidth, xMin, xMax)
-    const b = T.remapValueBetweenScales(localY, 0, tarpHeight, yMin, yMax)
+T.onMouseEvent("mousemove", ([a, b]) => {
     draw([a, b])
 })
 
